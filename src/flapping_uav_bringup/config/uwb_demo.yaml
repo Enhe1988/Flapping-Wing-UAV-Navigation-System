@@ -1,0 +1,18 @@
+uwb_position_node:
+  ros__parameters:
+    input_topic: "/nlink_linktrack_anchorframe0"
+    tag_id: 0
+    frame_id: "map"
+    coordinates_confirmed: true
+    position_scale: 1.0
+    # Synthetic demo uses an already right-handed XY frame.
+    uwb_y_sign: 1.0
+    uwb_to_map_yaw_rad: 0.0
+    uwb_to_map_translation_m: [0.0, 0.0, 0.0]
+    timeout_ms: 500
+    max_jump_m: 1.0
+    # This simulator models a stationary Tag with known deterministic XY noise.
+    collect_static_noise: true
+    static_noise_samples: 100
+    measured_stddev_xy_m: -1.0
+    max_path_points: 300

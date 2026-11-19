@@ -1,0 +1,66 @@
+joy_node:
+  ros__parameters:
+    device_name: EdgeTX Radiomaster Pocket Joystick
+    deadzone: 0.0
+    autorepeat_rate: 20.0
+    sticky_buttons: false
+    coalesce_interval_ms: 1
+
+manual_control_node:
+  ros__parameters:
+    device_name: EdgeTX Radiomaster Pocket Joystick
+    device_path: /dev/input/by-id/usb-EdgeTX_Radiomaster_Pocket_Joystick_00000000001B-joystick
+    verify_device: true
+    publish_rate_hz: 50.0
+    input_timeout_ms: 200
+    # User channel indices 0..7 correspond to MAVLink CH1..8.
+    # Output: right X, right Y, left Y, left X, E, B, C, F.
+    # Recorded /joy inputs: a2=left Y, a3=left X (not /dev/input/js indices).
+    axis_indices: [0, 1, 2, 3, 4, 5, 6, 7]
+    # Both X: left=1000, right=2000; both Y: bottom=1000, top=2000.
+    # E/F: released=1000, pressed=2000. B/C retain raw +1/0/-1 ->
+    # 1000/1500/2000; initial/second/third raw ordering still needs confirmation.
+    # Right Y corrected after live testing: top raw=-1, bottom raw=+1.
+    axis_signs: [-1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0]
+    axis_centers: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    stick_deadzone: 0.02
+    # CH1..8 are replaced by axes. CH9..16 are explicit bench constants:
+    # S1/S2=minimum, A/D=not pressed, remaining spare channels=minimum.
+    # Do not use ignore=65535 for S1/S2/A/D with the previously reviewed firmware:
+    # that dispatcher interprets the value numerically instead of ignoring it.
+    fixed_channels: [1500, 1500, 1000, 1500, 1000, 1000, 1000, 1000,
+                     1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 65535, 65535]
+
+mavlink_bridge_node:
+  ros__parameters:
+    bind_ip: 0.0.0.0
+    # Observed 2026-11-10: 192.168.1.151:9111 -> local 192.168.1.100:9000.
+    rx_port: 9000
+    # User-confirmed TX destination after communication testing, 2026-11-14.
+    remote_ip: '192.168.1.151'
+    tx_port: 9111
+    tx_enabled: false
+    system_id: 255
+    component_id: 190
+    target_system: 1
+    target_component: 1
+    rc_rate_hz: 40.0
+    rc_timeout_ms: 250
+    send_heartbeat: true
+    # Bench policy: invalid/unplugged/stale input stops ID70; FC must time out RC.
+    # Standard release is available, but old reviewed firmware did not implement it.
+    rc_loss_action: stop
+    print_rx: true
+    # Standalone bridge defaults are muted. communication.launch.py explicitly
+    # enables transmission and selects the current heading-XY profile.
+    send_velocity: false
+    # Generic 3D velocity bench uses mask3527; XY position launch overrides true (3559).
+    velocity_xy_only: false
+    # ID250 DEBUG_VECT: x=forward m/s, y=right m/s, z=height up m.
+    motion_name: ''
+    velocity_rate_hz: 30.0
+    velocity_timeout_ms: 200
+    max_body_speed_mps: 1.0
+    attitude_message_id: 31
+    attitude_system_id: 1
+    attitude_component_id: 1

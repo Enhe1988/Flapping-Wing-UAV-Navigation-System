@@ -1,0 +1,20 @@
+scene_visualizer_node:
+  ros__parameters:
+    # TF names the right-handed derived frame, not the native mirrored UWB XY.
+    uwb_frame_id: uwb_rh
+    # User-provided current XY coordinates in metres, in the native UWB frame.
+    # Z is unknown: draw explicit XY projections, not actual installation heights.
+    anchor_coordinates_configured: true
+    anchor_z_configured: false
+    anchor_ids: [0, 1, 2, 3]
+    anchor_positions_m: [0.0, 0.0, 0.0,
+                         0.146, 5.659, 0.0,
+                         6.543, 5.683, 0.0,
+                         6.294, 0.0, 0.0]
+    # This is a schematic preview location, never a measured aircraft position.
+    attitude_preview_origin_map_m: [-1.5, -1.5, 0.5]
+    # Match the anchor XY projections; full roll/pitch/yaw remains visible.
+    project_aircraft_to_xy: true
+    projected_aircraft_z_m: 0.25
+    data_timeout_ms: 500
+    publish_rate_hz: 20.0

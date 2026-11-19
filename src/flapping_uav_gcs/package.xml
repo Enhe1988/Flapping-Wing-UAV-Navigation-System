@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>flapping_uav_gcs</name>
+  <version>0.1.0</version>
+  <description>UWB XY control, MAVLink communication, fusion observation and flight data recording.</description>
+  <maintainer email="maintainer@example.com">Flapping UAV Maintainers</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>rcl_interfaces</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>diagnostic_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>rosbag2_cpp</depend>
+  <depend>rosbag2_storage</depend>
+  <exec_depend>rosbag2_storage_default_plugins</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>rosidl_runtime_py</exec_depend>
+  <exec_depend>python3-matplotlib</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <depend>joy</depend>
+  <depend>sdl2</depend>
+  <depend>tf2_ros</depend>
+  <depend>nlink_parser2</depend>
+  <depend>flapping_uav_msgs</depend>
+  <test_depend>ament_cmake_gtest</test_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

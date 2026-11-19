@@ -1,0 +1,18 @@
+{
+  "configurations": [
+    {
+      "includePath": [
+        "${workspaceFolder}/src/**",
+        "${workspaceFolder}/install/**",
+        "/opt/ros/foxy/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS 2 Foxy",
+      "intelliSenseMode": "linux-gcc-x64",
+      "compilerPath": "/usr/bin/g++",
+      "cStandard": "c11",
+      "cppStandard": "c++17"
+    }
+  ],
+  "version": 4
+}

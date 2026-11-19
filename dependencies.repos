@@ -1,0 +1,9 @@
+repositories:
+  nlink_parser2:
+    type: git
+    url: https://github.com/nooploop-dev/nlink_parser2.git
+    version: efbd56437c524d95487ed866df1ce93099880eb8
+  third_party/mavlink_c:
+    type: git
+    url: https://github.com/mavlink/c_library_v2.git
+    version: 085c8344fa721a3d80bf574ae77c4d873f4985f3

@@ -1,0 +1,14 @@
+{
+    "cmake.configureOnOpen": false,
+    "C_Cpp.default.cppStandard": "c++17",
+    "python.autoComplete.extraPaths": [
+        "${workspaceFolder}/install/nlink_parser2/lib/python3.8/site-packages",
+        "${workspaceFolder}/install/flapping_uav_msgs/lib/python3.8/site-packages",
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/install/nlink_parser2/lib/python3.8/site-packages",
+        "${workspaceFolder}/install/flapping_uav_msgs/lib/python3.8/site-packages",
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ]
+}

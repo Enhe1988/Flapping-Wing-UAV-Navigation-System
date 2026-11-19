@@ -1,0 +1,119 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+Visualization Manager:
+  Class: ""
+  Enabled: true
+  Name: root
+  Value: true
+  Global Options:
+    Background Color: 35; 35; 40
+    Fixed Frame: map
+    Frame Rate: 30
+  Displays:
+    - Class: rviz_default_plugins/MarkerArray
+      Name: UWB Anchors Axes and Aircraft Attitude
+      Enabled: true
+      Value: true
+      Topic:
+        Value: /debug/scene_markers
+        History Policy: Keep Last
+        Depth: 1
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+    - Class: rviz_default_plugins/Grid
+      Name: Map XY Grid
+      Enabled: true
+      Value: true
+      Cell Size: 0.5
+      Plane Cell Count: 24
+      Alpha: 0.35
+      Plane: XY
+    - Class: rviz_default_plugins/MarkerArray
+      Name: Tag XY and Validity
+      Enabled: true
+      Value: true
+      Topic:
+        Value: /uwb/markers
+        History Policy: Keep Last
+        Depth: 5
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+      Queue Size: 10
+    - Class: rviz_default_plugins/Path
+      Name: Tag XY History
+      Enabled: true
+      Value: true
+      Topic:
+        Value: /uwb/path
+        History Policy: Keep Last
+        Depth: 5
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+      Color: 0; 180; 255
+      Line Style:
+        Value: Lines
+        Line Width: 0.03
+    - Class: rviz_default_plugins/MarkerArray
+      Name: Navigation Goal
+      Enabled: true
+      Value: true
+      Topic:
+        Value: /navigation/goal_markers
+        History Policy: Keep Last
+        Depth: 1
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+    - Class: rviz_default_plugins/MarkerArray
+      Name: Fusion XY Validity
+      Enabled: true
+      Value: true
+      Topic:
+        Value: /fusion/markers
+        History Policy: Keep Last
+        Depth: 1
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+    - Class: rviz_default_plugins/Path
+      Name: Fusion XY History
+      Enabled: true
+      Value: true
+      Topic:
+        Value: /fusion/path
+        History Policy: Keep Last
+        Depth: 1
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+      Color: 255; 180; 0
+      Line Style:
+        Value: Lines
+        Line Width: 0.04
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Name: Current View
+      Target Frame: <Fixed Frame>
+      Distance: 14.5
+      Focal Point:
+        X: 2.25
+        Y: -2.24
+        Z: 0
+      Pitch: 0.65
+      Yaw: 0.7
+      Near Clip Distance: 0.01
+    Saved:
+      - Class: rviz_default_plugins/TopDownOrtho
+        Name: XY Top View
+        Target Frame: <Fixed Frame>
+        Scale: 90
+        X: 2.25
+        Y: -2.24
+Window Geometry:
+  Width: 1200
+  Height: 800
