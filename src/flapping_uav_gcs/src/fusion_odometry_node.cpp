@@ -8,10 +8,12 @@
 #include "flapping_uav_gcs/alignment_session.hpp"
 #include "flapping_uav_gcs/bench_nodes.hpp"
 #include "flapping_uav_gcs/loose_odometry.hpp"
+#include "flapping_uav_gcs/position_source.hpp"
 #include "flapping_uav_gcs/velocity_rotation.hpp"
 #include "flapping_uav_msgs/msg/attitude_state.hpp"
 #include "flapping_uav_msgs/msg/body_motion_state.hpp"
 #include "flapping_uav_msgs/msg/fusion_status.hpp"
+#include "flapping_uav_msgs/msg/position_estimate.hpp"
 #include "flapping_uav_msgs/msg/heading_alignment.hpp"
 #include "flapping_uav_msgs/msg/uwb_status.hpp"
 #include "geometry_msgs/msg/pose_with_covariance_stamped.hpp"
@@ -37,6 +39,13 @@ public:
     config_.innovation_gate_m=parameter("uwb_innovation_gate_m",.75);
     config_.uwb_correction_gain=parameter("uwb_correction_gain",1.);
     config_.confirmation_samples=parameter("uwb_confirmation_samples",3);
+    config_.uwb_sync_period_s=parameter("uwb_sync_period_s",0.);
+    config_.recovery_confirmation_s=parameter("uwb_recovery_confirmation_s",0.);
+    config_.recovery_confirmation_samples=parameter("uwb_recovery_confirmation_samples",0);
+    config_.uwb_filter_enabled=parameter("uwb_filter_enabled",false);
+    config_.uwb_filter_tau_s=parameter("uwb_filter_tau_s",.1);
+    const double blend=parameter("uwb_recovery_blend_s",.5);
+    uwb_status_timeout_=parameter("uwb_status_timeout_ms",500);
     config_.initial_variance_m2=parameter("initial_position_variance_m2",.0025);
     config_.variance_growth_m2_s=parameter("position_variance_growth_m2_per_s",.04);
     attitude_timeout_=parameter("attitude_timeout_ms",300);
@@ -50,16 +59,19 @@ public:
     path_rate_=parameter("path_publish_rate_hz",5.);
     const double rate=parameter("publish_rate_hz",50.);
     if (frame_.empty() || child_.empty() || frame_==child_ || !config_.valid() ||
-      attitude_timeout_<=0 || pair_skew_limit_<=0 || device_gap_limit_<=0 ||
+      attitude_timeout_<=0 || pair_skew_limit_<=0 || device_gap_limit_<=0 || uwb_status_timeout_<=0 ||
       !std::isfinite(max_speed_) || max_speed_<=0 || path_limit_<1 || !std::isfinite(path_rate_) || path_rate_<=0 || !std::isfinite(rate) || rate<1 || rate>200 ||
       system_<1 || system_>255 || component_<0 || component_>255) {
       throw std::invalid_argument("Invalid independent fusion odometry configuration");
     }
     alignment_session_.load(*this);
     filter_=std::make_unique<LooseOdometry>(config_);
+    selector_=std::make_unique<PositionSource>(blend);
     odometry_=create_publisher<nav_msgs::msg::Odometry>("/fusion/odometry",10);
     position_=create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/fusion/position",10);
+    filtered_uwb_=create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/uwb/position_filtered",10);
     status_=create_publisher<flapping_uav_msgs::msg::FusionStatus>("/fusion/status",10);
+    selected_=create_publisher<flapping_uav_msgs::msg::PositionEstimate>("/localization/position",10);
     path_output_=create_publisher<nav_msgs::msg::Path>("/fusion/path",rclcpp::QoS(1).transient_local());
     markers_=create_publisher<visualization_msgs::msg::MarkerArray>("/fusion/markers",rclcpp::QoS(1).transient_local());
     pose_sub_=create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>("/uwb/position",rclcpp::SensorDataQoS().keep_last(1),
@@ -101,7 +113,7 @@ public:
       });
     alignment_sub_=create_subscription<flapping_uav_msgs::msg::HeadingAlignment>("/navigation/heading_alignment",
       rclcpp::QoS(1).reliable().transient_local(),[this](flapping_uav_msgs::msg::HeadingAlignment::ConstSharedPtr m){
-        if (!use_navigation_alignment_ || local_alignment_) {return;}
+        if (!use_navigation_alignment_) {return;}
         if (!m->valid || m->header.frame_id!=frame_ || !std::isfinite(m->map_to_enu_yaw_rad)) {
           alignment_valid_=false;alignment_reason_="Navigation alignment invalid/unavailable";
           filter_->invalidate_flow(time(),alignment_reason_);return;
@@ -134,13 +146,13 @@ public:
       });
     reset_service_=create_service<std_srvs::srv::Trigger>("/fusion/reset",[this](
       std::shared_ptr<std_srvs::srv::Trigger::Request>,std::shared_ptr<std_srvs::srv::Trigger::Response> response){
-        filter_->reset();pose_seen_=false;pose_stamp_=processed_pose_stamp_=0;motion_seen_=motion_pending_=false;
+        filter_->reset();selector_->reset();pose_seen_=false;pose_stamp_=processed_pose_stamp_=0;motion_seen_=motion_pending_=false;
         path_.poses.clear();path_.header.frame_id=frame_;path_.header.stamp=now();path_output_->publish(path_);
         last_published_time_=-1.;last_path_publish_=-INFINITY;response->success=true;
         response->message="Fusion XY reset; waiting for confirmed UWB fixes; navigation untouched";
       });
     timer_=create_wall_timer(std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::duration<double>(1/rate)),[this](){tick();});
-    RCLCPP_INFO(get_logger(),"Independent XY fusion observer; no navigation/FC output; DR horizon %.2fs",config_.max_dead_reckoning_s);
+    RCLCPP_INFO(get_logger(),"UWB quality gate + flow odometry -> /localization/position; DR horizon %.2fs",config_.max_dead_reckoning_s);
   }
 private:
   struct TimedAttitude {flapping_uav_msgs::msg::AttitudeState value;double received;};
@@ -163,10 +175,10 @@ private:
   {return alignment_valid_ && attitude_basic(t) && alignment_session_.valid(attitude_.sample_time_us);}
   bool uwb_inputs_ready(double t) const
   {
-    return uwb_seen_ && pose_seen_ && t-uwb_received_<=config_.uwb_timeout_s &&
+    return uwb_seen_ && pose_seen_ && (t-uwb_received_)*1000<=uwb_status_timeout_ &&
       t-pose_received_<=config_.uwb_timeout_s && uwb_.position_valid && uwb_.coordinates_confirmed &&
       uwb_.header.frame_id==frame_ && pose_.header.frame_id==frame_ &&
-      fresh_header(uwb_.header,config_.uwb_timeout_s*1000) && fresh_header(pose_.header,config_.uwb_timeout_s*1000);
+      fresh_header(uwb_.header,uwb_status_timeout_) && fresh_header(pose_.header,config_.uwb_timeout_s*1000);
   }
   void process_pose(double t)
   {
@@ -174,7 +186,13 @@ private:
     processed_pose_stamp_=pose_stamp_;
     const auto & p=pose_.pose.pose.position;
     std::array<double,3> cov{{uwb_.covariance_xy[0],uwb_.covariance_xy[1],uwb_.covariance_xy[3]}};
-    filter_->correct(t,{{p.x,p.y}},uwb_.covariance_valid?&cov:nullptr);
+    if(filter_->correct(t,{{p.x,p.y}},uwb_.covariance_valid?&cov:nullptr)){
+      const auto estimate=filter_->estimate(t);
+      auto filtered=pose_; // Retain observation stamp, raw Z and covariance.
+      filtered.pose.pose.position.x=estimate.reliable_uwb[0];
+      filtered.pose.pose.position.y=estimate.reliable_uwb[1];
+      filtered_uwb_->publish(filtered);
+    }
   }
   void process_flow(double t)
   {
@@ -213,6 +231,23 @@ private:
     const double t=time();process_pose(t);process_flow(t);
     if (!uwb_inputs_ready(t)) {filter_->unavailable_uwb(t,"UWB input/status stale, invalid, or coordinates unconfirmed");}
     auto estimate=filter_->estimate(t);
+    const bool flow_ready=estimate.valid && estimate.flow_valid && estimate.propagation_complete && heading_ready(t);
+    const auto choice=selector_->update(t,estimate.uwb_recent,estimate.reliable_uwb,flow_ready,estimate.position);
+    flapping_uav_msgs::msg::PositionEstimate selected;
+    selected.header.stamp=now();selected.header.frame_id=frame_;
+    selected.valid=choice.valid;selected.source=choice.source;selected.reason=estimate.reason;
+    selected.position.x=choice.position[0];selected.position.y=choice.position[1];
+    selected.raw_uwb_position.x=pose_seen_?pose_.pose.pose.position.x:NAN;
+    selected.raw_uwb_position.y=pose_seen_?pose_.pose.pose.position.y:NAN;
+    selected.optical_odometry_position.x=estimate.initialized?estimate.position[0]:NAN;
+    selected.optical_odometry_position.y=estimate.initialized?estimate.position[1]:NAN;
+    selected.uwb_healthy=estimate.uwb_recent;selected.flow_valid=flow_ready;
+    selected.position_age_ms=choice.source=="FLOW_ODOMETRY"?(t-estimate.position_time)*1000:estimate.uwb_age*1000;
+    selected.reliable_uwb_age_ms=estimate.uwb_age*1000;selected.flow_age_ms=estimate.flow_age*1000;
+    selected.raw_uwb_age_ms=pose_seen_?(t-pose_received_)*1000:INFINITY;
+    selected.innovation_m=estimate.innovation;
+    selected.alignment_reference_ns=alignment_session_.reference().host_monotonic_ns;
+    selected.source_switches=choice.switches;selected.uwb_syncs=estimate.syncs;selected_->publish(selected);
     flapping_uav_msgs::msg::FusionStatus status;
     status.header.stamp=now();status.header.frame_id=frame_;status.state=estimate.state;status.reason=estimate.reason;
     status.initialized=estimate.initialized;status.valid=estimate.valid;status.uwb_recent=estimate.uwb_recent;
@@ -254,9 +289,9 @@ private:
     text.text="Fusion XY: "+estimate.state+(estimate.valid?"":" (last known / invalid)");markers.markers.push_back(text);
     markers_->publish(markers);
   }
-  LooseOdometryConfig config_;std::unique_ptr<LooseOdometry> filter_;AlignmentSession alignment_session_;
+  LooseOdometryConfig config_;std::unique_ptr<LooseOdometry> filter_;std::unique_ptr<PositionSource> selector_;AlignmentSession alignment_session_;
   std::string frame_,child_,alignment_reason_{"Align nose +X via /fusion/align_positive_x (or import navigation alignment)"};
-  int attitude_timeout_,pair_skew_limit_,device_gap_limit_,system_,component_,path_limit_;
+  int attitude_timeout_,pair_skew_limit_,device_gap_limit_,system_,component_,path_limit_,uwb_status_timeout_;
   double max_speed_,path_rate_,yaw_{0},pair_skew_{INFINITY},last_published_time_{-1},last_path_publish_{-INFINITY};
   bool use_navigation_alignment_,q_body_to_ned_,alignment_valid_{false},local_alignment_{false};
   bool pose_seen_{false},uwb_seen_{false},attitude_seen_{false},motion_seen_{false},motion_pending_{false};
@@ -267,7 +302,9 @@ private:
   std::deque<TimedAttitude> attitudes_;nav_msgs::msg::Path path_;
   rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odometry_;
   rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr position_;
+  rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr filtered_uwb_;
   rclcpp::Publisher<flapping_uav_msgs::msg::FusionStatus>::SharedPtr status_;
+  rclcpp::Publisher<flapping_uav_msgs::msg::PositionEstimate>::SharedPtr selected_;
   rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr path_output_;
   rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr markers_;
   rclcpp::Subscription<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr pose_sub_;

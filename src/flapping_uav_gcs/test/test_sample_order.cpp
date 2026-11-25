@@ -52,3 +52,23 @@ TEST(SampleOrder, ExplicitReferenceResetIsImmediate)
   f.observe(1000000, 1, 0);
   EXPECT_EQ(f.observe(1000000, 2, 20000000), SampleOrder::clock_reset);
 }
+
+TEST(SampleOrder, HugeForwardOutlierDoesNotConvertNormalTrafficIntoAReset)
+{
+  SampleOrderFilter f;
+  EXPECT_EQ(f.observe(117804000,0,0),SampleOrder::accepted);
+  EXPECT_EQ(f.observe(6076276598041955504ULL,0,365000000),SampleOrder::future_packet);
+  EXPECT_EQ(f.last_time_us(),117804000U);
+  EXPECT_EQ(f.observe(118460000,0,930000000),SampleOrder::accepted);
+  EXPECT_EQ(f.observe(118606000,0,1000000000),SampleOrder::accepted);
+  EXPECT_EQ(f.last_time_us(),118606000U);
+}
+
+TEST(SampleOrder, HostTimeGapAndExplicitEpochChangeRemainSupported)
+{
+  SampleOrderFilter f;f.observe(1000000,0,0);
+  EXPECT_EQ(f.observe(11000000,0,10000000000LL),SampleOrder::accepted);
+  EXPECT_EQ(f.observe(13100000,0,10100000000LL),SampleOrder::accepted); // 2 s catch-up.
+  EXPECT_EQ(f.observe(30000000,0,10200000000LL),SampleOrder::future_packet);
+  EXPECT_EQ(f.observe(30000000,1,10300000000LL),SampleOrder::clock_reset);
+}

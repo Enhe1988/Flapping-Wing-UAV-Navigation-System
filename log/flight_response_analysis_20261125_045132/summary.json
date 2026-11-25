@@ -1,0 +1,66 @@
+{
+  "session": "log/experiments/20261125_045132_flight_16997695597672",
+  "original_csv_modified": false,
+  "phases": {
+    "APPROACH": {
+      "duration_s": 49.080073021000004,
+      "median_error_m": 0.4801598089615394,
+      "max_error_m": 1.760444138279359,
+      "median_command_speed_mps": 0.7151374196843806,
+      "command_at_limit_fraction": 0.06313645621181263,
+      "median_flow_speed_mps": 0.16827868087582976
+    },
+    "TRACKING": {
+      "duration_s": 29.940082593,
+      "median_error_m": 0.31583008125228373,
+      "max_error_m": 0.7662121491322182,
+      "median_command_speed_mps": 0.5477244865341261,
+      "command_at_limit_fraction": 0.0,
+      "median_flow_speed_mps": 0.1910625071936468
+    }
+  },
+  "caveat": "Tracking is incomplete and differs in geometry/period from the preceding flight; not a controlled full-lap A/B comparison.",
+  "fault": {
+    "bad_sample": {
+      "t_s": "94.149913720000001",
+      "receive_ros_ns": "1795553586547008864",
+      "source_ros_ns": "1795553586546750780",
+      "device_time_us": "6076276598041955504",
+      "forward_mps": "4.2983569406735488e-19",
+      "right_mps": "3.5999514493932555e-38",
+      "velocity_valid": "1",
+      "height_up_m": "1.1122105911346073e-41",
+      "height_valid": "1"
+    },
+    "previous_sample": {
+      "t_s": "93.784867309000006",
+      "receive_ros_ns": "1795553586181963852",
+      "source_ros_ns": "1795553586181749827",
+      "device_time_us": "117804000",
+      "forward_mps": "-0.088118098676204681",
+      "right_mps": "-0.21800775825977325",
+      "velocity_valid": "1",
+      "height_up_m": "1.0469248294830322",
+      "height_valid": "1"
+    },
+    "next_sample": {
+      "t_s": "94.390003074999996",
+      "receive_ros_ns": "1795553586787098500",
+      "source_ros_ns": "1795553586786884601",
+      "device_time_us": "118606000",
+      "forward_mps": "-0.037402871996164322",
+      "right_mps": "-0.22825843095779419",
+      "velocity_valid": "1",
+      "height_up_m": "0.87071096897125244",
+      "height_valid": "1"
+    },
+    "navigation_fault": {
+      "t_s": "94.398524550999994",
+      "receive_ros_ns": "1795553586795615800",
+      "source_ros_ns": "1795553586795360377",
+      "event": "navigation",
+      "detail": "FAULT: Inputs recovered; previous fault remains latched: ID250 device clock reset; submit a new goal"
+    },
+    "diagnosis": "Impossible ID250 timestamp poisoned the old accepted time; subsequent normal timestamps were misclassified as an FC reset. ID31 clock continues normally."
+  }
+}

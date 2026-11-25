@@ -1,0 +1,935 @@
+wall_time_utc,elapsed_s,event,step,vx_mps,vy_mps,valid,since_input_ms,detail
+2026-11-24T22:49:47.051+00:00,0.063254,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.071+00:00,0.083140,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.091+00:00,0.103274,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.102+00:00,0.114230,udp_sent,0,0.0,0.0,0,,UDP ID84 zero sent: velocity input missing/invalid/stale
+2026-11-24T22:49:47.112+00:00,0.123848,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.131+00:00,0.143232,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.139+00:00,0.151129,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:47.152+00:00,0.163373,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.172+00:00,0.183906,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.190+00:00,0.201377,fc_motion,0,-0.001850247848778963,-0.003489605151116848,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:47.191+00:00,0.202340,fc_motion,0,-0.005505955778062344,0.002302391454577446,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:47.192+00:00,0.203621,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.212+00:00,0.223818,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.232+00:00,0.244136,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.240+00:00,0.251374,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:47.252+00:00,0.263509,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.272+00:00,0.284211,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.290+00:00,0.301544,fc_motion,0,-0.00039314606692641973,-0.005116903688758612,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:47.292+00:00,0.303661,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.312+00:00,0.324184,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.332+00:00,0.344185,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.340+00:00,0.351434,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:47.352+00:00,0.363635,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.372+00:00,0.384040,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.390+00:00,0.401358,fc_motion,0,0.004856896121054888,-0.008226743899285793,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:47.391+00:00,0.402664,fc_motion,0,0.009972207248210907,0.004443017300218344,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:47.392+00:00,0.403880,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.412+00:00,0.423949,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.431+00:00,0.443096,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.439+00:00,0.450545,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:47.451+00:00,0.463080,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.471+00:00,0.483102,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.489+00:00,0.500518,fc_motion,0,-0.005789734423160553,0.0012007169425487518,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:47.489+00:00,0.500754,fc_motion,0,-0.009476776234805584,0.0013761521549895406,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:47.491+00:00,0.503090,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.511+00:00,0.523101,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.531+00:00,0.543120,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.539+00:00,0.550562,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:47.551+00:00,0.563144,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.571+00:00,0.583180,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.591+00:00,0.603184,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.599+00:00,0.610567,fc_motion,0,-0.010061920620501041,0.0047483243979513645,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:47.611+00:00,0.623143,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.631+00:00,0.643118,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.639+00:00,0.650555,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:47.651+00:00,0.663091,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.671+00:00,0.683139,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.691+00:00,0.703131,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.694+00:00,0.705553,fc_motion,0,0.0038136891089379787,-0.006603906396776438,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:47.694+00:00,0.705771,fc_motion,0,-0.0016964304959401488,-0.00966957863420248,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:47.711+00:00,0.723110,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.731+00:00,0.743104,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.739+00:00,0.750494,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:47.751+00:00,0.763098,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.771+00:00,0.783130,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.791+00:00,0.803128,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.794+00:00,0.805521,fc_motion,0,-0.014152220450341702,-0.005557586904615164,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:47.811+00:00,0.823097,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.831+00:00,0.843096,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.839+00:00,0.850501,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:47.851+00:00,0.863088,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.871+00:00,0.883098,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.891+00:00,0.903093,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.894+00:00,0.905521,fc_motion,0,0.00725256372243166,-0.0038995249196887016,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:47.911+00:00,0.923114,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.931+00:00,0.943121,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.939+00:00,0.950509,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:47.951+00:00,0.963084,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.971+00:00,0.983100,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.991+00:00,1.003116,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:47.999+00:00,1.010515,fc_motion,0,0.003421276807785034,-0.0046235243789851665,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:47.999+00:00,1.010735,fc_motion,0,0.0058856746181845665,0.008011666126549244,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:48.011+00:00,1.023095,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.031+00:00,1.043088,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.039+00:00,1.050533,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:48.051+00:00,1.063091,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.071+00:00,1.083099,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.091+00:00,1.103112,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.099+00:00,1.110486,fc_motion,0,0.012862438336014748,0.0035512654576450586,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:48.099+00:00,1.110684,fc_motion,0,0.016862986609339714,-0.00038591379416175187,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:48.111+00:00,1.123093,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.131+00:00,1.143148,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.139+00:00,1.150547,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:48.151+00:00,1.163099,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.171+00:00,1.183099,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.191+00:00,1.203117,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.199+00:00,1.210554,fc_motion,0,0.010724040679633617,-0.002919505350291729,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:48.211+00:00,1.223102,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.231+00:00,1.243122,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.239+00:00,1.250511,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:48.251+00:00,1.263098,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.271+00:00,1.283092,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.291+00:00,1.303197,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.299+00:00,1.310568,fc_motion,0,-0.0021650895942002535,-0.0015215656021609902,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:48.311+00:00,1.323141,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.331+00:00,1.343197,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.339+00:00,1.350573,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:48.351+00:00,1.363128,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.371+00:00,1.383142,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.391+00:00,1.403183,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.411+00:00,1.423278,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.432+00:00,1.443860,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.439+00:00,1.451080,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:48.452+00:00,1.463373,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.472+00:00,1.483873,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.492+00:00,1.503976,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.512+00:00,1.524046,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.532+00:00,1.543943,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.540+00:00,1.551581,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:48.552+00:00,1.563628,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.572+00:00,1.584158,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.592+00:00,1.604152,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.604+00:00,1.616318,fc_motion,0,-0.007660585455596447,0.0032790859695523977,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:48.612+00:00,1.624144,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.632+00:00,1.643741,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.640+00:00,1.651342,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:48.652+00:00,1.663662,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.672+00:00,1.684082,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.692+00:00,1.704011,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.705+00:00,1.716341,fc_motion,0,0.0009581070626154542,-0.006451000459492207,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:48.712+00:00,1.723763,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.732+00:00,1.744000,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.740+00:00,1.751527,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:48.752+00:00,1.763608,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.772+00:00,1.784213,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.792+00:00,1.804158,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.804+00:00,1.816281,fc_motion,0,-0.005230671260505915,0.004191875457763672,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:48.812+00:00,1.824152,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.832+00:00,1.844156,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.840+00:00,1.851384,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:48.852+00:00,1.863541,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.872+00:00,1.883855,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.891+00:00,1.903191,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.905+00:00,1.916574,fc_motion,0,0.0034032973926514387,-0.004453026689589024,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:48.912+00:00,1.924154,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.932+00:00,1.944152,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.940+00:00,1.951409,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:48.952+00:00,1.963493,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.972+00:00,1.984159,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:48.992+00:00,2.004161,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.010+00:00,2.021367,fc_motion,0,-0.007973701693117619,0.008691784925758839,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:49.012+00:00,2.023624,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.032+00:00,2.043965,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.040+00:00,2.051732,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:49.052+00:00,2.063836,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.072+00:00,2.084163,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.092+00:00,2.104162,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.110+00:00,2.121353,fc_motion,0,-0.0025953687727451324,0.007470427546650171,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:49.110+00:00,2.122333,fc_motion,0,-0.0025587372947484255,-0.008458610624074936,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:49.112+00:00,2.123586,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.132+00:00,2.143767,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.140+00:00,2.151582,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:49.152+00:00,2.163763,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.172+00:00,2.184122,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.192+00:00,2.204004,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.210+00:00,2.221469,fc_motion,0,-0.024479052051901817,0.006564036477357149,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:49.212+00:00,2.223623,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.232+00:00,2.244197,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.240+00:00,2.251415,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:49.252+00:00,2.263559,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.272+00:00,2.283804,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.292+00:00,2.303819,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.312+00:00,2.323804,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.332+00:00,2.344075,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.340+00:00,2.351602,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:49.352+00:00,2.363505,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.372+00:00,2.383937,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.392+00:00,2.403788,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.410+00:00,2.421385,fc_motion,0,-0.003777512349188328,-0.0003628130943980068,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:49.412+00:00,2.423617,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.432+00:00,2.444226,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.440+00:00,2.451403,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:49.452+00:00,2.463481,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.472+00:00,2.484197,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.492+00:00,2.503679,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.510+00:00,2.521386,fc_motion,0,-0.005618168972432613,0.0031304035801440477,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:49.512+00:00,2.523624,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.532+00:00,2.543941,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.540+00:00,2.551735,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:49.552+00:00,2.563801,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.572+00:00,2.584150,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.592+00:00,2.604152,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.612+00:00,2.624109,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.632+00:00,2.644146,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.640+00:00,2.651382,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:49.652+00:00,2.663519,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.672+00:00,2.684108,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.692+00:00,2.703660,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.712+00:00,2.723905,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.714+00:00,2.726198,fc_motion,0,-0.0035553905181586742,-0.005719570908695459,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:49.715+00:00,2.727154,fc_motion,0,-0.009804724715650082,0.0021034034434705973,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:49.732+00:00,2.744196,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.740+00:00,2.751428,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:49.752+00:00,2.763482,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.772+00:00,2.784198,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.792+00:00,2.804202,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.812+00:00,2.824145,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.832+00:00,2.844140,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.840+00:00,2.851565,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:49.852+00:00,2.863674,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.872+00:00,2.883932,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.892+00:00,2.904172,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.912+00:00,2.924145,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.914+00:00,2.926248,fc_motion,0,0.006608852185308933,0.005295362789183855,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:49.915+00:00,2.927129,fc_motion,0,0.0174668300896883,0.0015763856936246157,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:49.932+00:00,2.944144,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.940+00:00,2.951546,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:49.952+00:00,2.963597,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.972+00:00,2.984142,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:49.992+00:00,3.004144,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.012+00:00,3.024042,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.020+00:00,3.031596,fc_motion,0,0.02127314731478691,-0.004950102884322405,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:50.032+00:00,3.043675,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.040+00:00,3.051773,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:50.052+00:00,3.063853,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.072+00:00,3.084146,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.092+00:00,3.104031,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.112+00:00,3.124144,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.125+00:00,3.136361,fc_motion,0,-0.011199889704585075,0.0012684956891462207,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:50.125+00:00,3.137256,fc_motion,0,0.006862204987555742,-0.001074819709174335,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:50.132+00:00,3.144143,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.140+00:00,3.151577,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:50.152+00:00,3.163669,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.172+00:00,3.183752,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.192+00:00,3.203977,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.212+00:00,3.223945,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.232+00:00,3.244210,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.240+00:00,3.251487,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:50.252+00:00,3.263590,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.272+00:00,3.283794,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.292+00:00,3.304205,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.312+00:00,3.324143,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.320+00:00,3.331716,fc_motion,0,0.001335801905952394,-0.0008467386360280216,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:50.332+00:00,3.343924,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.340+00:00,3.351632,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:50.352+00:00,3.363639,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.372+00:00,3.383927,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.392+00:00,3.404152,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.412+00:00,3.424069,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.432+00:00,3.443597,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.439+00:00,3.450931,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:50.451+00:00,3.463179,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.471+00:00,3.483188,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.491+00:00,3.503178,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.512+00:00,3.523735,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.524+00:00,3.536067,fc_motion,0,-0.009827278554439545,0.004384892992675304,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:50.525+00:00,3.536342,fc_motion,0,0.0054972064681351185,-0.001479270518757403,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:50.532+00:00,3.543559,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.539+00:00,3.550964,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:50.552+00:00,3.563638,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.572+00:00,3.583823,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.592+00:00,3.604003,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.612+00:00,3.624196,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.625+00:00,3.636468,fc_motion,0,-0.004288317169994116,0.003620459232479334,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:50.626+00:00,3.637455,fc_motion,0,1.0964983630401548e-05,0.0010236751986667514,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:50.632+00:00,3.644203,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.640+00:00,3.651516,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:50.652+00:00,3.663698,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.672+00:00,3.684061,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.692+00:00,3.704094,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.712+00:00,3.723890,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.725+00:00,3.736442,fc_motion,0,0.0018243201775476336,-0.002654863055795431,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:50.732+00:00,3.744145,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.740+00:00,3.751676,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:50.752+00:00,3.763895,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.772+00:00,3.784199,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.792+00:00,3.804144,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.812+00:00,3.824200,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.825+00:00,3.836514,fc_motion,0,0.01106376200914383,-0.0009872905211523175,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:50.826+00:00,3.837498,fc_motion,0,0.01128664705902338,0.0009400449343957007,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:50.827+00:00,3.838386,fc_motion,0,-0.011143130250275135,0.0031994625460356474,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:50.832+00:00,3.844085,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.840+00:00,3.851651,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:50.852+00:00,3.863583,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.872+00:00,3.884075,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.892+00:00,3.904156,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.912+00:00,3.924204,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.925+00:00,3.936413,fc_motion,0,-0.0058946809731423855,-0.0011773178121075034,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:50.926+00:00,3.937407,fc_motion,0,0.004660908132791519,-0.004158142022788525,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:50.932+00:00,3.944194,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.940+00:00,3.951584,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:50.952+00:00,3.963768,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.972+00:00,3.984196,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:50.992+00:00,4.004202,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.012+00:00,4.024101,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.030+00:00,4.041486,fc_motion,0,-0.006283670663833618,-0.0018861675634980202,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.032+00:00,4.043639,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.040+00:00,4.051943,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:51.052+00:00,4.063736,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.072+00:00,4.084200,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.092+00:00,4.104196,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.112+00:00,4.124200,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.130+00:00,4.141503,fc_motion,0,-0.0016242683632299304,0.0002942208666354418,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.131+00:00,4.142566,fc_motion,0,0.0017002590466290712,0.0008654235280118883,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.132+00:00,4.143709,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.132+00:00,4.144241,fc_motion,0,0.0071095493622124195,0.006814481690526009,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.140+00:00,4.151719,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:51.152+00:00,4.164002,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.172+00:00,4.184111,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.192+00:00,4.203630,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.212+00:00,4.223531,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.229+00:00,4.241028,fc_motion,0,0.004940497688949108,0.0034922698978334665,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.230+00:00,4.241529,fc_motion,0,0.006001900415867567,-0.0005231431568972766,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.232+00:00,4.243780,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.240+00:00,4.251396,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:51.252+00:00,4.263686,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.272+00:00,4.284199,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.292+00:00,4.303841,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.312+00:00,4.324168,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.332+00:00,4.344065,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.334+00:00,4.346297,fc_motion,0,0.015543624758720398,-0.004532095044851303,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.335+00:00,4.347270,fc_motion,0,-0.0041632261127233505,0.0024788754526525736,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.340+00:00,4.351634,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:51.352+00:00,4.363624,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.372+00:00,4.383844,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.392+00:00,4.404206,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.412+00:00,4.424144,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.432+00:00,4.443596,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.434+00:00,4.446210,fc_motion,0,-0.012194793671369553,0.004870766308158636,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.435+00:00,4.447092,fc_motion,0,0.0013478228356689215,0.00039201873005367815,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.436+00:00,4.447941,fc_motion,0,0.0037801454309374094,-0.0004207193851470947,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.439+00:00,4.451182,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:51.452+00:00,4.463461,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.472+00:00,4.484102,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.492+00:00,4.504203,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.512+00:00,4.524101,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.532+00:00,4.543968,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.535+00:00,4.546375,fc_motion,0,-0.004358239937573671,0.0010299738496541977,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.540+00:00,4.551758,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:51.552+00:00,4.563928,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.572+00:00,4.584204,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.592+00:00,4.604207,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.612+00:00,4.624199,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.632+00:00,4.644090,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.634+00:00,4.646296,fc_motion,0,-0.012436563149094582,0.00021701151854358613,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.639+00:00,4.651313,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:51.652+00:00,4.663596,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.672+00:00,4.684109,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.692+00:00,4.703684,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.712+00:00,4.723959,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.732+00:00,4.743969,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.734+00:00,4.746302,fc_motion,0,-0.011150069534778595,-0.0038646513130515814,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.735+00:00,4.747270,fc_motion,0,0.006690767128020525,-0.0011649872176349163,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.740+00:00,4.751773,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:51.752+00:00,4.763980,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.772+00:00,4.784205,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.792+00:00,4.804207,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.812+00:00,4.824201,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.832+00:00,4.844208,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.835+00:00,4.846366,fc_motion,0,0.008242101408541203,-6.416194082703441e-05,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.840+00:00,4.851499,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:51.852+00:00,4.863538,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.872+00:00,4.883922,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.892+00:00,4.904087,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.912+00:00,4.924142,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.932+00:00,4.944197,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.934+00:00,4.946290,fc_motion,0,0.0030814800411462784,-0.0060612838715314865,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.935+00:00,4.947266,fc_motion,0,-0.0016964583192020655,-0.0012396132806316018,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.936+00:00,4.948191,fc_motion,0,-0.001566717284731567,0.008371458388864994,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:51.940+00:00,4.951380,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:51.952+00:00,4.963573,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.972+00:00,4.984202,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:51.992+00:00,5.004206,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.012+00:00,5.024091,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.032+00:00,5.043935,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.040+00:00,5.051757,fc_motion,0,-0.0023347160313278437,0.008503127843141556,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.041+00:00,5.052860,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:52.052+00:00,5.064196,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.072+00:00,5.084206,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.092+00:00,5.104205,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.112+00:00,5.124198,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.132+00:00,5.144199,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.140+00:00,5.151575,fc_motion,0,0.0015381802804768085,-0.014555802568793297,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.141+00:00,5.152667,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:52.141+00:00,5.153179,fc_motion,0,0.0015381802804768085,-0.014555802568793297,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.152+00:00,5.164196,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.172+00:00,5.184105,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.192+00:00,5.204069,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.212+00:00,5.223835,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.232+00:00,5.244203,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.240+00:00,5.251493,fc_motion,0,0.0007886808016337454,0.002353208139538765,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.241+00:00,5.252597,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:52.241+00:00,5.253114,fc_motion,0,0.009431443177163601,0.006152265705168247,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.242+00:00,5.253996,fc_motion,0,0.011040991172194481,0.005056336056441069,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.252+00:00,5.264198,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.272+00:00,5.283871,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.292+00:00,5.304216,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.312+00:00,5.324195,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.332+00:00,5.344107,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.340+00:00,5.351751,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:52.341+00:00,5.352384,fc_motion,0,-0.001572954817675054,-0.0114390654489398,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.352+00:00,5.363948,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.372+00:00,5.383878,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.392+00:00,5.404214,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.411+00:00,5.423152,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.432+00:00,5.443803,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.439+00:00,5.451119,fc_motion,0,-0.005771458148956299,-0.011479843407869339,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.440+00:00,5.451564,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:52.440+00:00,5.451774,fc_motion,0,-0.011300278827548027,-0.0028966006357222795,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.440+00:00,5.452099,fc_motion,0,-0.018234673887491226,0.006274038925766945,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.452+00:00,5.463428,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.472+00:00,5.484146,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.492+00:00,5.504245,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.512+00:00,5.524054,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.532+00:00,5.544006,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.540+00:00,5.551741,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:52.545+00:00,5.556610,fc_motion,0,-0.002868581097573042,0.0021621380001306534,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.546+00:00,5.557599,fc_motion,0,0.010188938118517399,-0.0009185862145386636,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.552+00:00,5.564088,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.572+00:00,5.584301,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.592+00:00,5.604202,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.612+00:00,5.624210,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.632+00:00,5.644200,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.640+00:00,5.651542,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:52.645+00:00,5.656884,fc_motion,0,-0.00980660505592823,0.0008179398137144744,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.652+00:00,5.664200,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.672+00:00,5.684111,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.692+00:00,5.704047,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.712+00:00,5.723826,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.732+00:00,5.744202,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.740+00:00,5.751573,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:52.752+00:00,5.763770,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.772+00:00,5.784207,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.792+00:00,5.804206,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.812+00:00,5.824200,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.832+00:00,5.844202,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.840+00:00,5.851705,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:52.850+00:00,5.861515,fc_motion,0,0.0005471441545523703,0.008151299320161343,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.852+00:00,5.863669,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.872+00:00,5.883905,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.892+00:00,5.904205,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.912+00:00,5.924207,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.932+00:00,5.944199,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.940+00:00,5.951580,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:52.945+00:00,5.956651,fc_motion,0,0.006159279029816389,-0.008539107628166676,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.946+00:00,5.957714,fc_motion,0,-0.0016133965691551566,-0.0094505175948143,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.947+00:00,5.958620,fc_motion,0,-0.005713925696909428,0.0015137465670704842,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:52.952+00:00,5.964236,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.972+00:00,5.984117,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:52.992+00:00,6.004208,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.012+00:00,6.024117,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.032+00:00,6.043935,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.040+00:00,6.051839,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:53.045+00:00,6.056941,fc_motion,0,-0.010731837712228298,0.011651977896690369,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.046+00:00,6.057912,fc_motion,0,-0.012028035707771778,0.011624358594417572,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.052+00:00,6.064160,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.072+00:00,6.084198,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.092+00:00,6.103793,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.112+00:00,6.124168,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.132+00:00,6.144146,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.140+00:00,6.151549,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:53.150+00:00,6.161547,fc_motion,0,-0.009090416133403778,-0.011290119029581547,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.151+00:00,6.162603,fc_motion,0,0.008825411088764668,-0.013597335666418076,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.152+00:00,6.163709,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.152+00:00,6.164290,fc_motion,0,0.01590973697602749,-0.006974286865442991,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.172+00:00,6.184108,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.192+00:00,6.204065,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.212+00:00,6.223997,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.232+00:00,6.243660,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.239+00:00,6.251169,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:53.250+00:00,6.261427,fc_motion,0,0.010745483450591564,0.008351192809641361,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.251+00:00,6.262409,fc_motion,0,0.008234994485974312,0.0062307799234986305,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.252+00:00,6.263440,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.272+00:00,6.284303,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.292+00:00,6.304205,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.312+00:00,6.324198,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.332+00:00,6.344146,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.340+00:00,6.351688,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:53.352+00:00,6.363705,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.355+00:00,6.366701,fc_motion,0,0.007394166197627783,0.0011863592080771923,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.356+00:00,6.367808,fc_motion,0,-0.0010689191985875368,-0.005499358754605055,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.372+00:00,6.383897,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.392+00:00,6.404158,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.412+00:00,6.424202,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.432+00:00,6.444206,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.440+00:00,6.451611,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:53.452+00:00,6.463808,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.460+00:00,6.471823,fc_motion,0,-0.0010905932867899537,0.00247704959474504,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.461+00:00,6.472888,fc_motion,0,0.006751371547579765,-0.0035284506157040596,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.472+00:00,6.484119,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.492+00:00,6.504205,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.512+00:00,6.524096,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.532+00:00,6.543976,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.540+00:00,6.551738,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:53.552+00:00,6.563771,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.560+00:00,6.571811,fc_motion,0,0.004378598649054766,-0.00627355370670557,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.561+00:00,6.572862,fc_motion,0,0.005979164503514767,0.008906703442335129,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.572+00:00,6.584209,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.592+00:00,6.604211,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.612+00:00,6.624216,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.632+00:00,6.644200,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.640+00:00,6.651582,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:53.652+00:00,6.663780,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.665+00:00,6.676516,fc_motion,0,0.008950903080403805,0.012130443006753922,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.672+00:00,6.684096,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.692+00:00,6.703673,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.712+00:00,6.723969,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.732+00:00,6.743710,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.740+00:00,6.751829,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:53.752+00:00,6.764043,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.760+00:00,6.771760,fc_motion,0,0.0051025585271418095,0.0064390357583761215,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.761+00:00,6.772831,fc_motion,0,0.0023133058566600084,-0.0034268114250153303,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.762+00:00,6.773739,fc_motion,0,-0.004537940490990877,-0.0075959209352731705,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.772+00:00,6.784198,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.792+00:00,6.804208,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.812+00:00,6.824202,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.832+00:00,6.844143,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.840+00:00,6.851712,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:53.852+00:00,6.863758,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.855+00:00,6.866733,fc_motion,0,-0.00788587424904108,0.005290497560054064,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.856+00:00,6.867827,fc_motion,0,-0.015742791816592216,0.0014074521604925394,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.857+00:00,6.868750,fc_motion,0,-0.014951991848647594,-0.002623387146741152,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.872+00:00,6.883832,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.892+00:00,6.904202,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.912+00:00,6.924214,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.932+00:00,6.944204,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.940+00:00,6.951602,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:53.952+00:00,6.963797,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.955+00:00,6.966807,fc_motion,0,0.012230167165398598,-0.0035922094248235226,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.956+00:00,6.967931,fc_motion,0,0.009147322736680508,-0.0007841130718588829,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:53.972+00:00,6.984206,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:53.992+00:00,7.004198,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.012+00:00,7.024092,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.032+00:00,7.043983,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.040+00:00,7.051926,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:54.052+00:00,7.064068,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.060+00:00,7.071735,fc_motion,0,0.004240169655531645,-0.000934310897719115,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.061+00:00,7.072805,fc_motion,0,0.0038430665154010057,-0.0002037292579188943,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.062+00:00,7.073628,fc_motion,0,0.006892932578921318,0.00068276486126706,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.072+00:00,7.084198,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.092+00:00,7.104198,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.112+00:00,7.124198,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.132+00:00,7.144024,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.140+00:00,7.151681,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:54.152+00:00,7.163874,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.160+00:00,7.171793,fc_motion,0,0.006892932578921318,0.00068276486126706,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.172+00:00,7.183952,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.191+00:00,7.203244,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.212+00:00,7.223620,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.232+00:00,7.243421,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.240+00:00,7.251432,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:54.252+00:00,7.263460,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.260+00:00,7.271880,fc_motion,0,0.0024869837798178196,-0.010860517621040344,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.261+00:00,7.272936,fc_motion,0,-0.002900328254327178,0.012517975643277168,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.272+00:00,7.283807,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.292+00:00,7.303814,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.312+00:00,7.324217,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.332+00:00,7.344194,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.340+00:00,7.351699,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:54.352+00:00,7.363653,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.360+00:00,7.371808,fc_motion,0,-0.002900328254327178,0.012517975643277168,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.361+00:00,7.372898,fc_motion,0,-0.004098966717720032,0.0032348744571208954,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.372+00:00,7.383903,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.392+00:00,7.404210,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.411+00:00,7.423221,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.432+00:00,7.443793,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.439+00:00,7.450953,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:54.452+00:00,7.463486,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.460+00:00,7.471488,fc_motion,0,0.0070723374374210835,-0.00312349246814847,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.460+00:00,7.472211,fc_motion,0,0.008660047315061092,-0.005493558011949062,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.472+00:00,7.483789,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.492+00:00,7.504203,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.512+00:00,7.524093,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.532+00:00,7.544032,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.540+00:00,7.551562,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:54.552+00:00,7.563526,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.560+00:00,7.571609,fc_motion,0,0.0019736671820282936,0.0004321085289120674,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.572+00:00,7.583822,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.592+00:00,7.604204,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.612+00:00,7.624203,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.632+00:00,7.644203,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.640+00:00,7.651584,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:54.652+00:00,7.663411,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.665+00:00,7.676441,fc_motion,0,0.005443962290883064,0.004287088755518198,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.666+00:00,7.677477,fc_motion,0,0.008047503419220448,-0.004568588919937611,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.672+00:00,7.684091,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.692+00:00,7.703672,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.712+00:00,7.724079,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.732+00:00,7.744195,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.740+00:00,7.751597,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:54.752+00:00,7.763791,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.765+00:00,7.776510,fc_motion,0,0.008638033643364906,-0.007532946299761534,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.772+00:00,7.784201,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.792+00:00,7.804203,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.812+00:00,7.824195,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.832+00:00,7.844142,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.840+00:00,7.851719,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:54.852+00:00,7.863752,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.865+00:00,7.876467,fc_motion,0,-0.0018140926258638501,-0.003804720938205719,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.866+00:00,7.877468,fc_motion,0,-0.005488444585353136,-0.001333409221842885,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.867+00:00,7.878369,fc_motion,0,-0.00604700343683362,0.0005202731117606163,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.872+00:00,7.883497,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.892+00:00,7.903847,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.912+00:00,7.924155,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.932+00:00,7.944205,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.940+00:00,7.951516,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:54.952+00:00,7.963614,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.965+00:00,7.976413,fc_motion,0,-0.005039026495069265,0.005494375247508287,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.966+00:00,7.977415,fc_motion,0,-0.0016546306433156133,0.000631131581030786,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:54.972+00:00,7.984199,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:54.992+00:00,8.004104,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.012+00:00,8.024097,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.032+00:00,8.043989,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.040+00:00,8.051960,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:55.052+00:00,8.064195,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.070+00:00,8.081622,fc_motion,0,-0.0005878117517568171,-0.009095066227018833,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.071+00:00,8.082679,fc_motion,0,-0.0006346852169372141,-0.006891069933772087,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.072+00:00,8.083810,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.092+00:00,8.103835,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.112+00:00,8.124197,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.132+00:00,8.143924,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.140+00:00,8.151766,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:55.152+00:00,8.163974,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.170+00:00,8.181654,fc_motion,0,-0.005505087319761515,0.006932147312909365,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.172+00:00,8.183664,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.192+00:00,8.203791,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.212+00:00,8.223617,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.232+00:00,8.243545,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.240+00:00,8.251385,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:55.252+00:00,8.263575,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.270+00:00,8.281662,fc_motion,0,-0.00679143238812685,0.009748304262757301,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.271+00:00,8.282718,fc_motion,0,0.0029482494574040174,0.0018134518759325147,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.272+00:00,8.283840,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.292+00:00,8.303833,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.312+00:00,8.324204,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.332+00:00,8.344133,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.340+00:00,8.351730,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:55.352+00:00,8.363740,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.370+00:00,8.381551,fc_motion,0,0.005685750860720873,-0.004368904512375593,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.371+00:00,8.382600,fc_motion,0,-0.007673539686948061,-0.004871648736298084,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.372+00:00,8.383713,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.392+00:00,8.403748,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.412+00:00,8.424196,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.432+00:00,8.444203,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.440+00:00,8.451697,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:55.452+00:00,8.463890,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.472+00:00,8.484202,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.492+00:00,8.503827,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.512+00:00,8.523996,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.515+00:00,8.526380,fc_motion,0,-0.015900053083896637,0.0037072880659252405,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.515+00:00,8.527257,fc_motion,0,-0.00921403244137764,0.008297783322632313,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.532+00:00,8.543944,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.540+00:00,8.551794,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:55.552+00:00,8.563681,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.570+00:00,8.581614,fc_motion,0,-0.00231004785746336,0.006034943275153637,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.571+00:00,8.582660,fc_motion,0,0.005316115450114012,0.0005408168071880937,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.572+00:00,8.583774,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.592+00:00,8.603830,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.612+00:00,8.624199,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.632+00:00,8.644205,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.640+00:00,8.651573,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:55.652+00:00,8.663711,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.672+00:00,8.684083,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.675+00:00,8.686363,fc_motion,0,0.001366529380902648,-0.004008662886917591,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.675+00:00,8.687333,fc_motion,0,0.001366529380902648,-0.004008662886917591,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.692+00:00,8.703850,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.712+00:00,8.724037,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.732+00:00,8.744202,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.740+00:00,8.751610,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:55.752+00:00,8.763571,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.772+00:00,8.783822,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.774+00:00,8.786336,fc_motion,0,-0.018427181988954544,0.003646169789135456,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.775+00:00,8.787304,fc_motion,0,-0.0007227379246614873,0.008443198166787624,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.792+00:00,8.803676,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.812+00:00,8.824222,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.832+00:00,8.844130,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.840+00:00,8.851716,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:55.852+00:00,8.863722,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.872+00:00,8.883832,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.875+00:00,8.886408,fc_motion,0,0.015207448974251747,-0.0012026308104395866,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.876+00:00,8.887407,fc_motion,0,0.012370404787361622,-0.006672557909041643,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.876+00:00,8.888316,fc_motion,0,0.004526009317487478,-0.00986668560653925,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.892+00:00,8.904229,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.912+00:00,8.924199,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.932+00:00,8.944198,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.940+00:00,8.951626,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:55.952+00:00,8.963811,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.972+00:00,8.984199,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:55.975+00:00,8.986377,fc_motion,0,-0.003260016208514571,-0.007707743439823389,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.976+00:00,8.987345,fc_motion,0,-0.005244115833193064,0.0006791518535465002,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:55.992+00:00,9.003851,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.012+00:00,9.024095,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.032+00:00,9.043977,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.040+00:00,9.052002,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:56.052+00:00,9.063776,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.072+00:00,9.084205,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.080+00:00,9.091606,fc_motion,0,-0.014033157378435135,0.01028530951589346,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.081+00:00,9.092660,fc_motion,0,0.002034074394032359,0.004450720269232988,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.092+00:00,9.104196,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.112+00:00,9.124154,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.132+00:00,9.143770,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.140+00:00,9.151836,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:56.152+00:00,9.164049,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.172+00:00,9.184108,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.180+00:00,9.191779,fc_motion,0,0.005264925770461559,-0.0031731671188026667,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.181+00:00,9.192832,fc_motion,0,-0.004401391837745905,-0.022593554109334946,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.192+00:00,9.203817,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.212+00:00,9.224060,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.232+00:00,9.244205,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.240+00:00,9.251612,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:56.252+00:00,9.263589,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.272+00:00,9.283852,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.279+00:00,9.290731,fc_motion,0,-0.0019259651890024543,0.0069029745645821095,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.292+00:00,9.303676,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.312+00:00,9.324225,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.332+00:00,9.344207,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.340+00:00,9.351558,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:56.352+00:00,9.363637,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.372+00:00,9.383828,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.380+00:00,9.391529,fc_motion,0,-0.00641233054921031,0.015007993206381798,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.381+00:00,9.392867,fc_motion,0,-0.0027607204392552376,-0.014414483681321144,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.392+00:00,9.403747,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.412+00:00,9.423813,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.432+00:00,9.444159,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.440+00:00,9.451511,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:56.452+00:00,9.463816,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.472+00:00,9.484218,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.485+00:00,9.496629,fc_motion,0,0.0015460132854059339,-0.006257735658437014,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.486+00:00,9.497908,fc_motion,0,0.0015460132854059339,-0.006257735658437014,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.487+00:00,9.499101,fc_motion,0,-0.015238028950989246,0.0073529076762497425,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.492+00:00,9.504240,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.512+00:00,9.524106,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.532+00:00,9.543991,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.540+00:00,9.551810,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:56.552+00:00,9.563898,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.572+00:00,9.584222,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.585+00:00,9.596520,fc_motion,0,-0.008019177243113518,0.004217455629259348,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.592+00:00,9.603828,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.612+00:00,9.624211,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.632+00:00,9.644049,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.640+00:00,9.651576,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:56.652+00:00,9.663896,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.672+00:00,9.684124,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.685+00:00,9.696447,fc_motion,0,0.014215667732059956,-0.005837569013237953,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.692+00:00,9.703671,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.711+00:00,9.723307,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.732+00:00,9.743799,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.739+00:00,9.751243,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:56.752+00:00,9.763412,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.772+00:00,9.784145,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.785+00:00,9.796628,fc_motion,0,0.01696321740746498,-0.0045903511345386505,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.786+00:00,9.797897,fc_motion,0,0.008436569012701511,0.003115825355052948,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.787+00:00,9.799083,fc_motion,0,0.008056056685745716,0.008009186014533043,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.792+00:00,9.804242,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.812+00:00,9.824213,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.832+00:00,9.844140,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.840+00:00,9.851582,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:56.852+00:00,9.863688,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.872+00:00,9.883835,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.885+00:00,9.896446,fc_motion,0,0.003928730729967356,0.010089615359902382,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.886+00:00,9.897733,fc_motion,0,-0.0022393171675503254,0.0008312194258905947,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.892+00:00,9.904217,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.912+00:00,9.924214,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.932+00:00,9.944210,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.940+00:00,9.951522,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:56.952+00:00,9.963807,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.972+00:00,9.984213,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:56.985+00:00,9.996523,fc_motion,0,0.010335773229598999,-0.007514563854783773,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.986+00:00,9.997797,fc_motion,0,0.013788524083793163,-0.007303392980247736,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:56.992+00:00,10.004208,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.012+00:00,10.024125,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.032+00:00,10.043988,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.040+00:00,10.051730,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:57.052+00:00,10.064040,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.072+00:00,10.084228,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.090+00:00,10.101639,fc_motion,0,-0.006878350395709276,-0.0016078042099252343,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.092+00:00,10.103528,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.112+00:00,10.124209,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.132+00:00,10.144048,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.140+00:00,10.151564,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:57.152+00:00,10.163866,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.172+00:00,10.184118,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.190+00:00,10.201568,fc_motion,0,0.0005982402944937348,0.0036036025267094374,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.191+00:00,10.202901,fc_motion,0,0.007363182492554188,0.008366663008928299,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.192+00:00,10.204335,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.212+00:00,10.224125,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.232+00:00,10.244209,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.240+00:00,10.251538,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:57.252+00:00,10.263543,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.272+00:00,10.283816,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.289+00:00,10.301070,fc_motion,0,0.006018684245646,-0.005739780142903328,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.290+00:00,10.301437,fc_motion,0,0.0015830957563593984,-0.006256071384996176,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.292+00:00,10.303702,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.312+00:00,10.323880,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.332+00:00,10.344147,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.340+00:00,10.351536,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:57.352+00:00,10.363623,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.372+00:00,10.383838,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.392+00:00,10.404145,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.395+00:00,10.406491,fc_motion,0,-0.00038376773591153324,0.0004419009783305228,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.396+00:00,10.407823,fc_motion,0,-3.4201850212411955e-05,0.0003039600560441613,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.412+00:00,10.424212,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.432+00:00,10.444197,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.440+00:00,10.451515,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:57.452+00:00,10.463567,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.472+00:00,10.484199,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.492+00:00,10.504195,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.495+00:00,10.506347,fc_motion,0,-3.4201850212411955e-05,0.0003039600560441613,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.495+00:00,10.507315,fc_motion,0,0.0009256858611479402,-0.006177005358040333,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.512+00:00,10.524086,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.532+00:00,10.543966,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.540+00:00,10.551616,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:57.552+00:00,10.563927,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.572+00:00,10.584205,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.592+00:00,10.604197,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.605+00:00,10.616563,fc_motion,0,-0.011336468160152435,-0.004192724358290434,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.606+00:00,10.617540,fc_motion,0,0.005518854595720768,0.0013333067763596773,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.612+00:00,10.624217,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.632+00:00,10.644197,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.640+00:00,10.651609,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:57.652+00:00,10.663789,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.672+00:00,10.684060,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.692+00:00,10.703968,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.700+00:00,10.711610,fc_motion,0,0.012123065069317818,0.0015240592183545232,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.701+00:00,10.712671,fc_motion,0,0.006925184279680252,-0.001610748004168272,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.712+00:00,10.724085,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.732+00:00,10.744205,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.740+00:00,10.751763,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:57.752+00:00,10.763933,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.772+00:00,10.783979,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.792+00:00,10.804175,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.800+00:00,10.811774,fc_motion,0,-0.0018271376611664891,-0.0034651458263397217,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.801+00:00,10.813104,fc_motion,0,0.015929510816931725,0.006070196628570557,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.812+00:00,10.824206,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.832+00:00,10.844134,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.840+00:00,10.851568,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:57.852+00:00,10.863563,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.872+00:00,10.883826,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.892+00:00,10.903972,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.905+00:00,10.916533,fc_motion,0,0.005371985025703907,0.00719800079241395,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.906+00:00,10.917815,fc_motion,0,-0.0009415642125532031,0.005848829634487629,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.912+00:00,10.924163,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.932+00:00,10.944209,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.940+00:00,10.951741,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:57.952+00:00,10.964057,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.972+00:00,10.984211,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.992+00:00,11.004205,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:57.995+00:00,11.006388,fc_motion,0,-0.014571101404726505,-0.01050589606165886,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:57.996+00:00,11.007669,fc_motion,0,-0.0031320014968514442,-0.005295428913086653,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.012+00:00,11.024100,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.032+00:00,11.043976,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.040+00:00,11.051967,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:58.052+00:00,11.063872,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.072+00:00,11.084214,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.092+00:00,11.104209,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.100+00:00,11.111714,fc_motion,0,0.002569467993453145,0.002992387395352125,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.101+00:00,11.113036,fc_motion,0,0.0054122465662658215,0.004950652830302715,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.112+00:00,11.124063,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.132+00:00,11.144081,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.140+00:00,11.151711,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:58.152+00:00,11.164023,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.172+00:00,11.184119,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.192+00:00,11.204025,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.200+00:00,11.211684,fc_motion,0,0.005187255796045065,0.0035693051759153605,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.201+00:00,11.213010,fc_motion,0,0.004796232096850872,0.0033709194976836443,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.212+00:00,11.224134,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.232+00:00,11.244211,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.240+00:00,11.251713,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:58.252+00:00,11.264026,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.272+00:00,11.283798,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.292+00:00,11.304208,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.300+00:00,11.311489,fc_motion,0,-0.005550479982048273,-0.003821407677605748,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.301+00:00,11.312959,fc_motion,0,-0.001106307259760797,0.0044600507244467735,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.303+00:00,11.314482,fc_motion,0,-0.0001352800609311089,0.007332189939916134,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.312+00:00,11.324231,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.332+00:00,11.344128,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.340+00:00,11.351718,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:58.352+00:00,11.363750,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.372+00:00,11.383828,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.392+00:00,11.403706,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.399+00:00,11.411275,fc_motion,0,-0.007274940609931946,-0.0012804926373064518,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.400+00:00,11.411608,fc_motion,0,-0.013300325721502304,-2.2120445919426857e-06,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.411+00:00,11.423329,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.432+00:00,11.443957,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.440+00:00,11.451671,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:58.452+00:00,11.463799,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.472+00:00,11.484209,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.492+00:00,11.504212,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.500+00:00,11.511702,fc_motion,0,-0.01377875730395317,0.00722230039536953,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.512+00:00,11.523807,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.532+00:00,11.543850,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.540+00:00,11.551609,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:58.552+00:00,11.563830,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.572+00:00,11.584224,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.592+00:00,11.604207,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.605+00:00,11.616549,fc_motion,0,0.003707468742504716,0.010247872211039066,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.606+00:00,11.617534,fc_motion,0,0.02317492663860321,0.007211941294372082,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.612+00:00,11.624213,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.632+00:00,11.644213,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.640+00:00,11.651590,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:58.652+00:00,11.663794,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.672+00:00,11.684117,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.692+00:00,11.703684,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.705+00:00,11.716451,fc_motion,0,0.02317492663860321,0.007211941294372082,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.706+00:00,11.717731,fc_motion,0,-0.005316585302352905,-0.008024690672755241,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.707+00:00,11.718931,fc_motion,0,-0.004059909842908382,8.712901035323739e-05,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.712+00:00,11.723790,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.732+00:00,11.744191,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.740+00:00,11.751774,udp_sent,0,0.0,0.0,1,,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:58.752+00:00,11.764047,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.772+00:00,11.784191,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.792+00:00,11.803992,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.805+00:00,11.816613,fc_motion,0,-0.0018790758913382888,-0.0058149793185293674,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.806+00:00,11.817630,fc_motion,0,0.0019653718918561935,-0.009733455255627632,1,,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.812+00:00,11.824215,publish,0,0.0,0.0,1,,Direct body XY test; no localization or attitude rotation; step=0
+2026-11-24T22:49:58.824+00:00,11.835437,input,1,0.0,0.0,1,0.00357900000835798,program exit; zero
+2026-11-24T22:49:58.824+00:00,11.836046,publish,1,0.0,0.0,1,0.6132180000122389,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:58.832+00:00,11.843793,publish,1,0.0,0.0,1,8.359790999975303,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:58.840+00:00,11.851402,udp_sent,1,0.0,0.0,1,15.96861899997748,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:58.852+00:00,11.863492,publish,1,0.0,0.0,1,28.059146000032342,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:58.872+00:00,11.883798,publish,1,0.0,0.0,1,48.36447100001351,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:58.892+00:00,11.904171,publish,1,0.0,0.0,1,68.73820199996317,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:58.910+00:00,11.921687,fc_motion,1,0.007043352350592613,-0.0046887644566595554,1,86.25381199999538,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:58.912+00:00,11.923602,publish,1,0.0,0.0,1,88.16845399996964,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:58.932+00:00,11.944182,publish,1,0.0,0.0,1,108.74915099998361,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:58.940+00:00,11.951754,udp_sent,1,0.0,0.0,1,116.32088800001839,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:58.952+00:00,11.963738,publish,1,0.0,0.0,1,128.30493299998125,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:58.972+00:00,11.984185,publish,1,0.0,0.0,1,148.75175800000306,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:58.992+00:00,12.004187,publish,1,0.0,0.0,1,168.75415999993493,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:59.005+00:00,12.016595,fc_motion,1,0.0038299693260341883,0.005245931446552277,1,181.16165200001433,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:59.006+00:00,12.017573,fc_motion,1,-0.0031976369209587574,0.0014234327245503664,1,182.13973399997485,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:59.012+00:00,12.024066,publish,1,0.0,0.0,1,188.63329499993142,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:59.032+00:00,12.043786,publish,1,0.0,0.0,1,208.35287599993535,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:59.040+00:00,12.051803,udp_sent,1,0.0,0.0,1,216.37008999994123,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:59.052+00:00,12.063898,publish,1,0.0,0.0,1,228.4644850000177,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:59.072+00:00,12.084182,publish,1,0.0,0.0,1,248.74933399996735,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:59.092+00:00,12.104184,publish,1,0.0,0.0,1,268.7506099999837,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:59.110+00:00,12.121548,fc_motion,1,-0.005948633421212435,0.0028741946443915367,1,286.1146870000084,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:59.111+00:00,12.122565,fc_motion,1,-0.001962771639227867,0.01624028943479061,1,287.13185000003705,Measured ID250 velocity; not a command receipt ACK
+2026-11-24T22:49:59.112+00:00,12.123663,publish,1,0.0,0.0,1,288.229595999951,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:59.132+00:00,12.144091,publish,1,0.0,0.0,1,308.65795299996535,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:59.140+00:00,12.151748,udp_sent,1,0.0,0.0,1,316.31486399999176,UDP ID84 sent; vy sign=1
+2026-11-24T22:49:59.152+00:00,12.163854,publish,1,0.0,0.0,1,328.4207189999506,Direct body XY test; no localization or attitude rotation; step=1
+2026-11-24T22:49:59.172+00:00,12.184087,publish,1,0.0,0.0,1,348.6540410000316,Direct body XY test; no localization or attitude rotation; step=1

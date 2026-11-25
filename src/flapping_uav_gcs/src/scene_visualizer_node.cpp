@@ -198,10 +198,13 @@ private:
       status_.coordinates_confirmed && status_.header.frame_id==map_ &&
       pose_.header.frame_id==map_ && std::isfinite(p.x) && std::isfinite(p.y);
     const auto & q=attitude_.orientation;
+    QuaternionWxyz source_q=attitude_.yaw_only?
+      QuaternionWxyz{{std::cos(attitude_.yaw_rad/2),0,0,std::sin(attitude_.yaw_rad/2)}}:
+      QuaternionWxyz{{q.w,q.x,q.y,q.z}};
     QuaternionWxyz rotation;
     const bool attitude_ok=fresh(attitude_seen_,attitude_time_,attitude_.header) && attitude_.valid &&
       attitude_.header.frame_id=="local_ned" && attitude_.body_frame_id=="base_link_frd" &&
-      body_attitude_to_map({{q.w,q.x,q.y,q.z}},q_body_ned_,map_enu_yaw_,rotation);
+      body_attitude_to_map(source_q,q_body_ned_,map_enu_yaw_,rotation);
     const bool session_ok=attitude_ok && alignment_session_.valid(attitude_.sample_time_us);
     const bool overlay=attitude_ok && position_ok && aligned_ && attitude_confirmed_ && session_ok;
     if (attitude_ok) {
@@ -220,16 +223,16 @@ private:
       origin[2]+=.45;
       std::string caption=overlay?"Aircraft@Tag":"UNALIGNED\nAttitudePreviewOnly";
       if (aligned_ && attitude_confirmed_ && !session_ok) {caption="SESSION-EXPIRED\nRecalibrateHeading";}
-      QuaternionWxyz source_q{{q.w,q.x,q.y,q.z}};
       normalize_attitude(source_q);
       if (!q_body_ned_) {for (size_t i=1;i<4;++i) {source_q[i]=-source_q[i];}}
       const double w=source_q[0],x=source_q[1],y=source_q[2],z=source_q[3];
       const double degrees=180/std::acos(-1);
       std::ostringstream angles;
-      angles<<std::fixed<<std::setprecision(1)<<"\nFC-RPY(deg)\n"
+      if(attitude_.yaw_only){angles<<std::fixed<<std::setprecision(1)<<"\nHeading only (level preview)\nYaw(deg):"<<attitude_.yaw_rad*degrees;}
+      else {angles<<std::fixed<<std::setprecision(1)<<"\nFC-RPY(deg)\n"
         <<std::atan2(2*(w*x+y*z),1-2*(x*x+y*y))*degrees<<"/"
         <<std::asin(std::clamp(2*(w*y-z*x),-1.0,1.0))*degrees<<"/"
-        <<std::atan2(2*(w*z+x*y),1-2*(y*y+z*z))*degrees;
+        <<std::atan2(2*(w*z+x*y),1-2*(y*y+z*z))*degrees;}
       caption+=angles.str();
       if (overlay && (project_xy_||!std::isfinite(p.z))) {caption+="\nXY-projection";}
       if (fresh(motion_seen_,motion_time_,motion_.header) && motion_.height_valid) {

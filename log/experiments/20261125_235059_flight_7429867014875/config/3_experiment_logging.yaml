@@ -1,0 +1,12 @@
+# 论文用轻量CSV日志，不录制rosbag。start_here成功后自动开始，Ctrl+C关闭导航时自动收尾。
+# 修改后重启导航/记录器；日志根目录由启动参数log_root决定，默认log/experiments。
+
+# 自动实验记录节点。
+experiment_recorder_node:
+  ros__parameters:
+    # true在退出导航、停止记录后自动导出论文图表；false只保留CSV，不自动画图。
+    export_on_stop: true
+    # CSV异步写盘队列最多暂存的行数；不是飞行记录总行数，过小在磁盘卡顿时可能丢行。
+    queue_limit: 20000
+    # 实验目录标签；正常入口的experiment_label启动参数会覆盖，默认flight。
+    experiment_label: flight

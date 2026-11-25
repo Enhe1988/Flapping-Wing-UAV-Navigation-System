@@ -1,0 +1,136 @@
+{
+  "session": "20261125_232055_flight_5626178823991",
+  "duration_s": 118.193048555,
+  "tracking_s": [
+    24.263679797,
+    109.223886848
+  ],
+  "input_invalid_rows": 0,
+  "goal_missing_rows": 0,
+  "raw_samples": 5815,
+  "filtered_samples": 5815,
+  "position_statistics": {
+    "raw": {
+      "rate_hz": 49.99695393556586,
+      "max_gap_ms": 59.98828100000253,
+      "step_cm_percentiles": {
+        "p50": 1.6643399948573199,
+        "p95": 7.4300227611758,
+        "p99": 12.930829464022647,
+        "max": 23.378831512255875
+      },
+      "above_1hz_component_rms_cm_xy": [
+        3.4856329724773185,
+        1.9849804824000143
+      ]
+    },
+    "filtered_tau_010": {
+      "rate_hz": 49.99695393556586,
+      "max_gap_ms": 59.98828100000253,
+      "step_cm_percentiles": {
+        "p50": 0.6629851636200266,
+        "p95": 2.09134312848767,
+        "p99": 3.1103096245103345,
+        "max": 6.452416844413767
+      },
+      "above_1hz_component_rms_cm_xy": [
+        1.9375558833655881,
+        1.1270423473541487
+      ]
+    }
+  },
+  "raw_minus_filtered_cm_percentiles": {
+    "p50": 2.432628103720639,
+    "p95": 8.087517477957874,
+    "p99": 12.696341893268428,
+    "max": 21.281870952608163
+  },
+  "tracking_error_against_selected_uwb_not_truth": {
+    "rmse_xy_m": [
+      0.3545833421943289,
+      0.527555814877922
+    ],
+    "distance_rmse_m": 0.6356449357724864,
+    "distance_p95_m": 1.0144098985166736
+  },
+  "command_stats": {
+    "sent_invalid_rows": 0,
+    "max_abs_pitch_roll_deg": [
+      10.94,
+      16.52
+    ],
+    "max_abs_I_xy_deg": [
+      1.7445370088903822,
+      3.216040293409631
+    ],
+    "max_abs_D_xy_deg": [
+      2.646202982940405,
+      1.7528413301319616
+    ]
+  },
+  "yaw": {
+    "valid_rows": 585,
+    "sample_count": 585,
+    "largest_adjacent_change_deg": 13.956892219821388,
+    "adjacent_change_p95_deg": 5.146320777324164
+  },
+  "offline_only_filter_comparison": {
+    "0.1": {
+      "rate_hz": 49.99695393556586,
+      "max_gap_ms": 59.98828100000253,
+      "step_cm_percentiles": {
+        "p50": 0.6631101284323563,
+        "p95": 2.0893755927502853,
+        "p99": 3.1133822877770516,
+        "max": 6.456695905995759
+      },
+      "above_1hz_component_rms_cm_xy": [
+        1.9374164579835702,
+        1.1269324346848928
+      ]
+    },
+    "0.15": {
+      "rate_hz": 49.99695393556586,
+      "max_gap_ms": 59.98828100000253,
+      "step_cm_percentiles": {
+        "p50": 0.609592131722842,
+        "p95": 1.7155188351275619,
+        "p99": 2.4632155155470468,
+        "max": 5.6560546323489405
+      },
+      "above_1hz_component_rms_cm_xy": [
+        1.5335892622623772,
+        0.8875901039196946
+      ]
+    },
+    "0.2": {
+      "rate_hz": 49.99695393556586,
+      "max_gap_ms": 59.98828100000253,
+      "step_cm_percentiles": {
+        "p50": 0.5700775360845314,
+        "p95": 1.506526894526915,
+        "p99": 2.091491948088112,
+        "max": 4.980112680842113
+      },
+      "above_1hz_component_rms_cm_xy": [
+        1.2531469516848424,
+        0.723217247770792
+      ]
+    },
+    "0.3": {
+      "rate_hz": 49.99695393556586,
+      "max_gap_ms": 59.98828100000253,
+      "step_cm_percentiles": {
+        "p50": 0.5244532244926193,
+        "p95": 1.2417920975105312,
+        "p99": 1.6648567198568258,
+        "max": 3.9714289386823185
+      },
+      "above_1hz_component_rms_cm_xy": [
+        0.9030132688882444,
+        0.5199066964178676
+      ]
+    }
+  },
+  "caveat": "No independent ground truth, actual roll/pitch or manual-takeover telemetry. Above-1Hz components may contain real flight motion; they are not proven measurement error. Offline filter replay cannot establish closed-loop performance."
+}

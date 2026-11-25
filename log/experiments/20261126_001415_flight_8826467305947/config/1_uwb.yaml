@@ -1,0 +1,37 @@
+# 实机UWB Tag定位驱动配置；修改后重启UWB/导航。串口和921600波特率由launch启动参数提供。
+# 世界坐标转换顺序：设备坐标×position_scale，Y符号变换，绕Z旋转，最后平移。
+# 仅XY用于位置控制，原始Z不作为已验证高度。
+
+# Anchor_Frame0到目标Tag定位的转换节点。
+uwb_position_node:
+  ros__parameters:
+    # 串口解析器发布的Anchor_Frame0话题；当前电脑连接anchor0，由此提取目标Tag。
+    input_topic: "/nlink_linktrack_anchorframe0"
+    # 跟踪的Tag ID；当前tag0，换标签时同步核对实际硬件ID。
+    tag_id: 0
+    # Anchor_Frame0节点的角色筛选值；当前实测2表示Tag，不是基站编号。
+    tag_role: 2
+    # 发布定位的ROS世界坐标系名称；需与位置环map_frame_id及RViz一致。
+    frame_id: "map"
+    # UWB驱动数据新鲜度阈值，单位ms；与融合层、控制层各自的超时参数相互独立。
+    timeout_ms: 500
+    # 是否已确认定位单位、方向和变换；uwb.launch/position_hold启动参数可覆盖，未确认不宣称位置有效。
+    coordinates_confirmed: false
+    # 设备坐标转换到m的倍率；当前设备已输出m所以为1.0，场景/自动轨迹要求1.0。
+    position_scale: 1.0
+    # 原生UWB Y轴符号：-1将原生向右的+Y转换成右手map的向左+Y；已实测，不随意更改。
+    uwb_y_sign: -1.0
+    # 反射Y后，UWB坐标绕Z到map的旋转角，单位rad；不是飞控每次上电的航向对齐角。
+    uwb_to_map_yaw_rad: 0.0
+    # UWB到map的XYZ平移，单位m；反射、旋转之后再加，通常保持[0,0,0]。
+    uwb_to_map_translation_m: [0.0, 0.0, 0.0]
+    # 驱动层相邻位置跳变门限，单位m；0关闭。融合层还有独立的XY位移/速度质量检查。
+    max_jump_m: 0.0
+    # 是否收集静止Tag样本估计XY协方差；只有Tag确实静止时才开启，正常飞行保持false。
+    collect_static_noise: false
+    # 静止协方差估计样本数，范围2~1000000；只在collect_static_noise开启时采集。
+    static_noise_samples: 100
+    # 预先实测的XY标准差，单位m；非负值提供测量协方差，负数表示未提供，不要凭空填精度。
+    measured_stddev_xy_m: -1.0
+    # 原始UWB的RViz历史路径点数上限；不限制CSV日志样本总数。
+    max_path_points: 1000

@@ -1,0 +1,84 @@
+# Current XY experimental control profile. Restart position_hold after edits.
+# Existing gains/limits still require flight-performance evaluation.
+position_controller_node:
+  ros__parameters:
+    map_frame_id: map
+    horizontal_control_mode: attitude
+    # Position-to-attitude PID in MAP X/Y; preserve the tested P gains.
+    attitude_kp_x_deg_per_m: 10.0
+    attitude_kp_y_deg_per_m: 13.0
+    # I: deg/(m*s), D: deg/(m/s). D uses filtered UWB position differences.
+    attitude_ki_x_deg_per_m_s: 0.5
+    attitude_ki_y_deg_per_m_s: 0.5
+    attitude_kd_x_deg_s_per_m: 3.0
+    attitude_kd_y_deg_s_per_m: 3.0
+    # Vector-norm caps: independent of heading, never exceed these angles.
+    attitude_integral_limit_deg: 5.0
+    attitude_integral_zone_m: 0.75
+    attitude_integral_max_speed_mps: 0.4
+    attitude_derivative_limit_deg: 8.0
+    attitude_velocity_filter_tau_s: 0.2
+    attitude_velocity_limit_mps: 3.0
+    attitude_sample_max_gap_s: 0.25
+    attitude_max_angle_deg: 30.0
+    attitude_max_rate_deg_s: 60.0
+    # Independent MAP X/Y gains; FC body forward/right speed PID is separate.
+    # Keep the last tested gains while slowing the trajectory; tune one axis
+    # at a time after confirming the FC follows its velocity setpoint.
+    kp_x: 1.0
+    kd_x: 0.0
+    kp_y: 1.0
+    kd_y: 0.0
+    max_speed_mps: 2.0
+    max_acceleration_mps2: 1.0
+    arrival_position_tolerance_m: 0.10
+    arrival_speed_tolerance_mps: 0.05
+    arrival_dwell_s: 0.5
+    continuous_hold: true
+    require_start_here: true
+    publish_body_setpoint: true
+    # Firmware 74d6a5c: ID254 yaw at 5Hz, no ID31/250 telemetry.
+    compact_yaw_only: true
+    # Use filtered UWB only for control; keep flow odometry as an observer.
+    use_optical_flow_fallback: false
+    # Optical flow is unavailable close to the ground. Only FRESH invalid
+    # packets fall back to zero; missing/stale packets still stop control.
+    invalid_velocity_as_zero: true
+    publish_rate_hz: 50.0
+    position_timeout_ms: 500
+    feedback_timeout_ms: 1500
+    attitude_timeout_ms: 1500
+    heartbeat_timeout_ms: 5000
+    # Heartbeat is diagnostic in this profile. Continuous source-checked,
+    # timestamp-advancing ID31/250 remain mandatory for actual control.
+    heartbeat_required: false
+    # From FIRST detection of a transient bad/stale input: output zero,
+    # keep goal for 2s, resume from zero only if all inputs recover in time.
+    # Explicit clock/reference resets bypass this grace and clear immediately.
+    input_recovery_grace_ms: 2000
+    target_system: 1
+    target_component: 1
+    feedback_velocity_mode: heading_xy
+    feedback_convention_confirmed: true
+    assume_zero_world_vertical_speed: false
+frame_contract:
+  # Runtime service supplies alignment; never reuse an earlier power-on offset.
+  map_to_reference_confirmed: false
+  attitude_convention_confirmed: true
+  quaternion_body_to_ned: true
+  map_to_enu_yaw_rad: 0.0
+  alignment_requires_session: true
+  alignment_max_clock_skew_ms: 2000.0
+
+# communication.launch.py loads these along with pocket_bench.yaml.
+mavlink_bridge_node:
+  ros__parameters:
+    velocity_protocol: compact
+    max_attitude_angle_deg: 30.0
+    attitude_message_id: 254
+    # User direction check after restoring ELRS uplink, 2026-11-25:
+    # the current FC expects forward/right positive; remove the old Y inversion.
+    velocity_y_sign: 1
+    # Freshly computed commands are required even when FC telemetry is slower.
+    velocity_timeout_ms: 200
+    velocity_attitude_timeout_ms: 1500

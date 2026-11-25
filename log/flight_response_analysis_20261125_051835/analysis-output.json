@@ -1,0 +1,13 @@
+{
+  "session": "/home/enhe/uwb/log/experiments/20261125_051835_flight_18621101607736",
+  "source_csv_modified": false,
+  "goal_accepted_s": 26.405275155,
+  "first_changed_control_tick_s": 26.425,
+  "first_following_udp_send_s": 26.429,
+  "udp_send_max_interval_s": 0.10057265400000404,
+  "position_input_invalid_s": 113.465652684,
+  "goal_cleared_s": 115.465667978,
+  "last_accepted_filtered_uwb_s": 113.235953146,
+  "known": "PC emits changed commands immediately and later explicitly emits invalid zero frames because both position inputs are unusable.",
+  "unknown": "FC receive latency, actual accepted velocity target, stick/mode arbitration, RF packet rate and whether the final invalid observations coincided with landing/handling."
+}

@@ -73,3 +73,70 @@ TEST(LooseOdometry, PartialCorrectionIsAnExplicitOption)
   ASSERT_TRUE(f.correct(.05,{{.1,0}}));EXPECT_NEAR(f.estimate(.05).position[0],.05,1e-12);
   c.innovation_gate_m=NAN;EXPECT_THROW(LooseOdometry bad(c),std::invalid_argument);
 }
+TEST(LooseOdometry, ReliableUwbChecksEveryFixButSynchronizesOdometryPeriodically)
+{
+  LooseOdometryConfig c;c.uwb_sync_period_s=.2;LooseOdometry f(c);initialize(f);f.set_flow(.04,{{1,0}});
+  ASSERT_TRUE(f.correct(.14,{{0,0}}));auto p=f.estimate(.14);
+  EXPECT_NEAR(p.position[0],.1,1e-12);EXPECT_NEAR(p.reliable_uwb[0],0,1e-12);EXPECT_EQ(p.syncs,1U);
+  ASSERT_TRUE(f.correct(.25,{{0,0}}));p=f.estimate(.25);EXPECT_NEAR(p.position[0],0,1e-12);EXPECT_EQ(p.syncs,2U);
+}
+TEST(LooseOdometry, UwbRecoveryRequiresBothTimeAndConsecutiveSamples)
+{
+  LooseOdometryConfig c;c.recovery_confirmation_s=.2;c.recovery_confirmation_samples=3;
+  LooseOdometry f(c);initialize(f);f.set_flow(.04,{{0,0}});EXPECT_FALSE(f.correct(.06,{{5,0}}));
+  EXPECT_FALSE(f.correct(.08,{{0,0}}));EXPECT_FALSE(f.correct(.10,{{0,0}}));EXPECT_FALSE(f.correct(.12,{{0,0}}));
+  for(int i=7;i<=13;++i){EXPECT_FALSE(f.correct(i*.02,{{0,0}}));}
+  EXPECT_TRUE(f.correct(.30,{{0,0}}));EXPECT_TRUE(f.estimate(.30).uwb_recent);
+}
+
+TEST(UwbLowPass, RealTimeConstantAttenuatesNoiseAndIsIndependentOfSampleRate)
+{
+  for(double dt:{.01,.02,.05}){
+    UwbLowPass f(true,.1,.5);ASSERT_TRUE(f.update(0,{{0,2}}));
+    for(int i=1;i<=static_cast<int>(std::round(.1/dt));++i){ASSERT_TRUE(f.update(i*dt,{{1,2}}));}
+    EXPECT_NEAR(f.value()[0],1-std::exp(-1.),1e-12);EXPECT_DOUBLE_EQ(f.value()[1],2);
+  }
+  UwbLowPass f(true,.1,.5);f.update(0,{{0,0}});double square=0;
+  for(int i=1;i<=500;++i){f.update(i*.02,{{i%2?.1:-.1,0}});if(i>50){square+=f.value()[0]*f.value()[0];}}
+  EXPECT_LT(std::sqrt(square/450),.02); // Raw alternating noise RMS is 0.10 m.
+}
+
+TEST(UwbLowPass, InvalidDuplicateAndOldSamplesDoNotPoisonOrRenewState)
+{
+  UwbLowPass f(true,.1,.15);ASSERT_TRUE(f.update(1,{{1,2}}));
+  EXPECT_FALSE(f.update(1,{{9,9}}));EXPECT_FALSE(f.update(.9,{{9,9}}));
+  EXPECT_FALSE(f.update(1.01,{{NAN,9}}));EXPECT_EQ(f.value(),(std::array<double,2>{{1,2}}));
+  ASSERT_TRUE(f.update(1.2,{{3,4}}));EXPECT_DOUBLE_EQ(f.value()[0],3);
+  f.reset();ASSERT_TRUE(f.update(0,{{8,7}}));EXPECT_DOUBLE_EQ(f.value()[0],8);
+  UwbLowPass bypass(false,.1,.5);bypass.update(0,{{0,0}});bypass.update(.01,{{1,2}});
+  EXPECT_DOUBLE_EQ(bypass.value()[0],1);EXPECT_THROW(UwbLowPass invalid(true,0,.5),std::invalid_argument);
+}
+
+TEST(LooseOdometry, RawJumpGatePrecedesSmoothingAndRecoveryRestartsAtFreshFix)
+{
+  LooseOdometryConfig c;c.uwb_filter_enabled=true;c.uwb_filter_tau_s=.1;
+  LooseOdometry f(c);initialize(f);f.set_flow(.04,{{0,0}});
+  ASSERT_TRUE(f.correct(.06,{{.1,0}}));const auto before=f.estimate(.06);
+  EXPECT_NEAR(before.reliable_uwb[0],.1*(1-std::exp(-.2)),1e-12);
+  EXPECT_NEAR(before.position[0],before.reliable_uwb[0],1e-12);
+  EXPECT_FALSE(f.correct(.08,{{5,0}}));const auto rejected=f.estimate(.08);
+  EXPECT_FALSE(rejected.uwb_recent);EXPECT_EQ(rejected.reliable_uwb,before.reliable_uwb);
+  EXPECT_NEAR(rejected.uwb_age,.02,1e-12); // Rejected point did not refresh age.
+  EXPECT_FALSE(f.correct(.10,{{.05,0}}));EXPECT_FALSE(f.correct(.12,{{.05,0}}));
+  ASSERT_TRUE(f.correct(.14,{{.05,0}}));EXPECT_NEAR(f.estimate(.14).reliable_uwb[0],.05,1e-12);
+  f.reset();initialize(f,2,3);EXPECT_NEAR(f.estimate(.2).reliable_uwb[0],2,1e-12);
+}
+
+TEST(LooseOdometry, Observed240msUwbGapKeepsHealthyPositionButTrueOutageAndJumpsDoNot)
+{
+  LooseOdometryConfig c;c.uwb_timeout_s=.3;c.recovery_confirmation_s=.5;
+  c.recovery_confirmation_samples=10;c.uwb_filter_enabled=true;
+  LooseOdometry f(c);initialize(f);f.invalidate_flow(.05,"Synthetic missing flow");
+  // Actual flight had a 240 ms gap with unusable optical propagation. This
+  // must not force a recovery cycle while UWB remains within its valid age.
+  auto before=f.estimate(.27);ASSERT_TRUE(before.valid);EXPECT_TRUE(before.uwb_recent);
+  ASSERT_TRUE(f.correct(.28,{{.1,0}}));EXPECT_TRUE(f.estimate(.28).uwb_recent);
+  EXPECT_FALSE(f.correct(.30,{{5,5}}));EXPECT_FALSE(f.estimate(.30).valid);
+  f.reset();initialize(f);f.invalidate_flow(.05,"Synthetic missing flow");
+  EXPECT_FALSE(f.estimate(.35).valid); // A real gap >300 ms still stops.
+}

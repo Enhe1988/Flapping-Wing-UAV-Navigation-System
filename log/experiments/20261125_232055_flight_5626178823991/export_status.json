@@ -1,0 +1,10 @@
+{
+  "state": "finished",
+  "stage": "complete",
+  "started_ros_ns": 1795621218320024333,
+  "updated_ros_ns": 1795621228795545255,
+  "messages_read": 42970,
+  "current_chart": "flow_compensated_trajectory",
+  "completed_charts": 6,
+  "error": ""
+}

@@ -1,0 +1,37 @@
+# UWB quality checks, periodically corrected flow odometry and position selection.
+fusion_odometry_node:
+  ros__parameters:
+    map_frame_id: map
+    # A virtual point frame with axes parallel to map, NOT aircraft attitude.
+    child_frame_id: fusion_map_axes
+    publish_rate_hz: 50.0
+    path_publish_rate_hz: 5.0
+    target_system: 1
+    target_component: 1
+    quaternion_body_to_ned: true
+    use_navigation_alignment: true
+    alignment_requires_session: true
+    alignment_max_clock_skew_ms: 2000.0
+    uwb_timeout_ms: 150
+    # UWB status is published at 5 Hz, independently from 50 Hz positions.
+    uwb_status_timeout_ms: 500
+    flow_timeout_ms: 400
+    attitude_timeout_ms: 500
+    max_attitude_pair_skew_ms: 250
+    max_flow_device_gap_ms: 500
+    max_flow_speed_mps: 5.0
+    max_dead_reckoning_s: 5.0
+    uwb_sync_period_s: 0.2
+    uwb_recovery_confirmation_s: 0.5
+    uwb_recovery_confirmation_samples: 10
+    uwb_recovery_blend_s: 0.5
+    # Evaluation defaults; tune from recorded data, not certified error bounds.
+    uwb_jump_slack_m: 0.3
+    max_uwb_speed_mps: 3.0
+    uwb_innovation_gate_m: 0.75
+    uwb_confirmation_samples: 3
+    # 1.0 makes accepted UWB fixes exactly re-anchor XY. Smaller values smooth.
+    uwb_correction_gain: 1.0
+    initial_position_variance_m2: 0.0025
+    position_variance_growth_m2_per_s: 0.04
+    max_path_points: 3000

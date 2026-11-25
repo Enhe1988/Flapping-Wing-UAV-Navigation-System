@@ -3,6 +3,7 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
+#include <algorithm>
 #include <array>
 #include <cerrno>
 #include <chrono>
@@ -25,6 +26,7 @@
 #include "flapping_uav_msgs/msg/rc_override.hpp"
 #include "flapping_uav_msgs/msg/attitude_state.hpp"
 #include "flapping_uav_msgs/msg/body_velocity_setpoint.hpp"
+#include "flapping_uav_msgs/msg/body_attitude_setpoint.hpp"
 #include "flapping_uav_msgs/msg/body_motion_state.hpp"
 #include "rclcpp/rclcpp.hpp"
 
@@ -44,6 +46,7 @@ public:
   {
     tx_enabled_ = startup_parameter("tx_enabled", false);
     send_heartbeat_ = startup_parameter("send_heartbeat", true);
+    send_rc_ = startup_parameter("send_rc", true);
     remote_ip_ = startup_parameter("remote_ip", std::string(""));
     const auto bind_ip = startup_parameter("bind_ip", std::string("0.0.0.0"));
     rx_port_ = startup_parameter("rx_port", 9000);
@@ -57,6 +60,15 @@ public:
     print_rx_ = startup_parameter("print_rx", true);
     loss_action_ = startup_parameter("rc_loss_action", std::string("stop"));
     send_velocity_ = startup_parameter("send_velocity", false);
+    velocity_protocol_ = startup_parameter("velocity_protocol", std::string("legacy"));
+    if(velocity_protocol_!="legacy" && velocity_protocol_!="compact"){
+      throw std::invalid_argument("velocity_protocol must be legacy or compact");}
+    compact_=velocity_protocol_=="compact";
+    control_mode_=startup_parameter("horizontal_control_mode",std::string("velocity"));
+    max_angle_deg_=startup_parameter("max_attitude_angle_deg",30.0);
+    if((control_mode_!="velocity" && control_mode_!="attitude") ||
+      (control_mode_=="attitude" && !compact_) || !std::isfinite(max_angle_deg_) ||
+      max_angle_deg_<=0 || max_angle_deg_>30){throw std::invalid_argument("Invalid attitude mode or limit (must be <=30 deg)");}
     velocity_y_sign_ = startup_parameter("velocity_y_sign", 1);
     if (velocity_y_sign_ != 1 && velocity_y_sign_ != -1) {
       throw std::invalid_argument("velocity_y_sign must be +1 or -1");
@@ -68,12 +80,12 @@ public:
       (velocity_frame_id_ != "base_link_heading_frd" || !velocity_xy_only_ || !heading_confirmed))
     {throw std::invalid_argument("Heading XY requires explicit agreed profile and ignored vz");}
     motion_name_ = startup_parameter("motion_name", std::string(""));
-    const auto velocity_rate = startup_parameter("velocity_rate_hz", 30.0);
+    const auto velocity_rate = startup_parameter("velocity_rate_hz", 10.0);
     velocity_timeout_ms_ = startup_parameter("velocity_timeout_ms", 200);
     velocity_attitude_timeout_ms_ = startup_parameter(
       "velocity_attitude_timeout_ms", velocity_timeout_ms_);
     max_body_speed_ = startup_parameter("max_body_speed_mps", 1.0);
-    attitude_message_id_ = startup_parameter("attitude_message_id", 31);
+    attitude_message_id_ = startup_parameter("attitude_message_id", compact_?254:31);
     attitude_system_ = startup_parameter("attitude_system_id", target_system_);
     attitude_component_ = startup_parameter("attitude_component_id", target_component_);
     if (rx_port_ < 1 || rx_port_ > 65535 || tx_port_ < 1 || tx_port_ > 65535 ||
@@ -85,7 +97,9 @@ public:
     {throw std::invalid_argument("Invalid MAVLink endpoint, ID, rate, timeout or loss action");}
     if (!std::isfinite(velocity_rate) || velocity_rate < 1 || velocity_rate > 100 ||
       velocity_timeout_ms_ <= 0 || velocity_attitude_timeout_ms_ <= 0 || !std::isfinite(max_body_speed_) || max_body_speed_ <= 0 ||
-      (attitude_message_id_ != 30 && attitude_message_id_ != 31 && attitude_message_id_ != 331) ||
+      (compact_ ? (attitude_message_id_!=254 || max_body_speed_>32.767 ||
+        velocity_frame_id_!="base_link_heading_frd" || !velocity_xy_only_) :
+        (attitude_message_id_ != 30 && attitude_message_id_ != 31 && attitude_message_id_ != 331)) ||
       attitude_system_ < 1 || attitude_system_ > 255 ||
       attitude_component_ < 0 || attitude_component_ > 255)
     {throw std::invalid_argument("Invalid body velocity/attitude configuration");}
@@ -111,20 +125,26 @@ public:
     motion_output_ = create_publisher<flapping_uav_msgs::msg::BodyMotionState>("/fc/body_motion", 10);
     sent_velocity_output_ = create_publisher<flapping_uav_msgs::msg::BodyVelocitySetpoint>(
       "/fc/velocity_setpoint_sent", 10);
-    velocity_input_ = create_subscription<flapping_uav_msgs::msg::BodyVelocitySetpoint>(
+    if(control_mode_=="attitude"){
+      sent_attitude_output_=create_publisher<flapping_uav_msgs::msg::BodyAttitudeSetpoint>("/fc/attitude_setpoint_sent",10);
+      attitude_input_=create_subscription<flapping_uav_msgs::msg::BodyAttitudeSetpoint>("/fc/attitude_setpoint_body",rclcpp::QoS(1),
+        [this](flapping_uav_msgs::msg::BodyAttitudeSetpoint::ConstSharedPtr m){last_attitude_command_=*m;last_attitude_command_time_=Clock::now();seen_attitude_command_=true;});
+    } else {velocity_input_ = create_subscription<flapping_uav_msgs::msg::BodyVelocitySetpoint>(
       "/fc/velocity_setpoint_body", rclcpp::QoS(1),
       [this](flapping_uav_msgs::msg::BodyVelocitySetpoint::ConstSharedPtr message) {
         last_velocity_ = *message; last_velocity_time_ = Clock::now(); seen_velocity_ = true;
-      });
-    rc_input_ = create_subscription<flapping_uav_msgs::msg::RcOverride>(
-      "/rc/override", rclcpp::QoS(1),
-      [this](flapping_uav_msgs::msg::RcOverride::ConstSharedPtr message) {
-        last_rc_ = *message; last_rc_time_ = Clock::now(); seen_rc_ = true;
-      });
+      });}
+    if (send_rc_) {
+      rc_input_ = create_subscription<flapping_uav_msgs::msg::RcOverride>(
+        "/rc/override", rclcpp::QoS(1),
+        [this](flapping_uav_msgs::msg::RcOverride::ConstSharedPtr message) {
+          last_rc_ = *message; last_rc_time_ = Clock::now(); seen_rc_ = true;
+        });
+      tx_timer_ = create_wall_timer(
+        std::chrono::duration_cast<std::chrono::nanoseconds>(
+          std::chrono::duration<double>(1 / rc_rate)), [this]() {send_rc();});
+    }
     rx_timer_ = create_wall_timer(std::chrono::milliseconds(5), [this]() {receive();});
-    tx_timer_ = create_wall_timer(
-      std::chrono::duration_cast<std::chrono::nanoseconds>(
-        std::chrono::duration<double>(1 / rc_rate)), [this]() {send_rc();});
     status_timer_ = create_wall_timer(
       std::chrono::seconds(1), [this]() {
         if (tx_enabled_ && send_heartbeat_) {
@@ -144,9 +164,13 @@ public:
       bind_ip.c_str(), rx_port_, tx_enabled_ ? "enabled" : "disabled",
       remote_ip_.c_str(), tx_port_, loss_action_.c_str());
     RCLCPP_INFO(
-      get_logger(), "Velocity ID84: %s; frame8, input=%s, XY-only=%s; wire vy sign=%d",
-      send_velocity_ ? "enabled when TX enabled" : "disabled", velocity_frame_id_.c_str(),
+      get_logger(), "Velocity %s: %s; rate=%g Hz; input=%s, XY-only=%s; wire vy sign=%d",
+      control_mode_=="attitude"?"ID248 type=0x8002 attitude":(compact_?"ID248 type=0x8001 version=1":"ID84 frame8"),
+      send_velocity_ ? "enabled when TX enabled" : "disabled", velocity_rate, velocity_frame_id_.c_str(),
       velocity_xy_only_ ? "true" : "false", velocity_y_sign_);
+    RCLCPP_INFO(get_logger(), "RC ID70 forwarding: %s", send_rc_ ? "enabled" : "disabled");
+    if(control_mode_=="attitude"){
+      RCLCPP_INFO(get_logger(),"ACTIVE output: ID248 type=0x8002 attitude, pitch/roll centidegrees, each +/-%.1f deg; no velocity forwarding",max_angle_deg_);}
   }
 
 private:
@@ -187,7 +211,7 @@ private:
 
   void send_rc()
   {
-    if (!tx_enabled_) {return;}
+    if (!tx_enabled_ || !send_rc_) {return;}
     const bool fresh = rc_fresh();
     if (!fresh && loss_action_ == "stop") {return;}
     auto channels = last_rc_.channels;
@@ -219,15 +243,23 @@ private:
            std::isfinite(last_velocity_.attitude_age_ms) && last_velocity_.attitude_age_ms >= 0 &&
            elapsed + last_velocity_.command_age_ms <= velocity_timeout_ms_ &&
            elapsed + last_velocity_.attitude_age_ms <= velocity_attitude_timeout_ms_ &&
-           finite_vector({{v.x, v.y, v.z}}) && std::hypot(v.x, v.y, v.z) <= max_body_speed_ &&
+           finite_vector({{v.x, v.y, v.z}}) &&
+           std::hypot(v.x, v.y, v.z) <= max_body_speed_ + 1e-9 * std::max(1.0, max_body_speed_) &&
            (velocity_frame_id_ != "base_link_heading_frd" || v.z == 0);
   }
 
   void send_body_velocity()
   {
     if (!tx_enabled_ || !send_velocity_) {return;}
+    if(control_mode_=="attitude"){send_compact_attitude();return;}
+    if(compact_){send_compact_velocity();return;}
     const bool valid = velocity_fresh();
     const auto & v = last_velocity_.velocity;
+    // A frame rotation can round a saturated 2 m/s vector to 2+1e-15.
+    // Accept only roundoff-sized excess, then clamp it back to the exact limit;
+    // a genuinely oversized command must still produce an invalid zero frame.
+    const double speed = std::hypot(v.x, v.y, v.z);
+    const double scale = valid && speed > max_body_speed_ ? max_body_speed_ / speed : 1.0;
     const auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(
       Clock::now() - start_time_).count();
     static_assert(MAV_FRAME_BODY_NED == 8, "ID84 body-velocity interface changed");
@@ -246,8 +278,8 @@ private:
     mavlink_msg_set_position_target_local_ned_pack(
       system_id_, component_id_, &message,
       static_cast<uint32_t>(elapsed), target_system_, target_component_, MAV_FRAME_BODY_NED,
-      mask, 0, 0, 0, valid ? v.x : 0, valid ? velocity_y_sign_ * v.y : 0,
-      valid && !velocity_xy_only_ ? v.z : 0, 0, 0, 0, 0, 0);
+      mask, 0, 0, 0, valid ? scale * v.x : 0, valid ? velocity_y_sign_ * scale * v.y : 0,
+      valid && !velocity_xy_only_ ? scale * v.z : 0, 0, 0, 0, 0, 0);
     if (transmit(message)) {
       // Decode the actual packed float fields for the monitor topic. This is
       // the FC application command convention, not the internal FRD frame.
@@ -270,6 +302,70 @@ private:
     ++velocity_frames_;
   }
 
+  void send_compact_attitude()
+  {
+    const auto & input=last_attitude_command_;
+    const double command_age=std::chrono::duration<double,std::milli>(Clock::now()-last_attitude_command_time_).count();
+    const double yaw_age=std::chrono::duration<double,std::milli>(Clock::now()-last_yaw_time_).count();
+    const bool valid=seen_attitude_command_ && input.valid && input.header.frame_id=="fc_attitude_target" &&
+      std::isfinite(input.command_age_ms) && input.command_age_ms>=0 &&
+      std::isfinite(input.attitude_age_ms) && input.attitude_age_ms>=0 &&
+      command_age+input.command_age_ms<=velocity_timeout_ms_ &&
+      command_age+input.attitude_age_ms<=velocity_attitude_timeout_ms_ &&
+      seen_yaw_ && yaw_age<=velocity_attitude_timeout_ms_ &&
+      std::isfinite(input.pitch_deg) && std::isfinite(input.roll_deg);
+    const int16_t pitch=valid?static_cast<int16_t>(std::lround(std::clamp(input.pitch_deg,-max_angle_deg_,max_angle_deg_)*100)):0;
+    const int16_t roll=valid?static_cast<int16_t>(std::lround(std::clamp(input.roll_deg,-max_angle_deg_,max_angle_deg_)*100)):0;
+    std::array<uint8_t,249> payload{};payload[0]=1;payload[1]=valid?1:0;
+    const auto put16=[&payload](size_t at,int16_t value){const auto bits=static_cast<uint16_t>(value);
+      payload[at]=bits&255;payload[at+1]=bits>>8;};
+    put16(2,pitch);put16(4,roll);
+    for(size_t i=0;i<4;++i){payload[6+i]=(last_yaw_tick_ms_>>(8*i))&255;}
+    mavlink_message_t message;
+    mavlink_msg_v2_extension_pack(system_id_,component_id_,&message,0,target_system_,target_component_,0x8002,payload.data());
+    if(transmit(message)){
+      flapping_uav_msgs::msg::BodyAttitudeSetpoint sent;
+      sent.header.stamp=now();sent.header.frame_id="fc_attitude_target";sent.valid=valid;
+      sent.pitch_deg=pitch*.01;sent.roll_deg=roll*.01;
+      sent.command_age_ms=seen_attitude_command_?command_age+input.command_age_ms:INFINITY;
+      sent.attitude_age_ms=seen_yaw_?yaw_age:INFINITY;
+      sent.reason=std::string("UDP ID248 type=0x8002 attitude enabled=")+(valid?"1":"0")+
+        "; yaw_echo_ms="+std::to_string(last_yaw_tick_ms_)+(valid?"":"; command or yaw missing/invalid/stale");
+      sent_attitude_output_->publish(sent);
+    }
+    ++velocity_frames_;
+  }
+
+  void send_compact_velocity()
+  {
+    const bool yaw_fresh=seen_yaw_ &&
+      std::chrono::duration<double,std::milli>(Clock::now()-last_yaw_time_).count()<=velocity_attitude_timeout_ms_;
+    const bool valid=velocity_fresh() && yaw_fresh;
+    const auto & v=last_velocity_.velocity;
+    // Firmware 74d6a5c: payload[0] is VERSION (not payload length), type 0x8001.
+    std::array<uint8_t,249> payload{};payload[0]=1;payload[1]=valid?1:0;
+    const int16_t vx=valid?static_cast<int16_t>(std::lround(v.x*1000)):0;
+    const int16_t vy=valid?static_cast<int16_t>(std::lround(velocity_y_sign_*v.y*1000)):0;
+    const auto put16=[&payload](size_t at,int16_t value){
+      const auto bits=static_cast<uint16_t>(value);payload[at]=bits&255;payload[at+1]=bits>>8;};
+    put16(2,vx);put16(4,vy);
+    for(size_t i=0;i<4;++i){payload[6+i]=(last_yaw_tick_ms_>>(8*i))&255;}
+    mavlink_message_t message;
+    mavlink_msg_v2_extension_pack(system_id_,component_id_,&message,0,target_system_,target_component_,0x8001,payload.data());
+    if(transmit(message)){
+      flapping_uav_msgs::msg::BodyVelocitySetpoint sent;
+      sent.header.stamp=now();sent.header.frame_id="fc_velocity_command";sent.valid=valid;
+      sent.velocity.x=vx*.001;sent.velocity.y=vy*.001;
+      const double age=std::chrono::duration<double,std::milli>(Clock::now()-last_velocity_time_).count();
+      sent.command_age_ms=seen_velocity_?last_velocity_.command_age_ms+age:INFINITY;
+      sent.attitude_age_ms=seen_yaw_?std::chrono::duration<double,std::milli>(Clock::now()-last_yaw_time_).count():INFINITY;
+      sent.reason=std::string("UDP ID248 type=0x8001 version=1 enabled=")+(valid?"1":"0")+
+        "; yaw_echo_ms="+std::to_string(last_yaw_tick_ms_)+(valid?"":"; input or yaw missing/invalid/stale");
+      sent_velocity_output_->publish(sent);
+    }
+    ++velocity_frames_;
+  }
+
   bool accept_sample(SampleOrderFilter & filter, uint64_t device_us, uint8_t reset_counter,
     const char * label, uint64_t & drops, uint64_t & resets)
   {
@@ -277,13 +373,18 @@ private:
     const auto host_ns = std::chrono::duration_cast<std::chrono::nanoseconds>(
       Clock::now().time_since_epoch()).count();
     const auto result = filter.observe(device_us, reset_counter, host_ns);
-    if (result == SampleOrder::duplicate || result == SampleOrder::old_packet) {
+    if (result == SampleOrder::duplicate || result == SampleOrder::old_packet || result==SampleOrder::future_packet) {
       ++drops;
       if (result == SampleOrder::old_packet) {
         RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 3000,
           "%s old/reordered sample dropped: device_us=%llu, latest_us=%llu",
           label, static_cast<unsigned long long>(device_us),
           static_cast<unsigned long long>(previous));
+      }
+      if(result==SampleOrder::future_packet){
+        RCLCPP_WARN_THROTTLE(get_logger(),*get_clock(),3000,
+          "%s implausible future timestamp dropped: device_us=%llu, latest_us=%llu",
+          label,static_cast<unsigned long long>(device_us),static_cast<unsigned long long>(previous));
       }
       return false;
     }
@@ -298,11 +399,23 @@ private:
 
   void publish_motion(const mavlink_message_t & message)
   {
+    if(compact_){return;}
     if (message.msgid != MAVLINK_MSG_ID_DEBUG_VECT ||
       message.sysid != static_cast<uint32_t>(target_system_) ||
       message.compid != target_component_) {return;}
     mavlink_debug_vect_t value;
     mavlink_msg_debug_vect_decode(&message, &value);
+    // This FC reports HAL_GetTick() (uint32 milliseconds) * 1000 in ID250,
+    // sharing the boot clock of ID31. Reject impossible epochs even if this
+    // is the first packet, before touching the ordering/freshness state.
+    constexpr uint64_t max_boot_us=(static_cast<uint64_t>(UINT32_MAX)+1ULL)*1000ULL;
+    if(value.time_usec>max_boot_us){
+      ++motion_invalid_timestamps_;
+      RCLCPP_WARN_THROTTLE(get_logger(),*get_clock(),3000,
+        "ID250 impossible boot timestamp dropped: device_us=%llu",
+        static_cast<unsigned long long>(value.time_usec));
+      return;
+    }
     const std::string name(value.name, strnlen(value.name, sizeof(value.name)));
     if (!motion_name_.empty() && name != motion_name_) {return;}
     flapping_uav_msgs::msg::BodyMotionState output;
@@ -331,13 +444,36 @@ private:
     output.message_id = message.msgid;
     QuaternionWxyz q;
     bool metadata_valid = true;
-    if (message.msgid == 31) {
+    if(message.msgid==254){
+      mavlink_debug_t value;mavlink_msg_debug_decode(&message,&value);
+      if(value.ind!=1){return;}
+      output.yaw_only=true;output.yaw_rad=value.value;
+      output.sample_time_us=static_cast<uint64_t>(value.time_boot_ms)*1000;
+      output.valid=std::isfinite(value.value) && std::abs(value.value)<=std::acos(-1.)+1e-5;
+      const double nan=std::numeric_limits<double>::quiet_NaN();
+      output.orientation.w=output.orientation.x=output.orientation.y=output.orientation.z=nan;
+      output.angular_velocity.x=output.angular_velocity.y=output.angular_velocity.z=nan;
+      output.angular_velocity_valid=false;
+      output.reason=output.valid?"ID254 ind=1 yaw only; no roll/pitch/quaternion/body rates":"Invalid ID254 yaw";
+      if(accept_sample(attitude_order_,output.sample_time_us,0,"Yaw",attitude_order_drops_,attitude_clock_resets_)){
+        seen_yaw_=output.valid;
+        if(output.valid){last_yaw_tick_ms_=value.time_boot_ms;last_yaw_time_=Clock::now();}
+        attitude_output_->publish(output);
+      }
+      return;
+    } else if (message.msgid == 31) {
       mavlink_attitude_quaternion_t value;
       mavlink_msg_attitude_quaternion_decode(&message, &value);
       q = {{value.q1, value.q2, value.q3, value.q4}};
+      output.angular_velocity.x = value.rollspeed;
+      output.angular_velocity.y = value.pitchspeed;
+      output.angular_velocity.z = value.yawspeed;
       output.sample_time_us = static_cast<uint64_t>(value.time_boot_ms) * 1000;
     } else if (message.msgid == 30) {
       mavlink_attitude_t value; mavlink_msg_attitude_decode(&message, &value);
+      output.angular_velocity.x = value.rollspeed;
+      output.angular_velocity.y = value.pitchspeed;
+      output.angular_velocity.z = value.yawspeed;
       const double cr = std::cos(value.roll / 2), sr = std::sin(value.roll / 2);
       const double cp = std::cos(value.pitch / 2), sp = std::sin(value.pitch / 2);
       const double cy = std::cos(value.yaw / 2), sy = std::sin(value.yaw / 2);
@@ -347,11 +483,17 @@ private:
     } else {
       mavlink_odometry_t value; mavlink_msg_odometry_decode(&message, &value);
       q = {{value.q[0], value.q[1], value.q[2], value.q[3]}};
+      output.angular_velocity.x = value.rollspeed;
+      output.angular_velocity.y = value.pitchspeed;
+      output.angular_velocity.z = value.yawspeed;
       output.sample_time_us = value.time_usec; output.reset_counter = value.reset_counter;
       metadata_valid = value.frame_id == MAV_FRAME_LOCAL_NED &&
         value.child_frame_id == MAV_FRAME_BODY_FRD && value.quality != -1;
     }
     output.valid = normalize_attitude(q) && metadata_valid;
+    output.angular_velocity_valid = metadata_valid &&
+      std::isfinite(output.angular_velocity.x) && std::isfinite(output.angular_velocity.y) &&
+      std::isfinite(output.angular_velocity.z);
     output.orientation.w = q[0]; output.orientation.x = q[1];
     output.orientation.y = q[2]; output.orientation.z = q[3];
     output.reason =
@@ -446,6 +588,7 @@ private:
     add("rx_port", std::to_string(rx_port_));
     add("destination", remote_ip_ + ":" + std::to_string(tx_port_));
     add("tx_enabled", tx_enabled_ ? "true" : "false");
+    add("send_rc", send_rc_ ? "true" : "false");
     add("rc_input_fresh", rc_fresh() ? "true" : "false");
     add("rc_loss_action", loss_action_);
     add("tx_frames", std::to_string(tx_frames_)); add("rc_frames", std::to_string(rc_frames_));
@@ -456,31 +599,43 @@ private:
     add("motion_order_drops", std::to_string(motion_order_drops_));
     add("attitude_clock_resets", std::to_string(attitude_clock_resets_));
     add("motion_clock_resets", std::to_string(motion_clock_resets_));
+    add("motion_invalid_timestamps",std::to_string(motion_invalid_timestamps_));
     add("crc_or_signature_errors", std::to_string(crc_errors_));
     add("unknown_frames", std::to_string(unknown_frames_));
     add("source_limit_drops", std::to_string(source_drops_));
     add("velocity_timeout_ms", std::to_string(velocity_timeout_ms_));
     add("velocity_attitude_timeout_ms", std::to_string(velocity_attitude_timeout_ms_));
     add("send_velocity", send_velocity_ ? "true" : "false");
+    add("velocity_protocol",velocity_protocol_);
+    add("horizontal_control_mode",control_mode_);
+    add("max_attitude_angle_deg",std::to_string(max_angle_deg_));
+    add("yaw_echo_ms",std::to_string(last_yaw_tick_ms_));
+    add("velocity_rate_hz", std::to_string(get_parameter("velocity_rate_hz").as_double()));
     add("body_velocity_fresh", velocity_fresh() ? "true" : "false");
-    add("velocity_coordinate_frame", "8 (see velocity_input_frame/application profile)");
+    add("velocity_coordinate_frame",compact_?"compact horizontal forward/right":"8 (see velocity_input_frame/application profile)");
     add("velocity_frames", std::to_string(velocity_frames_));
     add("velocity_input_frame", velocity_frame_id_);
     add("velocity_y_sign", std::to_string(velocity_y_sign_));
     add("velocity_xy_only", velocity_xy_only_ ? "true (mask 3559)" : "false (mask 3527)");
-    add("motion_message", "250 DEBUG_VECT: x=forward m/s, y=right m/s, z=height up m");
+    add("motion_message",compact_?"not reported in compact firmware":"250 DEBUG_VECT: x=forward m/s, y=right m/s, z=height up m");
     array.status.push_back(status); diagnostics_->publish(array);
   }
 
   SampleOrderFilter attitude_order_, motion_order_;
   uint64_t attitude_order_drops_{0}, motion_order_drops_{0};
   uint64_t attitude_clock_resets_{0}, motion_clock_resets_{0};
+  uint64_t motion_invalid_timestamps_{0};
   UdpFd socket_;
   sockaddr_in remote_{};
-  bool tx_enabled_{false}, send_heartbeat_{true}, print_rx_{true}, seen_rc_{false}, seen_rx_{false};
+  bool tx_enabled_{false}, send_heartbeat_{true}, send_rc_{true}, print_rx_{true}, seen_rc_{false}, seen_rx_{false};
   int rx_port_, tx_port_, system_id_, component_id_, target_system_, target_component_,
     rc_timeout_ms_;
   std::string remote_ip_, loss_action_, motion_name_, velocity_frame_id_;
+  std::string velocity_protocol_;bool compact_{false},seen_yaw_{false};
+  std::string control_mode_;double max_angle_deg_{30};bool seen_attitude_command_{false};
+  Clock::time_point last_attitude_command_time_{};
+  flapping_uav_msgs::msg::BodyAttitudeSetpoint last_attitude_command_;
+  uint32_t last_yaw_tick_ms_{0};Clock::time_point last_yaw_time_{};
   Clock::time_point last_rc_time_{}, last_rx_time_{};
   Clock::time_point start_time_{Clock::now()}, last_velocity_time_{};
   bool send_velocity_{false}, seen_velocity_{false}, velocity_xy_only_{false};
@@ -501,6 +656,8 @@ private:
   rclcpp::Publisher<flapping_uav_msgs::msg::BodyMotionState>::SharedPtr motion_output_;
   rclcpp::Publisher<flapping_uav_msgs::msg::BodyVelocitySetpoint>::SharedPtr sent_velocity_output_;
   rclcpp::Subscription<flapping_uav_msgs::msg::BodyVelocitySetpoint>::SharedPtr velocity_input_;
+  rclcpp::Publisher<flapping_uav_msgs::msg::BodyAttitudeSetpoint>::SharedPtr sent_attitude_output_;
+  rclcpp::Subscription<flapping_uav_msgs::msg::BodyAttitudeSetpoint>::SharedPtr attitude_input_;
   rclcpp::TimerBase::SharedPtr velocity_timer_;
   rclcpp::TimerBase::SharedPtr rx_timer_, tx_timer_, status_timer_;
 };

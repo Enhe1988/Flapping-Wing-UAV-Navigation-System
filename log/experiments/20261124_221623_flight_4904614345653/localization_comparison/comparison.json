@@ -1,0 +1,56 @@
+{
+  "comparison_type": "same_experiment_position_estimates",
+  "session": "/home/enhe/uwb/log/experiments/20261124_221623_flight_4904614345653",
+  "synthetic_validation": false,
+  "offline_filtering": false,
+  "resampled": false,
+  "xy_limits_m": [
+    [
+      2.172600059509277,
+      4.904400081634521
+    ],
+    [
+      -3.9154000663757325,
+      0.49840001106262205
+    ]
+  ],
+  "time_limits_s": [
+    0.0,
+    122.142428966
+  ],
+  "time_position_limits_m": [
+    -3.9154000663757325,
+    4.904400081634521
+  ],
+  "raw_uwb_gap_threshold_s": 0.15,
+  "assisted_gap_threshold_s": 0.5,
+  "raw_point_rows": 6047,
+  "compensated_point_rows": 6107,
+  "valid_compensated_point_rows": 2220,
+  "valid_source_counts": {
+    "UWB": 2214,
+    "FLOW_ODOMETRY": 6,
+    "UWB_BLEND": 0
+  },
+  "flow_fallback_observed": true,
+  "uwb_unhealthy_intervals_s": [
+    [
+      44.28687156,
+      122.12660639
+    ]
+  ],
+  "flow_fallback_intervals_s": [
+    [
+      44.28687156,
+      44.406773045
+    ]
+  ],
+  "assistance_used_by_controller": true,
+  "plots": [
+    "uwb_raw_trajectory",
+    "flow_compensated_trajectory"
+  ],
+  "raw_points_source": "trajectory.csv (/uwb/position, after the UWB driver map conversion)",
+  "compensated_points_source": "position_sources.csv selected_x_m/selected_y_m (/localization/position)",
+  "notes": "Two estimates from the SAME experiment, not separate assisted/unassisted flights. Raw UWB is the driver output; fixes rejected by the driver cannot be recovered here. Compensated points are recorded online selector outputs, not an offline reconstruction. Invalid points stay in CSV with their flags but are not plotted; gaps remain gaps. UWB-not-accepted shading is algorithm status, not a measured physical occlusion label. Full precision numeric strings and independent timestamps are retained; original CSV files are untouched. No guaranteed improvement: verify flow_fallback_observed and the actual recorded curves."
+}

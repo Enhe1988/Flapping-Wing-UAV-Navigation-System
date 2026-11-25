@@ -1,0 +1,77 @@
+{
+  "format": "paper_csv_v1",
+  "session": "20261125_232055_flight_5626178823991",
+  "raw_rows": {
+    "alignment.csv": 1,
+    "attitude.csv": 585,
+    "attitude_desired.csv": 5910,
+    "attitude_pid.csv": 5910,
+    "attitude_sent.csv": 1182,
+    "control_position.csv": 5910,
+    "events.csv": 21,
+    "position_sources.csv": 5911,
+    "reference.csv": 5910,
+    "trajectory.csv": 5815,
+    "uwb_filtered.csv": 5815,
+    "velocity_actual.csv": 0,
+    "velocity_desired.csv": 0,
+    "velocity_sent.csv": 0
+  },
+  "missing_data": [],
+  "row_count_mismatches": [],
+  "dropped_rows": 0,
+  "recording_error": "",
+  "charts": [
+    "trajectory",
+    "trajectory_uwb_raw",
+    "trajectory_uwb_filtered",
+    "attitude_targets",
+    "attitude_pid",
+    "attitude"
+  ],
+  "unfiltered": true,
+  "flow_assistance_enabled": false,
+  "online_uwb_filter": {
+    "enabled": true,
+    "tau_s": 0.1
+  },
+  "uwb_filter_comparison": {
+    "comparison_type": "same_experiment_raw_and_online_filtered_uwb",
+    "raw_csv": "trajectory.csv",
+    "filtered_csv": "uwb_filtered.csv",
+    "reference_csv": "reference.csv",
+    "offline_filtering": false,
+    "resampled": false,
+    "plots": [
+      "trajectory_uwb_raw",
+      "trajectory_uwb_filtered"
+    ],
+    "online_filter_enabled": true,
+    "online_filter_tau_s": 0.1,
+    "gap_break_s": 0.3,
+    "xy_limits_m": [
+      [
+        0.7439499914646148,
+        3.737050074338913
+      ],
+      [
+        -5.707699936628342,
+        -1.4462999880313874
+      ]
+    ],
+    "time_limits_s": [
+      0.003903375,
+      118.193598098
+    ]
+  },
+  "flight_mode": "figure8",
+  "localization_comparison": {
+    "metadata": "localization_comparison/comparison.json",
+    "flow_fallback_observed": false,
+    "plots": [
+      "uwb_raw_trajectory",
+      "flow_compensated_trajectory"
+    ]
+  },
+  "notes": "Independent source timestamps retained. No offline resampling, smoothing or fabricated zeros. Controller positions include online source selection/blending; raw UWB is retained separately. p/q/r are reported body rates, not Euler derivatives. Desired positions are actual executed references: point targets or analytic horizontal trajectories according to flight_mode."
+}

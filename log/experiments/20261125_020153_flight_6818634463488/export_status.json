@@ -1,0 +1,10 @@
+{
+  "state": "error",
+  "stage": "plotting",
+  "started_ros_ns": 1795543593142902403,
+  "updated_ros_ns": 1795543595045336552,
+  "messages_read": 75964,
+  "current_chart": "trajectory",
+  "completed_charts": 0,
+  "error": "KeyboardInterrupt: "
+}

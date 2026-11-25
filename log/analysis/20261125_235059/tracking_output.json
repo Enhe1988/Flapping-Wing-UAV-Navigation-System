@@ -1,0 +1,64 @@
+{
+  "session": "20261125_235059_flight_7429867014875",
+  "formal_tracking_start_old_t_s": 21.483919433,
+  "formal_tracking_end_old_t_s": 106.504042833,
+  "formal_tracking_duration_s": 85.0201234,
+  "automatic_during_tracking_confirmed_by_user": true,
+  "manual_intervention": "only final shutdown/landing per user; exclude post-trajectory tail",
+  "tracking_error_against_selected_uwb_not_truth": {
+    "rmse_xy_m": [
+      0.3765359706132367,
+      0.36418128728334487
+    ],
+    "distance_rmse_m": 0.5238390470106314,
+    "p95_distance_m": 0.7875394259601359,
+    "signed_mean_error_xy_m": [
+      0.11008882836000097,
+      -0.16293601424485674
+    ]
+  },
+  "integral": {
+    "near_5deg_limit_duration_s": 23.500231224999993,
+    "near_limit_first_last_old_t_s": [
+      65.923949941,
+      89.404082962
+    ],
+    "max_abs_xy_deg": [
+      1.4991475694295335,
+      4.999999238902397
+    ],
+    "P_opposed_by_I_fraction_xy": [
+      0.2549435028248588,
+      0.22693032015065914
+    ]
+  },
+  "descriptive_position_reference_time_shift_not_link_latency_xy": [
+    {
+      "best_shift_s": 3.3200000000000003,
+      "rmse_after_shift_m": 0.2208967904559588
+    },
+    {
+      "best_shift_s": 2.82,
+      "rmse_after_shift_m": 0.2579272014872334
+    }
+  ],
+  "gain_recommendation_not_applied": {
+    "trial_1": {
+      "attitude_integral_limit_deg": 2.0,
+      "other_PID": "keep P X10 Y13; I0.5 D3 unchanged"
+    },
+    "trial_2_if_X_still_lags_after_trial_1": {
+      "attitude_kp_x_deg_per_m": 12.0,
+      "other_PID": "change one axis at a time; keep Y13 and D3"
+    },
+    "slower_reference_alternative": {
+      "trajectory_figure8_period_s": 100.0
+    },
+    "do_not_increase_blindly": [
+      "I",
+      "D",
+      "UWB filter time constant",
+      "dropout timeout"
+    ]
+  }
+}

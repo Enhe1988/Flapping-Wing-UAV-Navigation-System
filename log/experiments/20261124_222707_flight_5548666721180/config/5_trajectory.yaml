@@ -1,0 +1,12 @@
+# All trajectories are horizontal in map XY. No height command is generated.
+trajectory:
+  boundary_margin_m: 0.8
+  figure8_fit_scale: 0.9
+  line_length_m: 3.0
+  line_period_s: 40.0
+  figure8_period_s: 60.0
+  cycles: 1
+  ramp_s: 3.0
+  max_reference_speed_mps: 0.5
+  max_reference_acceleration_mps2: 0.4
+  min_approach_time_s: 3.0

@@ -1,6 +1,25 @@
 build/
 install/
-log/
+# 日志只上传实机原始数据、图表、分析及少量验证摘要；构建/合成实验仍留在本地。
+/log/*
+!/log/COLCON_IGNORE
+!/log/README.md
+!/log/checksums.sha256
+!/log/archive_inventory.json
+!/log/experiments/
+!/log/velocity_tests/
+!/log/attitude_tests/
+!/log/analysis/
+!/log/flight_follow_analysis_20261124/
+!/log/flight_response_analysis_20261125/
+!/log/flight_response_analysis_20261125_045132/
+!/log/flight_response_analysis_20261125_051835/
+!/log/uwb_filter_review_20261125/
+!/log/validation/
+.matplotlib/
+.export.lock
+# 已过时且不被当前电脑端引用的飞控适配补丁；飞控由用户单独维护。
+/docs/firmware/direct_attitude_74d6a5c.patch
 .audit-build/
 Testing/
 .cache/

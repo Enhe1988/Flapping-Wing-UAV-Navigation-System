@@ -1,0 +1,77 @@
+{
+  "session": "/home/enhe/uwb/log/experiments/20261125_040156_flight_14021628869426",
+  "source_data_modified": false,
+  "phases": {
+    "WAITING_START": {
+      "start_s": 0.009297153,
+      "end_s": 15.309384575,
+      "duration_s": 15.300087421999999,
+      "median_position_error_m": 0.04537821303563225,
+      "maximum_position_error_m": 0.6382331506930925,
+      "median_udp_command_speed_mps": 0.06420301331225528,
+      "command_near_2mps_fraction": 0.0,
+      "median_reported_speed_mps": 0.052338414032432,
+      "peak_reference_speed_mps": 0.0
+    },
+    "APPROACH": {
+      "start_s": 15.329351933,
+      "end_s": 59.509502802,
+      "duration_s": 44.180150869,
+      "median_position_error_m": 0.7226238688987338,
+      "maximum_position_error_m": 1.6595472457774232,
+      "median_udp_command_speed_mps": 1.0789438906211872,
+      "command_near_2mps_fraction": 0.16968325791855204,
+      "median_reported_speed_mps": 0.18115312967106212,
+      "peak_reference_speed_mps": 0.5497251700086021
+    },
+    "TRACKING": {
+      "start_s": 59.529477284,
+      "end_s": 102.489663877,
+      "duration_s": 42.960186592999996,
+      "median_position_error_m": 1.4011771969212565,
+      "maximum_position_error_m": 3.635790009320253,
+      "median_udp_command_speed_mps": 1.9978583225511175,
+      "command_near_2mps_fraction": 0.5128205128205128,
+      "median_reported_speed_mps": 0.2630192900673585,
+      "peak_reference_speed_mps": 0.5919036551988078
+    },
+    "FINISHED": {
+      "start_s": 102.509763352,
+      "end_s": 109.729853743,
+      "duration_s": 7.220090391000014,
+      "median_position_error_m": 0.5501025779085007,
+      "maximum_position_error_m": 0.8296093542498953,
+      "median_udp_command_speed_mps": 0.8245026711557943,
+      "command_near_2mps_fraction": 0.0,
+      "median_reported_speed_mps": 0.19488269327279736,
+      "peak_reference_speed_mps": 0.0
+    }
+  },
+  "new_plan": {
+    "center": [
+      2.1385,
+      -3.868
+    ],
+    "figure8_half_extents": [
+      0.8031,
+      1.6062
+    ],
+    "figure8_axis": "y",
+    "line_half_extents": [
+      1.0,
+      0.0
+    ],
+    "polygon": [
+      0.0,
+      0.0,
+      0.078,
+      -7.736,
+      4.273,
+      -7.528,
+      4.277,
+      0.0
+    ],
+    "configured_period_s": 80.0,
+    "conservative_peak_speed_mps": 0.17840396438174924
+  }
+}

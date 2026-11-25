@@ -1,0 +1,366 @@
+{
+  "source_csv_modified": false,
+  "sessions": [
+    {
+      "session": "20261125_224533_flight_3504200909832",
+      "duration_s": 118.518285255,
+      "flight_mode": "waypoint",
+      "user_reported_manual_intervention": "unknown",
+      "kp_x_deg_per_m": 5.0,
+      "kp_y_deg_per_m": 5.0,
+      "position_tolerance_m": 0.05,
+      "navigation_invalid_count": 2,
+      "goal_cleared_count": 0,
+      "sent_invalid_count": 2,
+      "sent_interval_ms": {
+        "min": 99.38839299999813,
+        "median": 99.99862599999787,
+        "p95": 100.28982240000062,
+        "max": 100.59872800000136
+      },
+      "sent_command_age_ms": {
+        "min": 19.36395,
+        "median": 19.860174999999998,
+        "p95": 20.03009025,
+        "max": 20.377747
+      },
+      "sent_yaw_age_ms": {
+        "min": 0.007019,
+        "median": 99.89351049999999,
+        "p95": 234.960734,
+        "max": 494.993824
+      },
+      "max_abs_pitch_deg": 9.285525042394557,
+      "max_abs_roll_deg": 11.972025044391192,
+      "pitch_saturation_fraction": 0.0,
+      "roll_saturation_fraction": 0.0,
+      "pitch_slew_p99_deg_s": 16.90500629314932,
+      "roll_slew_p99_deg_s": 14.765514230905854,
+      "wire_minus_latest_published_deg": {
+        "min": 0.0,
+        "median": 0.010949254288008747,
+        "p95": 0.09647029340155813,
+        "max": 1.2049307282930695
+      },
+      "raw_uwb_interval_ms": {
+        "min": 19.477698000002874,
+        "median": 19.99983200000699,
+        "p95": 20.242480000000064,
+        "max": 40.69056199999821
+      },
+      "raw_rows": 5877,
+      "filtered_rows": 5852,
+      "raw_to_filtered_offset_m": {
+        "min": 0.0,
+        "median": 0.02261997341117896,
+        "p95": 0.07315400781211362,
+        "max": 0.2518573773919374
+      },
+      "yaw_interval_ms": {
+        "min": 4.986869999996202,
+        "median": 199.92623100000628,
+        "p95": 309.7368209999978,
+        "max": 500.32185000000595
+      },
+      "yaw_map_deg": {
+        "min": -53.39056421361417,
+        "median": -1.0163697145383261,
+        "p95": 38.97080290169001,
+        "max": 78.21213418579
+      },
+      "states": {
+        "ACTIVE": 4588,
+        "INPUT_HOLD": 2,
+        "REACHED": 1336
+      },
+      "goal_segments": [
+        {
+          "goal_number": 0,
+          "start_s": 0.017836619,
+          "end_s": 61.478096727,
+          "goal_x_m": 3.0165333098381577,
+          "goal_y_m": -2.696177734771305,
+          "initial_error_m": 0.002303079383321685,
+          "min_error_m": 0.000986442924928842,
+          "final_error_m": 0.7018970157289101,
+          "rmse_m": 0.3971936476410881,
+          "fraction_within_0_1m": 0.5974617637487797,
+          "first_within_0_1m_s": 0.0,
+          "anchor_polygon_margin_m": 1.4260057508632196
+        },
+        {
+          "goal_number": 1,
+          "start_s": 61.478096727,
+          "end_s": 79.898143871,
+          "goal_x_m": 4.3227033615112305,
+          "goal_y_m": -2.534747362136841,
+          "initial_error_m": 1.9425518101658783,
+          "min_error_m": 0.054718607878758575,
+          "final_error_m": 0.3006116149395435,
+          "rmse_m": 1.0113260946520848,
+          "fraction_within_0_1m": 0.03040173724212812,
+          "first_within_0_1m_s": 15.299941905000004,
+          "anchor_polygon_margin_m": 0.14715235033621363,
+          "x_overshoot_m": 0.08685021782003233,
+          "y_overshoot_m": 0.5959671118597825
+        },
+        {
+          "goal_number": 2,
+          "start_s": 79.898143871,
+          "end_s": 118.518285255,
+          "goal_x_m": 2.9323763847351074,
+          "goal_y_m": -4.483763694763184,
+          "initial_error_m": 2.381395841823231,
+          "min_error_m": 0.09858861799347439,
+          "final_error_m": 0.3624106213049477,
+          "rmse_m": 1.24000153993303,
+          "fraction_within_0_1m": 0.0005175983436853002,
+          "first_within_0_1m_s": 31.34011209799999,
+          "anchor_polygon_margin_m": 1.3035357589363836,
+          "x_overshoot_m": 0.7534054821036493,
+          "y_overshoot_m": 0.0
+        }
+      ],
+      "recorder_dropped": 0,
+      "goal_command_response": [
+        {
+          "goal_time_s": 61.478096727,
+          "same_control_tick_pitch_change_deg": 1.19948898,
+          "same_control_tick_roll_change_deg": 1.1994889800000001,
+          "first_following_udp_monitor_ms": 40.245619
+        },
+        {
+          "goal_time_s": 79.898143871,
+          "same_control_tick_pitch_change_deg": -0.7195138097717164,
+          "same_control_tick_roll_change_deg": -1.1998333800000003,
+          "first_following_udp_monitor_ms": 20.101826
+        }
+      ],
+      "initial_15s_near_static_xy_std_m": {
+        "raw": [
+          0.03157269382763036,
+          0.016427215307153752
+        ],
+        "filtered": [
+          0.02693679767855999,
+          0.011827156112310227
+        ]
+      }
+    },
+    {
+      "session": "20261125_224838_flight_3689049906810",
+      "duration_s": 92.184426296,
+      "flight_mode": "waypoint",
+      "user_reported_manual_intervention": true,
+      "kp_x_deg_per_m": 10.0,
+      "kp_y_deg_per_m": 10.0,
+      "position_tolerance_m": 0.1,
+      "navigation_invalid_count": 0,
+      "goal_cleared_count": 0,
+      "sent_invalid_count": 0,
+      "sent_interval_ms": {
+        "min": 99.44443999999919,
+        "median": 100.001012000007,
+        "p95": 100.24565899999871,
+        "max": 100.52323399999352
+      },
+      "sent_command_age_ms": {
+        "min": 12.987428,
+        "median": 13.414171,
+        "p95": 13.60632245,
+        "max": 13.800925
+      },
+      "sent_yaw_age_ms": {
+        "min": 0.006328,
+        "median": 99.8332935,
+        "p95": 244.60257964999965,
+        "max": 450.064252
+      },
+      "max_abs_pitch_deg": 21.463546491562557,
+      "max_abs_roll_deg": 30.0,
+      "pitch_saturation_fraction": 0.0,
+      "roll_saturation_fraction": 0.011279826464208243,
+      "pitch_slew_p99_deg_s": 59.94608856135979,
+      "roll_slew_p99_deg_s": 59.833956252561286,
+      "wire_minus_latest_published_deg": {
+        "min": 0.0,
+        "median": 0.0019388954303416472,
+        "p95": 0.00466896361066802,
+        "max": 0.004997761202086171
+      },
+      "raw_uwb_interval_ms": {
+        "min": 19.34827100000014,
+        "median": 20.003571500000206,
+        "p95": 20.262268950003204,
+        "max": 40.446052000000066
+      },
+      "raw_rows": 4563,
+      "filtered_rows": 4563,
+      "raw_to_filtered_offset_m": {
+        "min": 7.900618789105463e-05,
+        "median": 0.0249158449714348,
+        "p95": 0.10265187263233112,
+        "max": 0.25336494207443383
+      },
+      "yaw_interval_ms": {
+        "min": 0.0881469999995943,
+        "median": 199.98776149999742,
+        "p95": 310.0180477999991,
+        "max": 499.9580209999994
+      },
+      "yaw_map_deg": {
+        "min": -169.67315536224004,
+        "median": 0.018212699421839,
+        "p95": 26.768586898630836,
+        "max": 179.5902107342285
+      },
+      "states": {
+        "ACTIVE": 3745,
+        "REACHED": 865
+      },
+      "goal_segments": [
+        {
+          "goal_number": 0,
+          "start_s": 0.003742563,
+          "end_s": 36.344017757,
+          "goal_x_m": 3.0255638371961884,
+          "goal_y_m": -3.1221952064636467,
+          "initial_error_m": 0.0,
+          "min_error_m": 0.0,
+          "final_error_m": 0.49471493382653264,
+          "rmse_m": 0.33140997912883474,
+          "fraction_within_0_1m": 0.4898183819482664,
+          "first_within_0_1m_s": 0.0,
+          "anchor_polygon_margin_m": 1.3679258056896497
+        },
+        {
+          "goal_number": 1,
+          "start_s": 36.344017757,
+          "end_s": 44.464066742,
+          "goal_x_m": 2.6857028007507324,
+          "goal_y_m": -1.3516476154327393,
+          "initial_error_m": 1.3987610258998215,
+          "min_error_m": 0.14723606680818863,
+          "final_error_m": 0.37586030753944516,
+          "rmse_m": 0.6892625258000937,
+          "fraction_within_0_1m": 0.0,
+          "first_within_0_1m_s": null,
+          "anchor_polygon_margin_m": 1.3516476154327393,
+          "x_overshoot_m": 0.40674990668942534,
+          "y_overshoot_m": 0.39663638491515985
+        },
+        {
+          "goal_number": 2,
+          "start_s": 44.464066742,
+          "end_s": 67.424123107,
+          "goal_x_m": 3.1684718132019043,
+          "goal_y_m": -4.484447956085205,
+          "initial_error_m": 3.4462591332391748,
+          "min_error_m": 0.08438447787891798,
+          "final_error_m": 0.21689703795605864,
+          "rmse_m": 1.3409850094519498,
+          "fraction_within_0_1m": 0.012195121951219513,
+          "first_within_0_1m_s": 22.080077079000006,
+          "anchor_polygon_margin_m": 1.0689353834152344,
+          "x_overshoot_m": 0.2347122228038958,
+          "y_overshoot_m": 0.0
+        },
+        {
+          "goal_number": 3,
+          "start_s": 67.424123107,
+          "end_s": 75.444143192,
+          "goal_x_m": 4.364588260650635,
+          "goal_y_m": -4.425633430480957,
+          "initial_error_m": 1.146515721287536,
+          "min_error_m": 0.20274729993767115,
+          "final_error_m": 0.7168950687159622,
+          "rmse_m": 0.8142617842549204,
+          "fraction_within_0_1m": 0.0,
+          "first_within_0_1m_s": null,
+          "anchor_polygon_margin_m": -0.11242723761178808,
+          "x_overshoot_m": 0.1435978039122654,
+          "y_overshoot_m": null
+        },
+        {
+          "goal_number": 4,
+          "start_s": 75.444143192,
+          "end_s": 92.184426296,
+          "goal_x_m": 1.7090106010437012,
+          "goal_y_m": -4.410487651824951,
+          "initial_error_m": 2.535767732736302,
+          "min_error_m": 0.4143977897691193,
+          "final_error_m": 1.0605242712921485,
+          "rmse_m": 0.9660481835894984,
+          "fraction_within_0_1m": 0.0,
+          "first_within_0_1m_s": null,
+          "anchor_polygon_margin_m": 1.7540373216764227,
+          "x_overshoot_m": 0.6213979772384053,
+          "y_overshoot_m": null
+        }
+      ],
+      "recorder_dropped": 0,
+      "goal_command_response": [
+        {
+          "goal_time_s": 36.344017757,
+          "same_control_tick_pitch_change_deg": -1.18139496,
+          "same_control_tick_roll_change_deg": 1.18139496,
+          "first_following_udp_monitor_ms": 93.710904
+        },
+        {
+          "goal_time_s": 44.464066742,
+          "same_control_tick_pitch_change_deg": 1.2002605200000005,
+          "same_control_tick_roll_change_deg": -1.20026052,
+          "first_following_udp_monitor_ms": 73.649248
+        },
+        {
+          "goal_time_s": 67.424123107,
+          "same_control_tick_pitch_change_deg": 1.19902212,
+          "same_control_tick_roll_change_deg": -1.19902212,
+          "first_following_udp_monitor_ms": 13.711918
+        },
+        {
+          "goal_time_s": 75.444143192,
+          "same_control_tick_pitch_change_deg": -1.19836146,
+          "same_control_tick_roll_change_deg": -1.19836146,
+          "first_following_udp_monitor_ms": 93.665998
+        }
+      ],
+      "initial_15s_near_static_xy_std_m": {
+        "raw": [
+          0.014904564261594392,
+          0.008390110098048765
+        ],
+        "filtered": [
+          0.008585150624106705,
+          0.004748539061544555
+        ]
+      },
+      "offline_uwb_derived_speed_windows": [
+        {
+          "start_s": 75.44,
+          "end_s": 82,
+          "max_abs_vx_mps": 1.7143541029824305,
+          "max_abs_vy_mps": 0.4079723442874388
+        },
+        {
+          "start_s": 36.34,
+          "end_s": 44.46,
+          "max_abs_vx_mps": 0.5538686576986565,
+          "max_abs_vy_mps": 0.7922287719835681
+        },
+        {
+          "start_s": 44.46,
+          "end_s": 67.42,
+          "max_abs_vx_mps": 0.923797881988947,
+          "max_abs_vy_mps": 1.2288383378036745
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Manual intervention has been confirmed; affected times are unknown.",
+    "UDP sent is a local monitor, not FC receipt or attitude-loop execution acknowledgment.",
+    "Measured roll/pitch and measured optical-flow speed are not available.",
+    "UWB-derived offline speed uses resampling and symmetric smoothing; not real-time feedback."
+  ]
+}

@@ -1,0 +1,13 @@
+Starting >>> flapping_uav_msgs
+Starting >>> nlink_parser2
+Finished <<< flapping_uav_msgs [0.58s]
+[Processing: nlink_parser2]
+Finished <<< nlink_parser2 [30.6s]
+Starting >>> flapping_uav_gcs
+[Processing: flapping_uav_gcs]
+Finished <<< flapping_uav_gcs [45.0s]
+Starting >>> flapping_uav_bringup
+[Processing: flapping_uav_bringup]
+Finished <<< flapping_uav_bringup [30.2s]
+
+Summary: 4 packages finished [1min 46s]

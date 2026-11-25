@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "hardware_accessed": false,
+  "ros_domain_id": "207",
+  "sessions": [
+    "/home/enhe/uwb/log/experiments_demo/paper_validation_8033708278996/20261126_000103_launch_ctrl_c_8034631185944",
+    "/home/enhe/uwb/log/experiments_demo/paper_validation_8033708278996/20261126_000111_node_exit_8042137545597"
+  ],
+  "rows_first_session": 984,
+  "checked": [
+    "waits for alignment",
+    "stale alignment rejected",
+    "automatic start",
+    "raw positions unchanged",
+    "ID31 p/q/r retained",
+    "NaN retained",
+    "target and velocity CSV",
+    "five PNG and vector PDF figures",
+    "same-flight comparison figures and unchanged points",
+    "no rosbag",
+    "Ctrl+C automatic save",
+    "navigation child exit automatic save",
+    "realignment stays in current session"
+  ]
+}
+

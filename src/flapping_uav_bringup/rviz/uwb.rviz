@@ -32,7 +32,7 @@ Visualization Manager:
       Alpha: 0.35
       Plane: XY
     - Class: rviz_default_plugins/MarkerArray
-      Name: Tag XY and Validity
+      Name: Raw UWB Tag XY and Validity
       Enabled: true
       Value: true
       Topic:
@@ -43,7 +43,7 @@ Visualization Manager:
         Durability Policy: Transient Local
       Queue Size: 10
     - Class: rviz_default_plugins/Path
-      Name: Tag XY History
+      Name: Raw UWB XY History
       Enabled: true
       Value: true
       Topic:
@@ -62,6 +62,16 @@ Visualization Manager:
       Value: true
       Topic:
         Value: /navigation/goal_markers
+        History Policy: Keep Last
+        Depth: 1
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+    - Class: rviz_default_plugins/MarkerArray
+      Name: Planned Horizontal Trajectory
+      Enabled: true
+      Value: true
+      Topic:
+        Value: /navigation/trajectory_markers
         History Policy: Keep Last
         Depth: 1
         Reliability Policy: Reliable

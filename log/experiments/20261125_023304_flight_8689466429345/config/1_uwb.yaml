@@ -1,0 +1,21 @@
+uwb_position_node:
+  ros__parameters:
+    input_topic: "/nlink_linktrack_anchorframe0"
+    tag_id: 0
+    # Verified on hardware 2026-11-13: role 2 is Tag, target ID 0.
+    tag_role: 2
+    frame_id: "map"
+    timeout_ms: 500
+    # Commissioning must confirm units, axis directions and transform first.
+    coordinates_confirmed: false
+    position_scale: 1.0
+    # User confirms A1 is RIGHT of A0->A3. Native +Y is right; ROS map +Y is left.
+    uwb_y_sign: -1.0
+    uwb_to_map_yaw_rad: 0.0
+    uwb_to_map_translation_m: [0.0, 0.0, 0.0]
+    # Disabled until real noise/motion has been measured; no invented threshold.
+    max_jump_m: 0.0
+    collect_static_noise: false
+    static_noise_samples: 100
+    measured_stddev_xy_m: -1.0
+    max_path_points: 1000

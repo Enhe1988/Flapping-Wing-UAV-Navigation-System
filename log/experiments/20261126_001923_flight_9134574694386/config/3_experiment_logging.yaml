@@ -1,0 +1,15 @@
+# 论文用轻量CSV日志，不录制rosbag。定点/航点在对齐后开录；轨迹模式默认到起点进入TRACKING才开录。
+# 修改后重启导航/记录器；日志根目录由启动参数log_root决定，默认log/experiments。
+
+# 自动实验记录节点。
+experiment_recorder_node:
+  ros__parameters:
+    # true：line/figure8跳过起飞准备及飞往起点过程，进入正式TRACKING才创建日志；waypoint仍对齐后开录。
+    # false恢复所有模式都在start_here成功后开录；结束仍是在导航终端按Ctrl+C自动保存。
+    start_on_trajectory_tracking: true
+    # true在退出导航、停止记录后自动导出论文图表；false只保留CSV，不自动画图。
+    export_on_stop: true
+    # CSV异步写盘队列最多暂存的行数；不是飞行记录总行数，过小在磁盘卡顿时可能丢行。
+    queue_limit: 20000
+    # 实验目录标签；正常入口的experiment_label启动参数会覆盖，默认flight。
+    experiment_label: flight

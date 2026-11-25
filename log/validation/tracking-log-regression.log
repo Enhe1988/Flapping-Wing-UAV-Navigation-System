@@ -1,0 +1,9 @@
+Starting >>> flapping_uav_msgs
+Finished <<< flapping_uav_msgs [0.03s]
+Starting >>> flapping_uav_gcs
+Finished <<< flapping_uav_gcs [36.2s]
+Starting >>> flapping_uav_bringup
+Finished <<< flapping_uav_bringup [0.02s]
+
+Summary: 3 packages finished [36.5s]
+Summary: 103 tests, 0 errors, 0 failures, 0 skipped

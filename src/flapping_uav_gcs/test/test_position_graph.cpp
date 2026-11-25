@@ -164,6 +164,16 @@ TEST_F(PositionGraph, Telemetry250ToPdTo84ArrivalCancelAndIndependentInputLoss)
   ASSERT_EQ(enabled.wait_for(0s), std::future_status::ready); ASSERT_TRUE(enabled.get()->success);
   new_goal(); run(.7); ASSERT_EQ(last.state, "ACTIVE"); EXPECT_GT(last.velocity_map.x, .1);
   EXPECT_GT(sent.back().vx, .1); EXPECT_NEAR(sent.back().vy, 0, 1e-5); EXPECT_LE(std::hypot(sent.back().vx, sent.back().vy), .30001);
+  // Reproduce the real flight's CRC-valid ID250 timestamp corruption, then a
+  // smaller forward-clock outlier. Neither may clear the goal or poison time.
+  for(const uint64_t timestamp:{6076276598041955504ULL,static_cast<uint64_t>(mt)*1000ULL+10000000ULL}){
+    fm=false;const auto count_before=motion_count;
+    mavlink_message_t corrupt;
+    mavlink_msg_debug_vect_pack(1,1,&corrupt,name,timestamp,0,0,1.2F);board.send(corrupt,rx);
+    run(.04);EXPECT_EQ(motion_count,count_before);
+    fm=true;run(.15);EXPECT_TRUE(last.goal_active)<<last.reason;EXPECT_EQ(last.state,"ACTIVE")<<last.reason;
+    EXPECT_LT(motion.sample_time_us,10000000ULL);EXPECT_GT(sent.back().vx,.05);
+  }
   height = NAN; run(.1); EXPECT_TRUE(motion.velocity_valid); EXPECT_FALSE(motion.height_valid); EXPECT_EQ(last.state, "ACTIVE");
   height = 1.5F; actual_x = .8; actual_v = .2; run(.25); EXPECT_FALSE(last.reached);
   actual_v = 0; run(.3); ASSERT_TRUE(last.reached); EXPECT_FLOAT_EQ(sent.back().vx, 0);

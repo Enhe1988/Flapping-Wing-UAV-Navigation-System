@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "hardware_accessed": false,
+  "checks": [
+    {
+      "requested": "/uwb/position_filtered",
+      "actual_position_subscriptions": [
+        "/uwb/position_filtered"
+      ]
+    },
+    {
+      "requested": "/uwb/position",
+      "actual_position_subscriptions": [
+        "/uwb/position"
+      ]
+    }
+  ]
+}

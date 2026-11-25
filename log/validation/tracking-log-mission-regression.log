@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "hardware_accessed": false,
+  "data_kind": "SYNTHETIC XY PLANT; NOT FLIGHT EVIDENCE",
+  "sessions": [
+    "/home/enhe/uwb/log/experiments_demo/trajectory_validation_8237023914527/20261126_000433_synthetic_line_8244378180892",
+    "/home/enhe/uwb/log/experiments_demo/trajectory_validation_8237023914527/20261126_000456_synthetic_figure8_8267385386189"
+  ],
+  "checked": [
+    "manual start after heading alignment",
+    "invalid flow rejected at start",
+    "valid moving start above former speed threshold",
+    "off-start approach waits for actual XY arrival",
+    "smooth approach",
+    "line and horizontal figure eight",
+    "analytic feedforward",
+    "finite completion and position hold",
+    "fallback continues trajectory",
+    "invalid inputs freeze trajectory clock",
+    "manual stop and restart",
+    "manual target cancels trajectory",
+    "zero Z command",
+    "sparse events and raw reference CSV",
+    "automatic paper export"
+  ]
+}
+

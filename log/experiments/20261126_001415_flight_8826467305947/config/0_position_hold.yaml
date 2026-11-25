@@ -1,0 +1,127 @@
+# 位置环及通信控制配置。修改后重启position_hold；桥参数还需重启通信入口。
+# 当前attitude模式：滤波UWB位置→map轴PID角度需求→按yaw旋转→俯仰/滚转各限±30°。
+# X/Y均指世界map轴，不是固定机体俯仰/滚转轴；只有yaw回传，电脑无法自动识别手动接管并冻结积分。
+# 浮点参数建议保留小数点；命令行启动参数可能覆盖本文件。
+
+# 位置控制节点参数。
+position_controller_node:
+  ros__parameters:
+    # 世界坐标系名称；需与UWB输出、RViz固定坐标系一致，通常保持map。
+    map_frame_id: map
+    # 水平控制模式：attitude为当前位置到俯仰/滚转目标角；velocity为旧速度目标模式。
+    horizontal_control_mode: attitude
+    # 【当前姿态模式】世界X轴比例增益，单位°/m；调大位置响应更强，过大可能超调。
+    attitude_kp_x_deg_per_m: 10.0
+    # 【当前姿态模式】世界Y轴比例增益，单位°/m；可与X轴独立调节。
+    attitude_kp_y_deg_per_m: 13.0
+    # 世界X轴积分增益，单位°/(m·s)；补偿持续偏差，0关闭；过大会积累配平角。
+    attitude_ki_x_deg_per_m_s: 0.5
+    # 世界Y轴积分增益，单位°/(m·s)；0关闭；不是飞控内部姿态环的I。
+    attitude_ki_y_deg_per_m_s: 0.5
+    # 世界X轴阻尼增益，单位°/(m/s)；用UWB差分估计速度制动，0关闭，调大制动更强。
+    attitude_kd_x_deg_s_per_m: 3.0
+    # 世界Y轴阻尼增益，单位°/(m/s)；不依赖光流，过大可能放大定位噪声影响。
+    attitude_kd_y_deg_s_per_m: 3.0
+    # 积分角度向量的模长上限，单位°；限制持续偏差累积，不是每轴各允许该值。
+    attitude_integral_limit_deg: 5.0
+    # 仅距目标不超过此半径时累积积分，单位m；调小可减少远距离运动中的积分。
+    attitude_integral_zone_m: 0.75
+    # 仅UWB估计水平速度不超过此值时积分，单位m/s；运动过快时暂停累积。
+    attitude_integral_max_speed_mps: 0.4
+    # D项角度向量的模长上限，单位°；限制UWB噪声造成的瞬时制动。
+    attitude_derivative_limit_deg: 8.0
+    # 【D项速度滤波】时间常数，单位s；越大越平滑、制动反馈越滞后；不是UWB位置滤波。
+    attitude_velocity_filter_tau_s: 0.2
+    # UWB位置差分所得速度向量的模长限幅，单位m/s；用于D计算，不是飞行速度上限。
+    attitude_velocity_limit_mps: 3.0
+    # 相邻UWB观测可用于差分的最大间隔，单位s；超出则停止使用旧D，恢复首点重新初始化。
+    attitude_sample_max_gap_s: 0.25
+    # 发送俯仰、滚转目标角各自的绝对值上限，单位°；必须大于0且不超过30。
+    attitude_max_angle_deg: 30.0
+    # 每轴目标角变化率上限，单位°/s；越小指令越柔和，也会增加大角度响应时间。
+    attitude_max_rate_deg_s: 60.0
+    # 【仅旧velocity模式】世界X位置P增益，单位1/s；当前attitude模式不使用此项。
+    kp_x: 1.0
+    # 【仅旧velocity模式】世界X速度误差增益，无量纲；只有yaw回传的compact速度模式须为0。
+    kd_x: 0.0
+    # 【仅旧velocity模式】世界Y位置P增益，单位1/s；当前attitude模式不使用此项。
+    kp_y: 1.0
+    # 【仅旧velocity模式】世界Y速度误差增益，无量纲；不是当前姿态模式的D。
+    kd_y: 0.0
+    # 旧速度控制的水平速度模长上限，单位m/s；通信入口也用它设置旧速度报文检查，不限当前目标角。
+    max_speed_mps: 2.0
+    # 【仅旧velocity模式】期望速度变化率限制，单位m/s²；轨迹参考点加速度另在trajectory.yaml。
+    max_acceleration_mps2: 1.0
+    # 判定到点的位置误差半径，单位m；调小更严格，当前PID到点后仍持续配平。
+    arrival_position_tolerance_m: 0.10
+    # 判定到点的低速门限，单位m/s；当前使用UWB估计速度，完整遥测旧模式使用实测速度。
+    arrival_speed_tolerance_mps: 0.05
+    # 到点条件需连续保持的时间，单位s；调大减少短暂穿过目标时的误判。
+    arrival_dwell_s: 0.5
+    # 旧速度模式到点后是否持续保持；当前姿态PID始终持续修正，不靠此开关清零。
+    continuous_hold: true
+    # true要求每次启动后调用/navigation/start_here，记录+X航向并保持当前位置。
+    require_start_here: true
+    # 旧速度模式是否直接发布机体水平速度；当前姿态模式始终发布机体目标角。
+    publish_body_setpoint: true
+    # true表示精简回传只有ID254 yaw，不等待ID31完整姿态或ID250光流；应与飞控协议匹配。
+    compact_yaw_only: true
+    # 是否在UWB异常时采用光流里程计接管；当前false只用滤波UWB，精简yaw模式要求false。
+    use_optical_flow_fallback: false
+    # 【仅旧完整速度反馈模式】允许新鲜但无效的ID250速度暂按0处理；缺失/过期仍会阻止控制。
+    invalid_velocity_as_zero: true
+    # 位置环计算与ROS目标发布频率，单位Hz；不是UDP发送频率，当前通信另按10Hz发最新值。
+    publish_rate_hz: 50.0
+    # 控制位置最大允许数据年龄，单位ms；超时进入异常恢复流程，不生成新的有效控制目标。
+    position_timeout_ms: 500
+    # 【仅需ID250的旧模式】速度反馈超时，单位ms；当前姿态/yaw模式不依赖此反馈。
+    feedback_timeout_ms: 1500
+    # 姿态或yaw最大允许数据年龄，单位ms；过小易误报断流，过大会延后识别失联。
+    attitude_timeout_ms: 1500
+    # 心跳超时阈值，单位ms；是否阻止控制取决于heartbeat_required。
+    heartbeat_timeout_ms: 5000
+    # true将心跳列为控制必需输入；false仅诊断，但当前yaw仍必须有效且新鲜。
+    heartbeat_required: false
+    # 首次发现短暂输入异常后的恢复窗口，单位ms；先输出禁用零角度并清I/D，窗口内保留原目标。
+    # 超时仍异常则清目标；飞控重启或航向会话失效立即清除，不等此窗口。
+    input_recovery_grace_ms: 2000
+    # 接受的飞控MAVLink系统ID，应与飞控发送值一致。
+    target_system: 1
+    # 接受的飞控MAVLink组件ID，应与飞控发送值一致。
+    target_component: 1
+    # 旧速度反馈解释：heading_xy为水平前/右速度；body_frd_xy为完整机体前/右投影速度。
+    feedback_velocity_mode: heading_xy
+    # 是否已确认速度坐标约定；主要供旧速度模式检查，不能代替实测方向验证。
+    feedback_convention_confirmed: true
+    # 旧完整机体速度转换时是否假设世界竖直速度为0；当前姿态/yaw模式不使用此项。
+    assume_zero_world_vertical_speed: false
+# 坐标、姿态约定和本次上电航向会话。
+frame_contract:
+  # 固定航向转换是否已确认；当前保持false，由每次start_here运行时对齐覆盖，不复用上次上电偏置。
+  map_to_reference_confirmed: false
+  # 是否已确认飞控姿态/yaw的坐标约定；不要通过随意翻转此值解决单轴控制方向问题。
+  attitude_convention_confirmed: true
+  # true表示姿态是机体系到NED的旋转；当前精简yaw模式要求true。
+  quaternion_body_to_ned: true
+  # map到ENU参考系的水平旋转角，单位rad；当前start_here会按机头朝+X重新计算。
+  map_to_enu_yaw_rad: 0.0
+  # true将航向对齐绑定本次电脑启动和飞控时钟；飞控重启后需重新对齐。
+  alignment_requires_session: true
+  # 对齐后允许电脑与飞控累计时间增量的最大差值，单位ms；用于识别重启或旧会话。
+  alignment_max_clock_skew_ms: 2000.0
+
+# MAVLink通信桥参数。
+mavlink_bridge_node:
+  ros__parameters:
+    # 通信编码：compact为精简ID248，attitude模式用0x8002角度；legacy为旧ID84速度。
+    velocity_protocol: compact
+    # 通信桥对每轴目标角再次限幅，单位°；必须不超过30，通常与位置环角度限幅一致。
+    max_attitude_angle_deg: 30.0
+    # 接收姿态消息ID：当前精简yaw为254；旧完整四元数为31，须与协议一致。
+    attitude_message_id: 254
+    # 【仅速度报文】发送横向速度的符号，1原样、-1反向；不作用于当前0x8002目标角。
+    velocity_y_sign: 1
+    # 通信桥接受的ROS控制目标最大年龄，单位ms；名称沿用速度模式，当前角度目标也受此保护。
+    velocity_timeout_ms: 200
+    # 通信桥用于发送有效控制目标的姿态/yaw超时，单位ms；超时发送禁用零目标。
+    velocity_attitude_timeout_ms: 1500

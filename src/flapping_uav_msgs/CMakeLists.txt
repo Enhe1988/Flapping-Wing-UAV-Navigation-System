@@ -10,10 +10,13 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/MavlinkFrame.msg"
   "msg/AttitudeState.msg"
   "msg/BodyVelocitySetpoint.msg"
+  "msg/BodyAttitudeSetpoint.msg"
+  "msg/PositionAttitudeDebug.msg"
   "msg/BodyMotionState.msg"
   "msg/NavigationStatus.msg"
   "msg/HeadingAlignment.msg"
   "msg/FusionStatus.msg"
+  "msg/PositionEstimate.msg"
   DEPENDENCIES std_msgs geometry_msgs)
 ament_export_dependencies(rosidl_default_runtime)
 ament_package()

@@ -16,7 +16,8 @@ def nodes(context):
     for key in ('publish_rate_hz', 'path_publish_rate_hz', 'alignment_max_clock_skew_ms', 'max_flow_speed_mps',
                 'max_dead_reckoning_s', 'uwb_jump_slack_m', 'max_uwb_speed_mps',
                 'uwb_innovation_gate_m', 'uwb_correction_gain', 'initial_position_variance_m2',
-                'position_variance_growth_m2_per_s'):
+                'position_variance_growth_m2_per_s', 'uwb_sync_period_s',
+                'uwb_recovery_confirmation_s', 'uwb_recovery_blend_s', 'uwb_filter_tau_s'):
         if key in parameters:
             value = parameters[key]
             if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):

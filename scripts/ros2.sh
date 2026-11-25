@@ -9,6 +9,9 @@ if [[ $# -eq 0 || ${1:-} == --help || ${1:-} == -h ]]; then
 启动通信（默认开启实际发送）：
   bash scripts/ros2.sh ros2 launch flapping_uav_bringup communication.launch.py
 
+启动备用通信（10.0.0.100:14550，关闭遥控转发）：
+  bash scripts/ros2.sh ros2 launch flapping_uav_bringup communication_backup.launch.py
+
 仅接收调试（关闭所有UDP发送）：
   bash scripts/ros2.sh ros2 launch flapping_uav_bringup communication.launch.py tx_enabled:=false
 

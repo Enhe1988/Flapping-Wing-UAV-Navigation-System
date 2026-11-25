@@ -1,0 +1,10 @@
+test_active_recording_requires_explicit_recovery (__main__.ExportTests) ... ok
+test_concurrent_export_rejected_without_touching_status (__main__.ExportTests) ... ok
+test_export_error_is_persistent_and_next_attempt_can_finish (__main__.ExportTests) ... ok
+test_raw_csv_preserves_late_columns_nan_unicode_and_newlines (__main__.ExportTests) ... ok
+test_streamed_recovery_duration_and_receive_gap (__main__.ExportTests) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.165s
+
+OK

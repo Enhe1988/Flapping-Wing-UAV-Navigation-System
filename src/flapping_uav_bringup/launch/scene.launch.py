@@ -34,7 +34,8 @@ def scene_nodes(context):
     bridge.update({'tx_enabled': False, 'send_velocity': False})
     return [
         Node(package='flapping_uav_gcs', executable='scene_visualizer_node',
-             name='scene_visualizer_node', output='screen', parameters=[scene]),
+             name='scene_visualizer_node', output='screen', parameters=[scene],
+             remappings=[('/uwb/position', LaunchConfiguration('scene_position_topic').perform(context))]),
         Node(package='flapping_uav_gcs', executable='mavlink_bridge_node',
              name='mavlink_bridge_node', output='screen', parameters=[bridge],
              condition=IfCondition(LaunchConfiguration('start_bridge'))),
@@ -51,6 +52,8 @@ def generate_launch_description():
         DeclareLaunchArgument('uwb_config', default_value=os.path.join(share, 'config', 'uwb.yaml')),
         DeclareLaunchArgument('control_config', default_value=os.path.join(share, 'config', 'position_hold.yaml')),
         DeclareLaunchArgument('start_bridge', default_value='false'),
+        # Standalone UWB viewing works without the localization/filter node.
+        DeclareLaunchArgument('scene_position_topic', default_value='/uwb/position'),
         DeclareLaunchArgument('use_rviz', default_value='true'),
         OpaqueFunction(function=scene_nodes),
     ])

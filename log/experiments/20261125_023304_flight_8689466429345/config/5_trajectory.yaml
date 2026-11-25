@@ -1,0 +1,14 @@
+# All trajectories are horizontal in map XY. No height command is generated.
+trajectory:
+  boundary_margin_m: 0.8
+  # Fit a smaller XY path to the current scene.yaml anchor polygon.
+  figure8_fit_scale: 0.6
+  line_length_m: 2.0
+  # Shorter periods approximately preserve speed when reducing path size.
+  line_period_s: 27.0
+  figure8_period_s: 40.0
+  cycles: 1
+  ramp_s: 3.0
+  max_reference_speed_mps: 0.5
+  max_reference_acceleration_mps2: 0.4
+  min_approach_time_s: 3.0

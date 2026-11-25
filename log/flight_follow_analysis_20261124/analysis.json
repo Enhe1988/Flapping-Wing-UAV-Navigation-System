@@ -1,0 +1,177 @@
+{
+  "scope": "Offline review of two recorded waypoint flights; no onboard acknowledgement was logged.",
+  "heading_assumption": "start_here always declares the current nose to be map +X (A0 to A3).",
+  "flights": [
+    {
+      "session": "/home/enhe/uwb/log/experiments/20261124_234407_flight_10168961778226",
+      "initial_nose": "A0 to A3 (user reported)",
+      "duration_s": 86.059951073,
+      "world_command_points_toward_goal_fraction": 1.0,
+      "valid_input_samples": 4055,
+      "python_norm_exceeds_2_mps_samples": 193,
+      "overshoot_samples_are_not_udp_transmission_counts": true,
+      "bridge_transmission_enabled": true,
+      "bridge_id84_enabled": true,
+      "outgoing_y_sign": -1,
+      "send_rate_hz": 10,
+      "actual_udp_values_logged_in_this_session": false,
+      "segments": [
+        {
+          "time_s": [
+            0.0,
+            32.659670778
+          ],
+          "goal_xy_m": [
+            2.6080000400543213,
+            -3.51200008392334
+          ],
+          "start_xy_m": [
+            2.5940001010894775,
+            -3.509000062942505
+          ],
+          "end_xy_m": [
+            1.9609999656677246,
+            -2.8980000019073486
+          ],
+          "distance_to_goal_start_m": 0.014317765779087192,
+          "distance_to_goal_end_m": 0.891967038052363,
+          "minimum_distance_to_goal_m": 0.0014141110612375166,
+          "median_commanded_speed_mps": 0.3813241072613118,
+          "median_reported_actual_speed_mps": 0.19037800517060816
+        },
+        {
+          "time_s": [
+            32.659670778,
+            54.4599294
+          ],
+          "goal_xy_m": [
+            4.363130569458008,
+            -2.5621206760406494
+          ],
+          "start_xy_m": [
+            1.9299999475479126,
+            -2.884000062942505
+          ],
+          "end_xy_m": [
+            1.0099999904632568,
+            -0.9620000123977661
+          ],
+          "distance_to_goal_start_m": 2.454329025006411,
+          "distance_to_goal_end_m": 3.7153560822627236,
+          "minimum_distance_to_goal_m": 2.192079405332668,
+          "median_commanded_speed_mps": 1.9999999999999996,
+          "median_reported_actual_speed_mps": 0.21865156525623788
+        },
+        {
+          "time_s": [
+            54.4599294,
+            86.059951073
+          ],
+          "goal_xy_m": [
+            2.6981382369995117,
+            -4.451228141784668
+          ],
+          "start_xy_m": [
+            1.0099999904632568,
+            -0.9620000123977661
+          ],
+          "end_xy_m": [
+            -0.07199999690055847,
+            -0.5759999752044678
+          ],
+          "distance_to_goal_start_m": 3.8761480464919447,
+          "distance_to_goal_end_m": 4.763513322955184,
+          "minimum_distance_to_goal_m": 2.350863571184516,
+          "median_commanded_speed_mps": 1.9999999999999998,
+          "median_reported_actual_speed_mps": 0.24248727590950003
+        }
+      ]
+    },
+    {
+      "session": "/home/enhe/uwb/log/experiments/20261124_234915_flight_10476789665450",
+      "initial_nose": "A0 to A1 (user reported)",
+      "duration_s": 101.507780971,
+      "world_command_points_toward_goal_fraction": 1.0,
+      "valid_input_samples": 5076,
+      "python_norm_exceeds_2_mps_samples": 453,
+      "overshoot_samples_are_not_udp_transmission_counts": true,
+      "bridge_transmission_enabled": true,
+      "bridge_id84_enabled": true,
+      "outgoing_y_sign": -1,
+      "send_rate_hz": 10,
+      "actual_udp_values_logged_in_this_session": false,
+      "segments": [
+        {
+          "time_s": [
+            0.0,
+            54.727693492
+          ],
+          "goal_xy_m": [
+            2.4049999713897705,
+            -3.2899999618530273
+          ],
+          "start_xy_m": [
+            2.3929998874664307,
+            -3.325000047683716
+          ],
+          "end_xy_m": [
+            3.4049999713897705,
+            -2.555000066757202
+          ],
+          "distance_to_goal_start_m": 0.037000108409608205,
+          "distance_to_goal_end_m": 1.2410579542434246,
+          "minimum_distance_to_goal_m": 0.005831060821816762,
+          "median_commanded_speed_mps": 0.1924552327011342,
+          "median_reported_actual_speed_mps": 0.20231724942264276
+        },
+        {
+          "time_s": [
+            54.727693492,
+            82.147681605
+          ],
+          "goal_xy_m": [
+            2.036820888519287,
+            -1.9222192764282227
+          ],
+          "start_xy_m": [
+            3.3889999389648438,
+            -2.5409998893737793
+          ],
+          "end_xy_m": [
+            3.3480000495910645,
+            -1.5410000085830688
+          ],
+          "distance_to_goal_start_m": 1.487036526592782,
+          "distance_to_goal_end_m": 1.3654738820663268,
+          "minimum_distance_to_goal_m": 0.7233758001360364,
+          "median_commanded_speed_mps": 1.9999999999999998,
+          "median_reported_actual_speed_mps": 0.24845416593530512
+        },
+        {
+          "time_s": [
+            82.147681605,
+            101.507780971
+          ],
+          "goal_xy_m": [
+            3.367936134338379,
+            -4.400471210479736
+          ],
+          "start_xy_m": [
+            3.3589999675750732,
+            -1.5269999504089355
+          ],
+          "end_xy_m": [
+            2.2709999084472656,
+            -1.3350000381469727
+          ],
+          "distance_to_goal_start_m": 2.8734851552651697,
+          "distance_to_goal_end_m": 3.255822874800693,
+          "minimum_distance_to_goal_m": 2.2336327103758573,
+          "median_commanded_speed_mps": 2.0,
+          "median_reported_actual_speed_mps": 0.15660751449738514
+        }
+      ]
+    }
+  ],
+  "changes": "Only a numeric boundary fix and future UDP-send monitoring are being added; no sign or heading convention changed."
+}

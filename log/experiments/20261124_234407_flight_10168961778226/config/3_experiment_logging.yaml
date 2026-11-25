@@ -1,0 +1,6 @@
+experiment_recorder_node:
+  ros__parameters:
+    # Starts on a fresh successful /navigation/start_here alignment message.
+    export_on_stop: true
+    queue_limit: 20000
+    experiment_label: flight

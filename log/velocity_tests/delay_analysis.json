@@ -1,0 +1,155 @@
+{
+  "source_csv_modified": false,
+  "measured": [
+    {
+      "file": "log/velocity_tests/20261125_064822_436808_velocity_test.csv",
+      "steps": [
+        {
+          "time_utc": "2026-11-24T22:48:59.584+00:00",
+          "step": "1",
+          "vx": 0.5,
+          "vy": 0.5,
+          "reason": "manual step",
+          "pc_input_to_udp_monitor_ms": 55.003
+        },
+        {
+          "time_utc": "2026-11-24T22:49:04.603+00:00",
+          "step": "2",
+          "vx": 0.0,
+          "vy": 0.0,
+          "reason": "duration expired; zero",
+          "pc_input_to_udp_monitor_ms": 36.09
+        },
+        {
+          "time_utc": "2026-11-24T22:49:35.754+00:00",
+          "step": "3",
+          "vx": 0.0,
+          "vy": 0.0,
+          "reason": "manual zero",
+          "pc_input_to_udp_monitor_ms": 85.695
+        },
+        {
+          "time_utc": "2026-11-24T22:49:44.140+00:00",
+          "step": "4",
+          "vx": 0.0,
+          "vy": 0.0,
+          "reason": "program exit; zero",
+          "pc_input_to_udp_monitor_ms": 99.099
+        }
+      ],
+      "max_udp_interval_ms": 101.84
+    },
+    {
+      "file": "log/velocity_tests/20261125_064946_988744_velocity_test.csv",
+      "steps": [
+        {
+          "time_utc": "2026-11-24T22:49:58.824+00:00",
+          "step": "1",
+          "vx": 0.0,
+          "vy": 0.0,
+          "reason": "program exit; zero",
+          "pc_input_to_udp_monitor_ms": 15.965
+        }
+      ],
+      "max_udp_interval_ms": 101.48
+    },
+    {
+      "file": "log/velocity_tests/20261125_065116_159036_velocity_test.csv",
+      "steps": [
+        {
+          "time_utc": "2026-11-24T22:51:25.482+00:00",
+          "step": "1",
+          "vx": 0.5,
+          "vy": 0.5,
+          "reason": "manual step",
+          "pc_input_to_udp_monitor_ms": 75.558
+        },
+        {
+          "time_utc": "2026-11-24T22:51:35.501+00:00",
+          "step": "2",
+          "vx": 0.0,
+          "vy": 0.0,
+          "reason": "duration expired; zero",
+          "pc_input_to_udp_monitor_ms": 56.533
+        },
+        {
+          "time_utc": "2026-11-24T22:52:04.822+00:00",
+          "step": "3",
+          "vx": 0.6,
+          "vy": 0.6,
+          "reason": "manual step",
+          "pc_input_to_udp_monitor_ms": 36.924
+        },
+        {
+          "time_utc": "2026-11-24T22:52:09.842+00:00",
+          "step": "4",
+          "vx": 0.0,
+          "vy": 0.0,
+          "reason": "duration expired; zero",
+          "pc_input_to_udp_monitor_ms": 18.888
+        },
+        {
+          "time_utc": "2026-11-24T22:52:56.312+00:00",
+          "step": "5",
+          "vx": 0.6,
+          "vy": 0.6,
+          "reason": "manual step",
+          "pc_input_to_udp_monitor_ms": 47.252
+        },
+        {
+          "time_utc": "2026-11-24T22:53:06.322+00:00",
+          "step": "6",
+          "vx": 0.0,
+          "vy": 0.0,
+          "reason": "duration expired; zero",
+          "pc_input_to_udp_monitor_ms": 37.749
+        },
+        {
+          "time_utc": "2026-11-24T22:53:56.203+00:00",
+          "step": "7",
+          "vx": 0.6,
+          "vy": 0.6,
+          "reason": "manual step",
+          "pc_input_to_udp_monitor_ms": 58.26
+        },
+        {
+          "time_utc": "2026-11-24T22:54:06.222+00:00",
+          "step": "8",
+          "vx": 0.0,
+          "vy": 0.0,
+          "reason": "duration expired; zero",
+          "pc_input_to_udp_monitor_ms": 38.582
+        },
+        {
+          "time_utc": "2026-11-24T22:54:23.583+00:00",
+          "step": "9",
+          "vx": 0.6,
+          "vy": 0.6,
+          "reason": "manual step",
+          "pc_input_to_udp_monitor_ms": 78.44
+        },
+        {
+          "time_utc": "2026-11-24T22:54:28.602+00:00",
+          "step": "10",
+          "vx": 0.0,
+          "vy": 0.0,
+          "reason": "duration expired; zero",
+          "pc_input_to_udp_monitor_ms": 59.206
+        },
+        {
+          "time_utc": "2026-11-24T22:54:45.162+00:00",
+          "step": "11",
+          "vx": 0.0,
+          "vy": 0.0,
+          "reason": "program exit; zero",
+          "pc_input_to_udp_monitor_ms": 99.825
+        }
+      ],
+      "max_udp_interval_ms": 102.638
+    }
+  ],
+  "limitations": [
+    "UDP monitor is local sendto completion, not flight controller receipt.",
+    "Debug observer refresh timing and current flight-controller firmware are not measured."
+  ]
+}

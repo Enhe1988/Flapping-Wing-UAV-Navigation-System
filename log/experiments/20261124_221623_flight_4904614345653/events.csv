@@ -1,0 +1,13 @@
+﻿t_s,receive_ros_ns,source_ros_ns,event,detail
+0.000657962,1795529783015389212,1795529783014451593,"heading_aligned","Captured +X heading; holding map XY=(2.649, -2.971); yaw offset=-0.642221 rad; waiting for a fresh ID250 packet"
+0.0027512259999999998,1795529783017481893,1795529783017351051,"trajectory","figure8: WAITING_START"
+0.002753152,1795529783017483684,1795529783017351051,"position_source","UWB"
+0.002754926,1795529783017485441,1795529783017351051,"navigation","INPUT_HOLD: Input recovery: Position estimator waiting for current heading alignment; output zero; retaining goal; remaining_ms=2000"
+0.002759414,1795529783017489893,1795529783017351051,"goal","map XY=(2.6489999294281006,-2.9709999561309814)"
+0.022997725,1795529783037729326,1795529783037426688,"navigation","ACTIVE: XY P/PD active; ID250 invalid: assuming zero XY velocity"
+37.962626358000001,1795529820977358549,1795529820977211815,"trajectory","figure8: APPROACH"
+44.302757141000001,1795529827317489072,1795529827317185357,"position_source","FLOW_ODOMETRY"
+44.422792940000001,1795529827437524806,1795529827437232957,"position_source","INVALID"
+44.422797436000003,1795529827437529134,1795529827437232957,"navigation","INPUT_HOLD: Input recovery: Selected position invalid/stale: UWB unavailable; flow missing/stale/invalid: Flow reception stale; output zero; retaining goal; remaining_ms=2000"
+46.423108278999997,1795529829437842031,1795529829437458390,"trajectory","figure8: CANCELLED"
+46.423121639000001,1795529829437854252,1795529829437458390,"navigation","FAULT: Input recovery window expired (2000 ms): Selected position invalid/stale: UWB unavailable; flow missing/stale/invalid: Flow reception stale; goal cleared, call start_here again"

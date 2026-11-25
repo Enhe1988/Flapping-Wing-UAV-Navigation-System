@@ -1,0 +1,2 @@
+﻿t_s,receive_ros_ns,source_ros_ns,device_time_us,host_monotonic_ns,map_to_enu_yaw_rad,quaternion_body_to_ned,valid
+0.001592715,1795543313337768458,1795543313335557191,14751000,6818634043662,1.5482287339337191,1,1

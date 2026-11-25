@@ -1,0 +1,12 @@
+﻿t_s,receive_ros_ns,source_ros_ns,event,detail
+0.000883847,1795545580939310552,1795545580938072421,"heading_aligned","Captured +X heading; holding map XY=(2.998, -3.567); yaw offset=0.898867 rad; waiting for a fresh ID250 packet"
+0.0036854919999999998,1795545580942111934,1795545580941927178,"trajectory","waypoint: NOT_SELECTED"
+0.003689445,1795545580942115745,1795545580941927178,"position_source","UWB"
+0.0036933109999999999,1795545580942119707,1795545580941927178,"navigation","INPUT_HOLD: Input recovery: Position estimator waiting for current heading alignment; output zero; retaining goal; remaining_ms=2000"
+0.0037030510000000002,1795545580942129560,1795545580941927178,"goal","map XY=(2.997999906539917,-3.5669999122619629)"
+0.023720686000000001,1795545580962146542,1795545580961905033,"navigation","ACTIVE: XY P/PD active; ID250 invalid: assuming zero XY velocity"
+0.52366865600000001,1795545581462095119,1795545581461881506,"navigation","REACHED: Position and actual speed held within tolerances; ID250 invalid: assuming zero XY velocity"
+0.54375714100000005,1795545581482182812,1795545581481919206,"navigation","ACTIVE: XY P/PD active; ID250 invalid: assuming zero XY velocity"
+38.463955276999997,1795545619402382519,1795545619402106692,"position_source","INVALID"
+38.463960661000002,1795545619402387629,1795545619402106692,"navigation","INPUT_HOLD: Input recovery: Selected position invalid/stale: UWB unavailable; flow missing/stale/invalid: Flow XY invalid, wrong frame, or speed gate exceeded; output zero; retaining goal; remaining_ms=2000"
+40.483995475999997,1795545621422421850,1795545621422192439,"navigation","FAULT: Input recovery window expired (2000 ms): Selected position invalid/stale: UWB unavailable; flow missing/stale/invalid: Flow XY invalid, wrong frame, or speed gate exceeded; goal cleared, call start_here again"

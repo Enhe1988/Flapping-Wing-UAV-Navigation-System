@@ -1,0 +1,7 @@
+test_missing_online_recording_does_not_generate_fake_filtered_figure (__main__.UwbFilterComparisonTests) ... ok
+test_recorded_samples_gaps_identical_references_and_bounds (__main__.UwbFilterComparisonTests) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 2.351s
+
+OK

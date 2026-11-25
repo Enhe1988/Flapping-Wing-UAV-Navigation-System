@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "hardware_accessed": false,
+  "firmware_commit": "74d6a5cb6cd8beaa4970d135d74738a4cea5a176",
+  "data_kind": "SYNTHETIC COMPACT LINK AND UWB; NOT FLIGHT EVIDENCE",
+  "horizontal_control_mode": "attitude",
+  "log_root": "/home/enhe/uwb/log/experiments_demo/attitude_validation_5154299741956",
+  "checked": [
+    "actual 5Hz yaw contract",
+    "type 0x8002 version 1 and centidegrees",
+    "signed pitch/roll centidegrees and exact yaw clock echo",
+    "direct console timed zero",
+    "no ID70/84",
+    "start_here without ID250",
+    "UWB pure-P hold and waypoint",
+    "trajectory start/stop without flow",
+    "transient recovery",
+    "persistent loss clears goal",
+    "reboot clears heading",
+    "NaN missing telemetry",
+    "automatic yaw CSV and charts",
+    "independent bridge +/-30deg clamp",
+    "stale command zero",
+    "position-loop pitch/roll signs and saturation",
+    "angle CSV and chart; no fabricated m/s"
+  ]
+}

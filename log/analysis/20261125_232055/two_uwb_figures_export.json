@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "session": "/home/enhe/uwb/log/experiments/20261125_232055_flight_5626178823991",
+  "root_csv_unchanged": true,
+  "session_metadata_unchanged": true,
+  "comparison": {
+    "comparison_type": "same_experiment_raw_and_online_filtered_uwb",
+    "raw_csv": "trajectory.csv",
+    "filtered_csv": "uwb_filtered.csv",
+    "reference_csv": "reference.csv",
+    "offline_filtering": false,
+    "resampled": false,
+    "plots": [
+      "trajectory_uwb_raw",
+      "trajectory_uwb_filtered"
+    ],
+    "online_filter_enabled": true,
+    "online_filter_tau_s": 0.1,
+    "gap_break_s": 0.3,
+    "xy_limits_m": [
+      [
+        0.7439499914646148,
+        3.737050074338913
+      ],
+      [
+        -5.707699936628342,
+        -1.4462999880313874
+      ]
+    ],
+    "time_limits_s": [
+      0.003903375,
+      118.193598098
+    ]
+  }
+}

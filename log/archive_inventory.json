@@ -1,0 +1,44 @@
+{
+  "archive_kind": "real_device_sessions_and_explicitly_labelled_derived_analysis",
+  "generated_at": "2026-11-26T04:52:25.890877+08:00",
+  "session_count": 29,
+  "payload_files_excluding_inventory_and_checksums": 1237,
+  "payload_bytes_excluding_inventory_and_checksums": 335183753,
+  "file_extensions": {
+    "(none)": 1,
+    ".md": 7,
+    ".json": 244,
+    ".py": 6,
+    ".pdf": 162,
+    ".png": 163,
+    ".csv": 443,
+    ".yaml": 174,
+    ".html": 27,
+    ".txt": 1,
+    ".log": 9
+  },
+  "source_samples_modified_by_indexer": false,
+  "session_csv_integrity_issues": [],
+  "included_log_directories": [
+    "experiments",
+    "velocity_tests",
+    "analysis",
+    "flight_follow_analysis_20261124",
+    "flight_response_analysis_20261125",
+    "flight_response_analysis_20261125_045132",
+    "flight_response_analysis_20261125_051835",
+    "uwb_filter_review_20261125",
+    "validation"
+  ],
+  "excluded": [
+    "build",
+    "install",
+    "external dependency checkouts",
+    "log/experiments_demo",
+    "colcon logs",
+    "log/ros",
+    "Matplotlib caches",
+    "old unused FC patch"
+  ],
+  "notes": "Some hardware sessions may include ground checks or intervention. No ground truth or successful flight claim is inferred. Validation summaries are synthetic software evidence only."
+}

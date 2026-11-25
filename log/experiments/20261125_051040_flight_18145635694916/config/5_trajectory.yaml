@@ -1,0 +1,20 @@
+# All trajectories are horizontal in map XY. No height command is generated.
+trajectory:
+  boundary_margin_m: 0.8
+  # Fit a smaller XY path to the current scene.yaml anchor polygon.
+  figure8_fit_scale: 0.6
+  # Put the two lobes along the longer MAP extent (currently Y).
+  figure8_axis: auto
+  # Each lobe's length/width; 1.0 produces roughly round lobes.
+  figure8_lobe_aspect_ratio: 1.0
+  line_length_m: 2.0
+  # Reference motion must be slower than the measured speed-loop response.
+  line_period_s: 27.0
+  figure8_period_s: 80.0
+  cycles: 1
+  ramp_s: 5.0
+  max_reference_speed_mps: 0.25
+  max_reference_acceleration_mps2: 0.2
+  min_approach_time_s: 3.0
+  # Separate from the 5 cm waypoint arrival tolerance; no hover-speed gate.
+  start_position_tolerance_m: 0.15

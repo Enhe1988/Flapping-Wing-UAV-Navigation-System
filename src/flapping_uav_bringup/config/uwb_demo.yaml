@@ -1,18 +1,33 @@
+# 仅供合成UWB数据演示；不是正常真机使用配置。修改后重启演示节点。
+
+# Anchor_Frame0到目标Tag定位的转换节点。
 uwb_position_node:
   ros__parameters:
+    # 仿真使用的Anchor_Frame0输入话题；本配置只用于演示，不作为实机标定。
     input_topic: "/nlink_linktrack_anchorframe0"
+    # 仿真目标Tag ID，需匹配演示消息。
     tag_id: 0
+    # 演示定位世界坐标系，与RViz固定坐标系一致。
     frame_id: "map"
+    # 演示数据已明确单位和坐标，所以为true；不要照搬到未确认的硬件。
     coordinates_confirmed: true
+    # 演示坐标到m的倍率，当前模拟数据已用m，保持1.0。
     position_scale: 1.0
-    # Synthetic demo uses an already right-handed XY frame.
+    # 仿真已经使用右手坐标，保持1.0；与实机原生UWB的-1不同。
     uwb_y_sign: 1.0
+    # 仿真UWB到map的水平旋转角，单位rad。
     uwb_to_map_yaw_rad: 0.0
+    # 仿真UWB到map的XYZ平移，单位m。
     uwb_to_map_translation_m: [0.0, 0.0, 0.0]
+    # 演示定位数据超时，单位ms。
     timeout_ms: 500
+    # 演示驱动相邻位置跳变门限，单位m；0可关闭。
     max_jump_m: 1.0
-    # This simulator models a stationary Tag with known deterministic XY noise.
+    # 仿真模拟静止Tag，故开启静止噪声采集；运动中的真机不要直接照搬true。
     collect_static_noise: true
+    # 仿真静止XY协方差估计所用样本数，整数且至少2。
     static_noise_samples: 100
+    # 预置XY标准差，单位m；负值表示未预置，由静止样本估计。
     measured_stddev_xy_m: -1.0
+    # 仿真RViz轨迹点数上限；不限制日志总长度。
     max_path_points: 300

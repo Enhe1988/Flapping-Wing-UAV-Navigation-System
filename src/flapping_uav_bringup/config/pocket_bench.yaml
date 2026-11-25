@@ -1,66 +1,95 @@
+# 遥控器与MAVLink桥的基础配置；修改后重启通信。
+# 正常入口还读取position_hold.yaml的mavlink_bridge_node，后者同名值优先；启动参数又可能覆盖二者。
+# 备用communication_backup入口不采集/转发遥控器，并将端口覆盖为本机14550→远端10.0.0.1:14555。
+# 要改备用链路地址/端口，请改其启动参数或communication_backup.launch.py的默认值。
+
+# USB遥控器原始采集；备用链路不启动。
 joy_node:
   ros__parameters:
+    # USB遥控器设备名称；用于选择或核对Pocket，需与系统识别名称一致。
     device_name: EdgeTX Radiomaster Pocket Joystick
+    # joy原始输入死区，范围0~1；当前0表示原样交给下一级，摇杆死区另由stick_deadzone处理。
     deadzone: 0.0
+    # /joy在输入不变时的重复发布频率，单位Hz；不是飞控上行频率。
     autorepeat_rate: 20.0
+    # true将按钮按下转成锁存状态；false按实际瞬时按钮状态，当前使用轴映射开关。
     sticky_buttons: false
+    # 合并短时间连续摇杆事件的等待间隔，单位ms；越大合并越多，也略增加输入等待。
     coalesce_interval_ms: 1
 
+# 摇杆轴到标准通道值映射；备用链路不启动。
 manual_control_node:
   ros__parameters:
+    # USB遥控器设备名称；用于选择或核对Pocket，需与系统识别名称一致。
     device_name: EdgeTX Radiomaster Pocket Joystick
+    # 核验遥控器的稳定设备路径；拔插或设备变更后可在/dev/input/by-id中核对。
     device_path: /dev/input/by-id/usb-EdgeTX_Radiomaster_Pocket_Joystick_00000000001B-joystick
+    # 是否实际打开并检查遥控器名称；正常通信启动参数可覆盖，备用链路不运行此节点。
     verify_device: true
+    # 遥控映射结果ROS发布频率，单位Hz；ID70发送频率由下方rc_rate_hz决定。
     publish_rate_hz: 50.0
+    # 遥控/joy输入超时，单位ms；超时后映射结果无效，交由通信桥处理。
     input_timeout_ms: 200
-    # User channel indices 0..7 correspond to MAVLink CH1..8.
-    # Output: right X, right Y, left Y, left X, E, B, C, F.
-    # Recorded /joy inputs: a2=left Y, a3=left X (not /dev/input/js indices).
+    # CH1~8对应/joy.axes下标：[右X,右Y,左Y,左X,E,B,C,F]；不是/dev/input/js的编号。
     axis_indices: [0, 1, 2, 3, 4, 5, 6, 7]
-    # Both X: left=1000, right=2000; both Y: bottom=1000, top=2000.
-    # E/F: released=1000, pressed=2000. B/C retain raw +1/0/-1 ->
-    # 1000/1500/2000; initial/second/third raw ordering still needs confirmation.
-    # Right Y corrected after live testing: top raw=-1, bottom raw=+1.
+    # 各通道正负号，只能±1；输出约=1500+500×符号×归一化轴值。
+    # 当前摇杆左右为1000→2000、下上为1000→2000，E/F正常1000按下2000；改对应轴方向才改此项。
     axis_signs: [-1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0]
+    # 前四个摇杆轴的零位偏移，归一化单位约[-1,1]，每个绝对值需小于0.5；后四开关不使用零偏。
     axis_centers: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    # 前四摇杆的中心死区，范围[0,0.5)；0.02约为归一化幅度的2%，调大可防止中心漂移。
     stick_deadzone: 0.02
-    # CH1..8 are replaced by axes. CH9..16 are explicit bench constants:
-    # S1/S2=minimum, A/D=not pressed, remaining spare channels=minimum.
-    # Do not use ignore=65535 for S1/S2/A/D with the previously reviewed firmware:
-    # that dispatcher interprets the value numerically instead of ignoring it.
+    # 18路MAVLink通道初值；前8路随后被轴映射覆盖，后面为固定值。
+    # 1000/1500/2000为通道计数，65535为协议忽略；旧飞控对忽略值处理不完整，未核对前勿改现有后续通道。
     fixed_channels: [1500, 1500, 1000, 1500, 1000, 1000, 1000, 1000,
                      1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 65535, 65535]
 
+# MAVLink通信桥参数。
 mavlink_bridge_node:
   ros__parameters:
+    # 电脑UDP监听地址；0.0.0.0接收所有网卡。正常通信入口的启动参数会覆盖此基础值。
     bind_ip: 0.0.0.0
-    # Observed 2026-11-10: 192.168.1.151:9111 -> local 192.168.1.100:9000.
+    # 旧图像板链路的电脑接收端口；备用入口覆盖为14550，不能在这里改出备用链路端口。
     rx_port: 9000
-    # User-confirmed TX destination after communication testing, 2026-11-14.
+    # 旧图像板链路发送目标IP；备用入口覆盖为10.0.0.1，该IP是Backpack而不是电脑10.0.0.100。
     remote_ip: '192.168.1.151'
+    # 旧图像板链路远端接收端口；备用入口覆盖为14555，与电脑接收14550方向不同。
     tx_port: 9111
+    # 桥单独启动时是否允许发送；正常通信入口默认覆盖为true，false用于仅监听。
     tx_enabled: false
+    # 电脑发送MAVLink报文使用的系统ID，通常255，区别于飞控target_system。
     system_id: 255
+    # 电脑发送MAVLink报文使用的组件ID，通常190。
     component_id: 190
+    # 电脑控制报文目标飞控系统ID，须与飞控一致。
     target_system: 1
+    # 电脑控制报文目标飞控组件ID，须与飞控一致。
     target_component: 1
+    # 遥控ID70上行频率，单位Hz；备用通信入口关闭遥控转发，此项不生效。
     rc_rate_hz: 40.0
+    # 通信桥收到的遥控映射结果超时，单位ms；超过按rc_loss_action处理。
     rc_timeout_ms: 250
+    # 是否发送电脑心跳，当前每秒1次；与控制目标频率独立。
     send_heartbeat: true
-    # Bench policy: invalid/unplugged/stale input stops ID70; FC must time out RC.
-    # Standard release is available, but old reviewed firmware did not implement it.
+    # 遥控失效策略：stop停止ID70发送；release发送释放通道。旧飞控未完整支持释放，当前保留stop。
     rc_loss_action: stop
+    # 桥单独启动时是否打印收到的MAVLink消息；正常通信入口覆盖为false，避免持续刷屏。
     print_rx: true
-    # Standalone bridge defaults are muted. communication.launch.py explicitly
-    # enables transmission and selects the current heading-XY profile.
+    # 历史命名的控制目标发送总开关，角度模式也使用；正常通信入口默认覆盖true。
     send_velocity: false
-    # Generic 3D velocity bench uses mask3527; XY position launch overrides true (3559).
+    # 【旧ID84】true仅发送XY速度、屏蔽Z；正常通信入口覆盖true，当前角度协议不发送高度。
     velocity_xy_only: false
-    # ID250 DEBUG_VECT: x=forward m/s, y=right m/s, z=height up m.
+    # 【旧ID250】仅接受此DEBUG_VECT名称；空字符串不按名称过滤，当前yaw-only没有光流消息。
     motion_name: ''
-    velocity_rate_hz: 30.0
+    # 【常用：上行频率】UDP角度/速度控制目标发送频率，单位Hz，允许1~100；当前10可减轻ELRS带宽压力。
+    velocity_rate_hz: 10.0
+    # 通信桥ROS控制目标超时，单位ms；position_hold.yaml同名桥参数会覆盖此基础值。
     velocity_timeout_ms: 200
+    # 旧速度指令模长上限，单位m/s；正常入口覆盖为position_hold.yaml的max_speed_mps，不决定姿态角。
     max_body_speed_mps: 1.0
+    # 基础完整姿态消息ID31；当前正常入口会从position_hold.yaml覆盖为精简yaw的254。
     attitude_message_id: 31
+    # 接受姿态消息的来源系统ID，用于过滤其他设备的遥测。
     attitude_system_id: 1
+    # 接受姿态消息的来源组件ID，须匹配实际飞控。
     attitude_component_id: 1

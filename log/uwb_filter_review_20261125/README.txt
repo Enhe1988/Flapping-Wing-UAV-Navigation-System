@@ -1,0 +1,1 @@
+Offline illustration only. Replays the recorded UWB XY through a 0.10 s exponential low-pass with a 0.15 s gap reset. Production also applies the existing raw quality/recovery gates before low-pass. No original flight files were changed. This replay does not show the response of a real aircraft controlled with the new filter.

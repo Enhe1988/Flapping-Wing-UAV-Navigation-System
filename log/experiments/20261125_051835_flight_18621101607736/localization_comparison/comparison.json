@@ -1,0 +1,81 @@
+{
+  "comparison_type": "same_experiment_position_estimates",
+  "session": "/home/enhe/uwb/log/experiments/20261125_051835_flight_18621101607736",
+  "synthetic_validation": false,
+  "offline_filtering": false,
+  "resampled": false,
+  "online_uwb_filter": {
+    "enabled": true,
+    "tau_s": 0.1
+  },
+  "filtered_uwb_points_source": "uwb_filtered.csv (/uwb/position_filtered, accepted online low-pass fixes)",
+  "xy_limits_m": [
+    [
+      0.07551998138427735,
+      4.229480085372924
+    ],
+    [
+      -4.419440033435822,
+      -0.04855999112129211
+    ]
+  ],
+  "time_limits_s": [
+    0.0,
+    146.872807343
+  ],
+  "time_position_limits_m": [
+    -4.419440033435822,
+    4.229480085372924
+  ],
+  "raw_uwb_gap_threshold_s": 0.15,
+  "assisted_gap_threshold_s": 0.5,
+  "raw_point_rows": 7260,
+  "compensated_point_rows": 7344,
+  "valid_compensated_point_rows": 5641,
+  "valid_source_counts": {
+    "UWB": 5524,
+    "FLOW_ODOMETRY": 66,
+    "UWB_BLEND": 51
+  },
+  "flow_fallback_observed": true,
+  "uwb_unhealthy_intervals_s": [
+    [
+      45.812472817,
+      46.352497206
+    ],
+    [
+      78.612557572,
+      79.212596321
+    ],
+    [
+      100.792761396,
+      101.412662406
+    ],
+    [
+      113.272688084,
+      146.872807343
+    ]
+  ],
+  "flow_fallback_intervals_s": [
+    [
+      45.812472817,
+      46.352497206
+    ],
+    [
+      78.612557572,
+      79.212596321
+    ],
+    [
+      113.272688084,
+      113.452693384
+    ]
+  ],
+  "assistance_used_by_controller": true,
+  "plots": [
+    "uwb_raw_trajectory",
+    "flow_compensated_trajectory"
+  ],
+  "raw_points_source": "trajectory.csv (/uwb/position, after the UWB driver map conversion)",
+  "compensated_points_source": "position_sources.csv selected_x_m/selected_y_m (/localization/position)",
+  "notes": "Two estimates from the SAME experiment, not separate assisted/unassisted flights. Raw UWB is the driver output; fixes rejected by the driver cannot be recovered here. Compensated points are recorded online selector outputs, not an offline reconstruction. When enabled, online UWB smoothing affects the compensated output even without flow fallback; use uwb_filtered.csv and same-filter assisted/unassisted flights to separate these effects. Invalid points stay in CSV with their flags but are not plotted; gaps remain gaps. UWB-not-accepted shading is algorithm status, not a measured physical occlusion label. Full precision numeric strings and independent timestamps are retained; original CSV files are untouched. No guaranteed improvement: verify flow_fallback_observed and the actual recorded curves."
+}

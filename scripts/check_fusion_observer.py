@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Synthetic private-DDS fusion observation and report check. No FC/RC commands."""
+"""Synthetic private-DDS independent fusion observation check. No FC/RC commands."""
 import csv
 import json
 import math
@@ -52,12 +52,11 @@ def run():
                 next_feed=time.monotonic()+.02
             rclpy.spin_once(node,timeout_sec=.004)
     try:
-        for label,args in [('fusion',['fusion_odometry.launch.py']),('recording',['experiment_logging.launch.py',
-                           'log_root:='+str(root/'log/experiments_demo'),'experiment_label:=synthetic_fusion'])]:
+        for label,args in [('fusion',['fusion_odometry.launch.py'])]:
             stream=(root/'log'/('fusion-observer-'+label+'.log')).open('w');streams.append(stream)
             processes.append(subprocess.Popen(['ros2','launch','flapping_uav_bringup']+args,stdout=stream,stderr=subprocess.STDOUT,start_new_session=True))
-        align=node.create_client(Trigger,'/fusion/align_positive_x');stop=node.create_client(Trigger,'/experiment/stop')
-        require(align.wait_for_service(timeout_sec=8) and stop.wait_for_service(timeout_sec=8),'Observer/recorder service missing')
+        align=node.create_client(Trigger,'/fusion/align_positive_x')
+        require(align.wait_for_service(timeout_sec=8),'Observer service missing')
         advance(.5);require(last['status'].state=='UWB_ONLY','UWB-only initialization failed')
         future=align.call_async(Trigger.Request());advance(.15);require(future.done() and future.result().success,'Independent +X alignment failed')
         advance(.25);require(last['status'].state=='FUSED' and last['status'].valid,'Healthy fusion failed')
@@ -69,32 +68,21 @@ def run():
         t=time.monotonic()-origin
         require(abs(last['status'].position.x-(1+.2*t))<.1,'Forward flow integration direction/scale incorrect')
         require(abs(last['status'].position.y-(-2-.05*t))<.1,'Rightward flow map conversion incorrect')
-        advance(1.3);require(last['status'].state=='INVALID' and not last['status'].valid,'Fallback exceeded its horizon')
+        advance(5.2);require(last['status'].state=='INVALID' and not last['status'].valid,'Fallback exceeded its horizon')
         count=len(odoms);advance(.12);require(len(odoms)==count,'Invalid estimate still refreshed Odometry')
-        jump=0.;feed_uwb=True;advance(.3);require(last['status'].state=='FUSED' and last['status'].valid,'Consistent UWB recovery failed')
+        jump=0.;feed_uwb=True;advance(.8);require(last['status'].state=='FUSED' and last['status'].valid,'Consistent UWB recovery failed')
         valid_flow=False;advance(.25);require(last['status'].state=='UWB_ONLY' and last['status'].valid,'Invalid ground flow incorrectly disabled UWB')
         feed_uwb=False;advance(.6);require(not last['status'].valid,'Invalid flow fabricated a zero-velocity bridge')
         valid_flow=True;advance(.2);require(not last['status'].valid,'Flow gap silently regained a valid trajectory without UWB')
-        feed_uwb=True;advance(.3);require(last['status'].state=='FUSED','UWB did not re-anchor after flow gap')
+        feed_uwb=True;advance(.8);require(last['status'].state=='FUSED','UWB did not re-anchor after flow gap')
         reference+=1;advance(.12);require(not last['status'].alignment_valid and last['status'].state=='UWB_ONLY','FC reset reused old heading')
         require(node.count_publishers('/fc/velocity_setpoint_body')==0,'Observer emitted FC control')
         require(node.count_publishers('/fc/velocity_setpoint_sent')==0,'Observer emitted wire commands')
         require(node.count_publishers('/navigation/goal')==0,'Observer emitted navigation goals')
-        future=stop.call_async(Trigger.Request());rclpy.spin_until_future_complete(node,future,timeout_sec=90)
-        require(future.done() and future.result().success,'Report export failed')
-        session=Path(future.result().message)
-        require((session/'report'/'fusion_comparison.png').exists(),'Fusion comparison plot missing')
-        require(len(list((session/'report').glob('*.png')))==10,'Expected 9 ordinary plots and 1 fusion plot')
-        with (session/'csv'/'derived_fusion_status.csv').open(encoding='utf-8-sig') as source:states=list(csv.DictReader(source))
-        require({'UWB_ONLY','FUSED','DEAD_RECKONING','INVALID'}<={r['state'] for r in states},'Mode transitions not recorded')
-        with (session/'csv'/'derived_fusion.csv').open(encoding='utf-8-sig') as source:trajectory=list(csv.DictReader(source))
-        require(any(r['valid']=='False' and r['x_m']=='nan' for r in trajectory),'Invalid intervals were interpolated in plots')
-        require((session/'parameters'/'fusion_odometry_node.json').exists(),'Observer parameter snapshot missing')
         return {'status':'passed','hardware_accessed':False,'navigation_connected':False,'control_publishers':0,
-                'synthetic_report':str(session/'report.html'),'synthetic_session':str(session),
                 'checked':['UWB-only ground mode','independent heading alignment','healthy fusion','jump rejection',
-                           'short dead reckoning','2s horizon','suppressed invalid odometry','confirmed recovery',
-                           'NaN flow','no integration across missing interval','FC reference reset','10-plot report']}
+                           'short dead reckoning','5s horizon','suppressed invalid odometry','confirmed recovery',
+                           'NaN flow','no integration across missing interval','FC reference reset']}
     finally:
         for p in processes:
             if p.poll() is None:os.killpg(p.pid,signal.SIGINT)

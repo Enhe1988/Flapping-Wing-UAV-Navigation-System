@@ -1,0 +1,4 @@
+# Preserve recorded bytes (including CSV BOM/newline spelling) across checkouts.
+log/** -text -whitespace
+*.png binary
+*.pdf binary

@@ -1,0 +1,56 @@
+{
+  "comparison_type": "same_experiment_position_estimates",
+  "session": "/home/enhe/uwb/log/experiments/20261125_224533_flight_3504200909832",
+  "synthetic_validation": false,
+  "offline_filtering": false,
+  "resampled": false,
+  "online_uwb_filter": {
+    "enabled": true,
+    "tau_s": 0.1
+  },
+  "filtered_uwb_points_source": "uwb_filtered.csv (/uwb/position_filtered, accepted online low-pass fixes)",
+  "xy_limits_m": [
+    [
+      1.8708400535583496,
+      4.686160106658935
+    ],
+    [
+      -4.709024791717529,
+      -1.4427388858795167
+    ]
+  ],
+  "time_limits_s": [
+    0.0,
+    118.518285255
+  ],
+  "time_position_limits_m": [
+    -4.709024791717529,
+    4.686160106658935
+  ],
+  "raw_uwb_gap_threshold_s": 0.3,
+  "assisted_gap_threshold_s": 0.5,
+  "raw_point_rows": 5877,
+  "compensated_point_rows": 5926,
+  "valid_compensated_point_rows": 5900,
+  "valid_source_counts": {
+    "UWB": 5900,
+    "FLOW_ODOMETRY": 0,
+    "UWB_BLEND": 0
+  },
+  "flow_fallback_observed": false,
+  "uwb_unhealthy_intervals_s": [
+    [
+      70.113584189,
+      70.633612437
+    ]
+  ],
+  "flow_fallback_intervals_s": [],
+  "assistance_used_by_controller": false,
+  "plots": [
+    "uwb_raw_trajectory",
+    "flow_compensated_trajectory"
+  ],
+  "raw_points_source": "trajectory.csv (/uwb/position, after the UWB driver map conversion)",
+  "compensated_points_source": "position_sources.csv selected_x_m/selected_y_m (/localization/position)",
+  "notes": "Two estimates from the SAME experiment, not separate assisted/unassisted flights. Raw UWB is the driver output; fixes rejected by the driver cannot be recovered here. Compensated points are recorded online selector outputs, not an offline reconstruction. When enabled, online UWB smoothing affects the compensated output even without flow fallback; use uwb_filtered.csv and same-filter assisted/unassisted flights to separate these effects. Invalid points stay in CSV with their flags but are not plotted; gaps remain gaps. UWB-not-accepted shading is algorithm status, not a measured physical occlusion label. Full precision numeric strings and independent timestamps are retained; original CSV files are untouched. No guaranteed improvement: verify flow_fallback_observed and the actual recorded curves."
+}

@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "hardware_accessed": false,
+  "data_kind": "SYNTHETIC LOGGER CHECK; NOT FLIGHT DATA",
+  "scenarios": [
+    {
+      "flight_mode": "figure8",
+      "gated": true,
+      "trigger": "trajectory_tracking",
+      "session": "/home/enhe/uwb/log/experiments_demo/tracking_logging_8174926863197/figure8_gated/20261126_000325_synthetic_tracking_logger_8176057148507"
+    },
+    {
+      "flight_mode": "waypoint",
+      "gated": true,
+      "trigger": "heading_alignment",
+      "session": "/home/enhe/uwb/log/experiments_demo/tracking_logging_8174926863197/waypoint_gated/20261126_000326_synthetic_tracking_logger_8177570799543"
+    },
+    {
+      "flight_mode": "line",
+      "gated": false,
+      "trigger": "heading_alignment",
+      "session": "/home/enhe/uwb/log/experiments_demo/tracking_logging_8174926863197/line_alignment/20261126_000328_synthetic_tracking_logger_8178985267658"
+    }
+  ]
+}

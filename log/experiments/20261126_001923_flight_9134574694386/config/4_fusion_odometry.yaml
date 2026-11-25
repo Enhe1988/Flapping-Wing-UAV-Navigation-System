@@ -1,0 +1,72 @@
+# UWB质量检查、位置低通、光流里程计及定位选择；修改后重启导航/融合节点。
+# 当前控制关闭光流接管且精简链路不回传光流；UWB位置低通依然正常参与控制。
+# 开启里程计节点不等于允许接管，位置环另由use_optical_flow_fallback决定。
+
+# 融合观测节点参数；当前控制主要使用它发布的滤波UWB。
+fusion_odometry_node:
+  ros__parameters:
+    # 定位世界坐标系名称，需与UWB及位置环一致。
+    map_frame_id: map
+    # 里程计虚拟子坐标系；轴始终与map平行，不代表飞机姿态。
+    child_frame_id: fusion_map_axes
+    # 定位选择/里程计状态输出频率，单位Hz；UWB滤波仍按新观测逐点更新。
+    publish_rate_hz: 50.0
+    # RViz里程计历史路径发布频率，单位Hz；降低可减轻显示负载。
+    path_publish_rate_hz: 5.0
+    # 用于光流/姿态匹配的飞控MAVLink系统ID。
+    target_system: 1
+    # 用于光流/姿态匹配的飞控MAVLink组件ID。
+    target_component: 1
+    # 飞控姿态是否为机体系到NED旋转，需与飞控约定一致。
+    quaternion_body_to_ned: true
+    # true跟随导航start_here对齐，用于把光流速度旋转到map；不改变原始UWB坐标。
+    use_navigation_alignment: true
+    # true要求航向与本次飞控时钟会话匹配；重启后旧对齐不再有效。
+    alignment_requires_session: true
+    # 对齐会话允许的电脑/飞控累计时钟增量差，单位ms。
+    alignment_max_clock_skew_ms: 2000.0
+    # 可靠UWB观测超时，单位ms；超时认为UWB不健康，是否接管由位置环开关决定。
+    uwb_timeout_ms: 300
+    # 是否对通过质量门限的UWB XY做一阶低通；原始/uwb/position及原始CSV始终保留。
+    uwb_filter_enabled: true
+    # 【常用：UWB位置滤波】时间常数，单位s；越大越平滑，也越滞后；当前0.10，想小幅加强可试0.15。
+    # 这是控制输入的位置滤波，区别于position_hold.yaml里仅供D项的速度滤波。
+    uwb_filter_tau_s: 0.10
+    # /uwb/status质量状态允许的数据年龄，单位ms；应留出状态低于定位点发布频率的余量。
+    uwb_status_timeout_ms: 500
+    # 光流速度允许的数据年龄，单位ms；超时停止依赖该速度积分，当前yaw-only回传无光流。
+    flow_timeout_ms: 400
+    # 给光流做坐标转换所需姿态的最大年龄，单位ms；不替代位置环自己的yaw超时检查。
+    attitude_timeout_ms: 500
+    # 匹配光流与姿态的最大采样时间差，单位ms；过大可能把旧航向用于速度旋转。
+    max_attitude_pair_skew_ms: 250
+    # 连续光流设备时间戳允许的最大间隔，单位ms；过长不继续跨间隔积分。
+    max_flow_device_gap_ms: 500
+    # 光流速度有效性检查上限，单位m/s；超过则拒绝，不是目标速度设置。
+    max_flow_speed_mps: 5.0
+    # UWB失效后里程计最多可独立维持的位置时间，单位s；并不自动开启控制接管。
+    max_dead_reckoning_s: 5.0
+    # 光流里程计正常情况下与可靠UWB同步的时间间隔，单位s；越小同步越频繁。
+    uwb_sync_period_s: 0.2
+    # UWB失效后恢复时，候选观测需连续稳定的最短时间，单位s；同时还需满足样本数。
+    uwb_recovery_confirmation_s: 0.5
+    # 恢复可靠UWB需连续通过检查的样本数；增大更谨慎，恢复也更慢。
+    uwb_recovery_confirmation_samples: 10
+    # 光流接管后切回可靠UWB的平滑过渡时间，单位s；当前关闭接管时不影响控制位置。
+    uwb_recovery_blend_s: 0.5
+    # 相邻原始UWB位移门限的固定余量，单位m；总门限=此值+max_uwb_speed_mps×观测间隔。
+    uwb_jump_slack_m: 0.3
+    # 相邻UWB位移门限中的最大合理运动速度，单位m/s；不是位置环目标速度。
+    max_uwb_speed_mps: 3.0
+    # 原始UWB与当前里程计估计的最大允许距离，单位m；超过则拒绝，调小更易拒绝。
+    uwb_innovation_gate_m: 0.75
+    # 首次初始化可靠UWB所需的连续合格样本数，整数且大于0。
+    uwb_confirmation_samples: 3
+    # 里程计同步到滤波UWB的修正比例，范围(0,1]；1表示同步时直接对齐。
+    uwb_correction_gain: 1.0
+    # 无有效观测协方差可用时的位置初始方差，单位m²；是估计模型参数，不是真值精度。
+    initial_position_variance_m2: 0.0025
+    # 光流独立积分期间位置方差增长率，单位m²/s；用于表达不确定度增大。
+    position_variance_growth_m2_per_s: 0.04
+    # RViz里程计历史轨迹最多保存的点数；越大历史越长，也增加内存和显示负载。
+    max_path_points: 3000

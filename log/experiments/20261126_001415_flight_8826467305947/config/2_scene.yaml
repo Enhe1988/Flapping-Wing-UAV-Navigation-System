@@ -1,0 +1,31 @@
+# 四基站坐标与RViz场景，修改后重启场景/导航；实际基站标定仍需写入UWB硬件。
+# 自动轨迹也读取此处基站坐标，因此移动基站后要同步更新。
+# 导航飞机模型用滤波UWB；独立UWB显示默认用原始点，数据源由scene_position_topic启动参数选择。
+
+# 场景显示节点参数。
+scene_visualizer_node:
+  ros__parameters:
+    # 右手派生UWB坐标系的TF名称；原生Y轴反射另外画标识，不能用四元数表示反射。
+    uwb_frame_id: uwb_rh
+    # 是否已填写真实基站坐标；true才绘制四基站并允许自动轨迹拟合。
+    anchor_coordinates_configured: true
+    # 是否已确认四基站实际高度；false时基站只画在XY平面，不宣称是真实高度。
+    anchor_z_configured: false
+    # 四基站ID，顺序必须与下方每组XYZ一致；当前为A0、A1、A2、A3。
+    anchor_ids: [0, 1, 2, 3]
+    # 【移动基站后修改】原生UWB坐标，单位m；依次[A0x,A0y,A0z,A1x,A1y,A1z,A2x,A2y,A2z,A3x,A3y,A3z]。
+    # 直接填上位机标定结果，不手动反转Y；显示与轨迹程序会按uwb.yaml转换到map。
+    anchor_positions_m: [0.0, 0.0, 0.0,
+                         -0.073, 7.136, 0.0,
+                         3.906, 7.402, 0.0,
+                         4.765, 0.0, 0.0]
+    # 未完成航向对齐/无有效定位时，姿态预览模型放置的map XYZ，单位m；不是定位测量。
+    attitude_preview_origin_map_m: [-1.5, -1.5, 0.5]
+    # true把飞机模型投影到固定显示高度，避免使用未验证的UWB高度；不改变控制。
+    project_aircraft_to_xy: true
+    # 启用XY投影时飞机模型的显示Z，单位m；只影响RViz，不会给飞控发送高度。
+    projected_aircraft_z_m: 0.25
+    # 显示用定位、状态、姿态数据的超时，单位ms；超时显示预览或等待提示，不代表位置环阈值。
+    data_timeout_ms: 500
+    # 场景模型和坐标轴刷新频率，单位Hz；过高增加RViz负载，不改变UWB采样和控制频率。
+    publish_rate_hz: 20.0

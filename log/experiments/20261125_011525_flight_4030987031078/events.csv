@@ -1,0 +1,10 @@
+﻿t_s,receive_ros_ns,source_ros_ns,event,detail
+0.00059018199999999997,1795540525689100100,1795540525688294936,"heading_aligned","Captured +X heading; holding map XY=(0.291, -1.241); yaw offset=1.50155 rad; waiting for a fresh ID250 packet"
+0.0036872609999999998,1795540525692196805,1795540525692063906,"trajectory","waypoint: NOT_SELECTED"
+0.0036911790000000002,1795540525692200610,1795540525692063906,"position_source","UWB"
+0.003695748,1795540525692205116,1795540525692063906,"navigation","INPUT_HOLD: Input recovery: Position estimator waiting for current heading alignment; output zero; retaining goal; remaining_ms=2000"
+0.0037043789999999998,1795540525692213870,1795540525692063906,"goal","map XY=(0.29100000858306885,-1.2410000562667847)"
+0.023843578000000001,1795540525712352609,1795540525712095238,"navigation","ACTIVE: XY P/PD active; ID250 invalid: assuming zero XY velocity"
+36.004161556,1795540561692673790,1795540561692283775,"navigation","INPUT_HOLD: Input recovery: ID31 attitude stale: sample_age_ms=1517.700822, header_age_ms=1517.821897, limit_ms=1500, device_us=181855000; output zero; retaining goal; remaining_ms=2000"
+38.004282848999999,1795540563692799643,1795540563692344235,"navigation","FAULT: Input recovery window expired (2000 ms): ID31 attitude stale: sample_age_ms=1517.700822, header_age_ms=1517.821897, limit_ms=1500, device_us=181855000; goal cleared, call start_here again"
+52.024103517999997,1795540577712617912,1795540577712206724,"position_source","INVALID"

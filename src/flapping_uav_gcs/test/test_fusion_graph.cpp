@@ -91,7 +91,7 @@ TEST_F(FusionGraph, ObserverAnchorsRejectsJumpsCoastsExpiresAndNeverPublishesCon
   ASSERT_TRUE(call(align));feed_uwb=true;run(.15);ASSERT_TRUE(last.valid);
   freeze_flow=true;feed_uwb=false;run(.18);EXPECT_FALSE(last.valid);EXPECT_GT(last.duplicate_flow,0U);
   for(const auto & topic:probe->get_topic_names_and_types()){
-    if(topic.first.rfind("/fusion/",0)!=0 && topic.first!="/rosout" && topic.first!="/parameter_events"){
+    if(topic.first.rfind("/fusion/",0)!=0 && topic.first!="/localization/position" && topic.first!="/uwb/position_filtered" && topic.first!="/rosout" && topic.first!="/parameter_events"){
       for(const auto & publisher:probe->get_publishers_info_by_topic(topic.first)){
         EXPECT_NE(publisher.node_name(),"fusion_odometry_node")<<topic.first;
       }

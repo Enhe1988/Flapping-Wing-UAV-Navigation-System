@@ -1,0 +1,44 @@
+{
+  "format": "paper_csv_v1",
+  "session": "20261125_224533_flight_3504200909832",
+  "raw_rows": {
+    "alignment.csv": 1,
+    "attitude.csv": 592,
+    "attitude_desired.csv": 5926,
+    "attitude_sent.csv": 1186,
+    "control_position.csv": 5926,
+    "events.csv": 25,
+    "position_sources.csv": 5926,
+    "reference.csv": 5926,
+    "trajectory.csv": 5877,
+    "uwb_filtered.csv": 5852,
+    "velocity_actual.csv": 0,
+    "velocity_desired.csv": 0,
+    "velocity_sent.csv": 0
+  },
+  "missing_data": [],
+  "row_count_mismatches": [],
+  "dropped_rows": 0,
+  "recording_error": "",
+  "charts": [
+    "trajectory",
+    "attitude_targets",
+    "attitude"
+  ],
+  "unfiltered": true,
+  "flow_assistance_enabled": false,
+  "online_uwb_filter": {
+    "enabled": true,
+    "tau_s": 0.1
+  },
+  "flight_mode": "waypoint",
+  "localization_comparison": {
+    "metadata": "localization_comparison/comparison.json",
+    "flow_fallback_observed": false,
+    "plots": [
+      "uwb_raw_trajectory",
+      "flow_compensated_trajectory"
+    ]
+  },
+  "notes": "Independent source timestamps retained. No offline resampling, smoothing or fabricated zeros. Controller positions include online source selection/blending; raw UWB is retained separately. p/q/r are reported body rates, not Euler derivatives. Desired positions are actual executed references: point targets or analytic horizontal trajectories according to flight_mode."
+}
